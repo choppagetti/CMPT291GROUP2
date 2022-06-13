@@ -23,6 +23,7 @@ namespace CarRental
             InitializeComponent();
             D2 = new Database();
             this.start = start;
+            // terry was here
 
             // Fills in the Car Type combo box with car type values from the database
             D2.query("select [Type] from CarType");
