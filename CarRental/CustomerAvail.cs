@@ -139,7 +139,7 @@ namespace CarRental
                 }
                 else // If there are car records matching their search filters
                 {
-                    MessageBox.Show("Car records matching search filters");
+                    //MessageBox.Show("Car records matching search filters");
                     D2.myReader.Close();
                     if (CheckDate(D2, pickupDate.Value, returnDate.Value, CarType.Text.Trim(), PickUpLoc.Text.Trim()) == false)
                     {
@@ -166,9 +166,9 @@ namespace CarRental
                      " from Car, CarType, Branch" +
                      " where Car.[CT_ID] = CarType.[CT_ID] and Car.[BID] = Branch.[BID] and Branch.[Name] = " + "'" + Loc + "'" +
                      " and CarType.[Type] = " + "'" + CT + "'");
-            MessageBox.Show("CheckCar command: " + D2.myCommand.CommandText);
+            //MessageBox.Show("CheckCar command: " + D2.myCommand.CommandText);
             if (D2.myReader.Read() == false) // If the reader doesn't return any results
-            { avail = false; MessageBox.Show("Reader false"); }
+            {avail = false;}
             D2.myReader.Close();
             return avail;
         }
@@ -186,13 +186,13 @@ namespace CarRental
             {
                 //MessageBox.Show("If for CheckDate");
                 avail_date = true;
-                MessageBox.Show("Not linked to a transaction");
+                //MessageBox.Show("Not linked to a transaction");
                 D2.myReader.Close();
             }
             else // If it's linked to a transaction, check if the dates conflict
             {
                 D2.myReader.Close();
-                MessageBox.Show("Linked to a transaction");
+                //MessageBox.Show("Linked to a transaction");
                 // Query: (cars - cars with transactions whose dates overlap with the specified dates)
                 D2.query("select C.CAR_ID, C.Make, C.Model" +
                          " from Car C, CarType CT, Branch B " +
@@ -254,7 +254,7 @@ namespace CarRental
                 else { UpgradeType = CarTypes[index]; }
 
                 D2.myReader.Close();
-                MessageBox.Show("Linked to a transaction");
+                //MessageBox.Show("Linked to a transaction");
                 // Query: (cars - cars with transactions whose dates overlap with the specified dates)
                 D2.query("select C.CAR_ID, C.Make, C.Model" +
                          " from Car C, CarType CT, Branch B " +
