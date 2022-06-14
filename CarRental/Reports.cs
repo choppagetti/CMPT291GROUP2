@@ -27,7 +27,7 @@ namespace CarRental
                 D2.query("select EFName");
                 while (D2.myReader.Read())
                 {
-                    EmpRepTable.Rows.Add(D2.myReader["EFName"].ToString(), ELName)
+                    EmpRepTable.Rows.Add(D2.myReader["EFName"].ToString());
                 }
                 D2.myReader.Close();
             }
