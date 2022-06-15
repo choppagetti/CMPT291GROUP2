@@ -43,11 +43,11 @@ namespace CarRental
             D3.myReader.Close();
 
             int index = CarTypes.IndexOf(CarType);
+            int count = CarTypes.Count(); 
 
-            if (index != 3)
+            if (index != (count - 1))
             { UpgradeType = CarTypes[index + 1];}
             else { UpgradeType = CarTypes[index];}
-
 
             // Takes the eligible car details from the database (cars that match the car type and pickup branch that aren't linked to a transaction for the selected dates)
             string query1 = "select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo]" +
