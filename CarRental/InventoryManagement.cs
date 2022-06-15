@@ -23,27 +23,18 @@ namespace CarRental
             while (D.myReader.Read())
             { comboBox1.Items.Add(D.myReader["Name"].ToString()); }
             D.myReader.Close();
-/*
-            // Get the chosen branch name in combo box
-            string BranchName = comboBox1.Text.Trim().ToString();
 
-            // Show data of cars in that branch
-            string query1 = "select C.[CAR_ID], C.[PIN], CT.[Type], C.[PlateNo], C.Model, C.[Make], C.[Miles], C.[Year]" +
-                         " from Car C, CarType CT, Branch B " +
-                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + BranchName + "'";
-
-            D.query(query1);
-            ValueGrid.Rows.Clear();
-            while (D.myReader.Read())
-            {
-                ValueGrid.Rows.Add(D.myReader["CAR_ID"].ToString(), D.myReader["PIN"].ToString(), D.myReader["Type"].ToString(), D.myReader["PlateNo"].ToString(),
-                     D.myReader["Model"].ToString(), D.myReader["Make"].ToString(), D.myReader["Miles"].ToString(), D.myReader["Year"].ToString());
-            }
-            D.myReader.Close();
-*/
         }
         private void TEST(object sender, EventArgs e)
         {
+            CARID_textBox.Clear();
+            PIN_textBox.Clear();
+            TYPE_textBox.Clear();
+            PLATENO_textBox.Clear();
+            MODEL_textBox.Clear();
+            MAKE_textBox.Clear();
+            MILES_textBox.Clear();
+            YEAR_textBox.Clear();
             string BranchName = comboBox1.Text.Trim().ToString();
             string query1 = "select C.[CAR_ID], C.[PIN], CT.[Type], C.[PlateNo], C.Model, C.[Make], C.[Miles], C.[Year]" +
                          " from Car C, CarType CT, Branch B " +
@@ -155,7 +146,8 @@ namespace CarRental
 
         private void add_button_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("add");
+            string CARID = CARID_textBox.Text;
+            MessageBox.Show(CARID);
         }
 
         private void update_button_Click(object sender, EventArgs e)
@@ -165,35 +157,54 @@ namespace CarRental
 
         private void delete_button_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("delete");
+            string CARID = CARID_textBox.Text;
+            if (CARID != "")
+            {
+                //MessageBox.Show("delete" + CARID);
+                string message = "Are you sure you want to delete this car?";
+                string title = "Delete CAR ID: " + CARID;
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
+                {
+                    D.insert("delete from Car where CAR_ID = '"+CARID+"'");
+                    this.TEST(sender, e);
+                }
+                else
+                {
+                    this.Close();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please click on a car in the table");
+            }
         }
 
         private void ValueGrid_CellContentClick(object sender, EventArgs e)
         {
             if (ValueGrid.SelectedRows[0].Cells[0].Value == null)
             {
-                textBox1.Clear();
-                textBox2.Clear();
-                textBox3.Clear();
-                textBox4.Clear();
-                textBox5.Clear();
-                textBox6.Clear();
-                textBox7.Clear();
-                textBox8.Clear();
+                CARID_textBox.Clear();
+                PIN_textBox.Clear();
+                TYPE_textBox.Clear();
+                PLATENO_textBox.Clear();
+                MODEL_textBox.Clear();
+                MAKE_textBox.Clear();
+                MILES_textBox.Clear();
+                YEAR_textBox.Clear();
             }
             else
             {
-                textBox1.Text = ValueGrid.SelectedRows[0].Cells[0].Value.ToString();
-                textBox2.Text = ValueGrid.SelectedRows[0].Cells[1].Value.ToString();
-                textBox3.Text = ValueGrid.SelectedRows[0].Cells[2].Value.ToString();
-                textBox4.Text = ValueGrid.SelectedRows[0].Cells[3].Value.ToString();
-                textBox5.Text = ValueGrid.SelectedRows[0].Cells[4].Value.ToString();
-                textBox6.Text = ValueGrid.SelectedRows[0].Cells[5].Value.ToString();
-                textBox7.Text = ValueGrid.SelectedRows[0].Cells[6].Value.ToString();
-                textBox8.Text = ValueGrid.SelectedRows[0].Cells[7].Value.ToString();
+                CARID_textBox.Text   = ValueGrid.SelectedRows[0].Cells[0].Value.ToString();
+                PIN_textBox.Text     = ValueGrid.SelectedRows[0].Cells[1].Value.ToString();
+                TYPE_textBox.Text    = ValueGrid.SelectedRows[0].Cells[2].Value.ToString();
+                PLATENO_textBox.Text = ValueGrid.SelectedRows[0].Cells[3].Value.ToString();
+                MODEL_textBox.Text   = ValueGrid.SelectedRows[0].Cells[4].Value.ToString();
+                MAKE_textBox.Text    = ValueGrid.SelectedRows[0].Cells[5].Value.ToString();
+                MILES_textBox.Text   = ValueGrid.SelectedRows[0].Cells[6].Value.ToString();
+                YEAR_textBox.Text    = ValueGrid.SelectedRows[0].Cells[7].Value.ToString();
             }
-
-
         }
 
         private void label9_Click_1(object sender, EventArgs e)
