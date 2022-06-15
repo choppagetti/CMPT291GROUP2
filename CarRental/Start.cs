@@ -27,5 +27,13 @@ namespace CarRental
             CustForm.ShowDialog();
             this.Show();
         }
+
+        private void EmpLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            employeeMenuSkeleton empForm = new();
+            empForm.ShowDialog();
+            this.Show();
+        }
     }
 }
