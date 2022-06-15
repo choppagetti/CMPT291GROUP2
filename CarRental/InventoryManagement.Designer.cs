@@ -247,7 +247,7 @@
             this.MAKE,
             this.MILES,
             this.YEAR});
-            this.ValueGrid.Location = new System.Drawing.Point(253, 256);
+            this.ValueGrid.Location = new System.Drawing.Point(256, 256);
             this.ValueGrid.Name = "ValueGrid";
             this.ValueGrid.RowHeadersWidth = 62;
             this.ValueGrid.RowTemplate.Height = 33;
@@ -318,19 +318,19 @@
             // 
             this.add_button.BackColor = System.Drawing.Color.LightSteelBlue;
             this.add_button.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.add_button.Location = new System.Drawing.Point(313, 723);
+            this.add_button.Location = new System.Drawing.Point(316, 723);
             this.add_button.Name = "add_button";
             this.add_button.Size = new System.Drawing.Size(185, 50);
             this.add_button.TabIndex = 17;
             this.add_button.Text = "ADD";
             this.add_button.UseVisualStyleBackColor = false;
-            this.add_button.Click += new System.EventHandler(this.button1_Click);
+            this.add_button.Click += new System.EventHandler(this.add_button_Click);
             // 
             // update_button
             // 
             this.update_button.BackColor = System.Drawing.Color.LightSteelBlue;
             this.update_button.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.update_button.Location = new System.Drawing.Point(808, 723);
+            this.update_button.Location = new System.Drawing.Point(811, 723);
             this.update_button.Name = "update_button";
             this.update_button.Size = new System.Drawing.Size(185, 50);
             this.update_button.TabIndex = 18;
@@ -342,20 +342,21 @@
             // 
             this.delete_button.BackColor = System.Drawing.Color.LightSteelBlue;
             this.delete_button.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.delete_button.Location = new System.Drawing.Point(1284, 723);
+            this.delete_button.Location = new System.Drawing.Point(1287, 723);
             this.delete_button.Name = "delete_button";
             this.delete_button.Size = new System.Drawing.Size(185, 50);
             this.delete_button.TabIndex = 19;
             this.delete_button.Text = "DELETE";
             this.delete_button.UseVisualStyleBackColor = false;
+            this.delete_button.Click += new System.EventHandler(this.delete_button_Click);
             // 
             // comboBox1
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(747, 175);
+            this.comboBox1.Location = new System.Drawing.Point(762, 168);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(326, 40);
+            this.comboBox1.Size = new System.Drawing.Size(326, 46);
             this.comboBox1.TabIndex = 20;
             this.comboBox1.TextChanged += new System.EventHandler(this.TEST);
             // 
@@ -374,7 +375,7 @@
             // 
             this.page_name.AutoSize = true;
             this.page_name.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.page_name.Location = new System.Drawing.Point(573, 37);
+            this.page_name.Location = new System.Drawing.Point(562, 37);
             this.page_name.Name = "page_name";
             this.page_name.Size = new System.Drawing.Size(671, 70);
             this.page_name.TabIndex = 24;
@@ -406,24 +407,25 @@
             this.panel3.Controls.Add(this.textBox1);
             this.panel3.Location = new System.Drawing.Point(0, 130);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(230, 684);
+            this.panel3.Size = new System.Drawing.Size(232, 684);
             this.panel3.TabIndex = 22;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label9.Location = new System.Drawing.Point(643, 179);
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label9.Location = new System.Drawing.Point(642, 171);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 32);
+            this.label9.Size = new System.Drawing.Size(116, 38);
             this.label9.TabIndex = 23;
             this.label9.Text = "Branch: ";
+            this.label9.Click += new System.EventHandler(this.label9_Click_1);
             // 
             // InventoryManagement
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1538, 802);
+            this.ClientSize = new System.Drawing.Size(1540, 802);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.comboBox1);

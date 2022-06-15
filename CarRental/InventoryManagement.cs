@@ -138,11 +138,6 @@ namespace CarRental
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-        }
-
         private void button1_Click_1(object sender, EventArgs e)
         {
 
@@ -158,24 +153,51 @@ namespace CarRental
             //MessageBox.Show(ValueGrid.SelectedRows[0].Cells[1].Value.ToString());
         }
 
+        private void add_button_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("add");
+        }
+
         private void update_button_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show(ValueGrid.CurrentRow.Cells["PLATE NO."].Value.ToString());
-            
-            MessageBox.Show(ValueGrid.SelectedRows[0].Cells[1].Value.ToString());
+            MessageBox.Show("update");
+        }
+
+        private void delete_button_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("delete");
         }
 
         private void ValueGrid_CellContentClick(object sender, EventArgs e)
         {
-            textBox1.Text = ValueGrid.SelectedRows[0].Cells[0].Value.ToString();
-            textBox2.Text = ValueGrid.SelectedRows[0].Cells[1].Value.ToString();
-            textBox3.Text = ValueGrid.SelectedRows[0].Cells[2].Value.ToString();
-            textBox4.Text = ValueGrid.SelectedRows[0].Cells[3].Value.ToString();
-            textBox5.Text = ValueGrid.SelectedRows[0].Cells[4].Value.ToString();
-            textBox6.Text = ValueGrid.SelectedRows[0].Cells[5].Value.ToString();
-            textBox7.Text = ValueGrid.SelectedRows[0].Cells[6].Value.ToString();
-            textBox8.Text = ValueGrid.SelectedRows[0].Cells[7].Value.ToString();
+            if (ValueGrid.SelectedRows[0].Cells[0].Value == null)
+            {
+                textBox1.Clear();
+                textBox2.Clear();
+                textBox3.Clear();
+                textBox4.Clear();
+                textBox5.Clear();
+                textBox6.Clear();
+                textBox7.Clear();
+                textBox8.Clear();
+            }
+            else
+            {
+                textBox1.Text = ValueGrid.SelectedRows[0].Cells[0].Value.ToString();
+                textBox2.Text = ValueGrid.SelectedRows[0].Cells[1].Value.ToString();
+                textBox3.Text = ValueGrid.SelectedRows[0].Cells[2].Value.ToString();
+                textBox4.Text = ValueGrid.SelectedRows[0].Cells[3].Value.ToString();
+                textBox5.Text = ValueGrid.SelectedRows[0].Cells[4].Value.ToString();
+                textBox6.Text = ValueGrid.SelectedRows[0].Cells[5].Value.ToString();
+                textBox7.Text = ValueGrid.SelectedRows[0].Cells[6].Value.ToString();
+                textBox8.Text = ValueGrid.SelectedRows[0].Cells[7].Value.ToString();
+            }
 
+
+        }
+
+        private void label9_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
