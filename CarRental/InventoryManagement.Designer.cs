@@ -73,6 +73,7 @@
             this.CARID_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CARID_textBox.Location = new System.Drawing.Point(21, 45);
             this.CARID_textBox.Name = "CARID_textBox";
+            this.CARID_textBox.ReadOnly = true;
             this.CARID_textBox.Size = new System.Drawing.Size(189, 39);
             this.CARID_textBox.TabIndex = 0;
             this.CARID_textBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);

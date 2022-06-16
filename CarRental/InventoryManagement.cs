@@ -147,12 +147,79 @@ namespace CarRental
         private void add_button_Click(object sender, EventArgs e)
         {
             string CARID = CARID_textBox.Text;
-            MessageBox.Show(CARID);
+            MessageBox.Show("ADD");
         }
 
         private void update_button_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("update");
+        {   
+            string CARID   = CARID_textBox.Text;
+
+            try 
+            {
+                if (CARID != "") // Checks if user clicked on a car in table
+                {
+                    string PIN     = PIN_textBox.Text;
+                    string PLATENO = PLATENO_textBox.Text;
+                    string TYPE    = TYPE_textBox.Text;
+                    string MODEL   = MODEL_textBox.Text;
+                    string MAKE    = MAKE_textBox.Text;
+                    string MILES   = MILES_textBox.Text;
+                    string YEAR    = YEAR_textBox.Text;
+
+                    // Gets the CT_ID of the car
+                    string getTypeID = "select CT.[CT_ID]" +
+                        " from CarType CT " +
+                        " where CT.[Type] = " + "'" + TYPE + "'";
+                    D.query(getTypeID);
+                    D.myReader.Read();
+                    string TypeID = D.myReader["CT_ID"].ToString();
+                    D.myReader.Close();
+
+                    // Gets the BID of the car
+                    string getBID = "select B.[BID]" +
+                        " from Car C, Branch B" +
+                        " where C.BID = B.BID and C.[CAR_ID] = " + "'" + CARID + "'";
+                    D.query(getBID);
+                    D.myReader.Read();
+                    string BID = D.myReader["BID"].ToString();
+                    D.myReader.Close();
+
+                    // Display message box to allow update
+                    string message = "Are you sure you want to change this car's details?";
+                    string title = "Update CAR ID: " + CARID;
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result = MessageBox.Show(message, title, buttons);
+                    if (result == DialogResult.Yes)
+                    {
+                        string updateQuery = "update Car set PIN = '" + PIN + "', " +
+                            "PlateNO = '" + PLATENO + "', " +
+                            "Model = '" + MODEL + "', " +
+                            "Make = '" + MAKE + "', " +
+                            "Miles = '" + MILES + "', " +
+                            "Year = '" + YEAR + "', " +
+                            "BID = '" + BID + "', " +
+                            "CT_ID = '" + TypeID + "'" +
+                            "where CAR_ID = '" + CARID + "'";
+                        D.insert(updateQuery);
+                        this.TEST(sender, e);
+                        this.ValueGrid_CellContentClick(sender, e);
+
+                    }
+                    else
+                    {
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Please click on a car in the table");
+                }
+            }
+            catch (Exception E) 
+            {
+                MessageBox.Show(E.ToString(), "Error");
+            }
+           
         }
 
         private void delete_button_Click(object sender, EventArgs e)
@@ -160,7 +227,6 @@ namespace CarRental
             string CARID = CARID_textBox.Text;
             if (CARID != "")
             {
-                //MessageBox.Show("delete" + CARID);
                 string message = "Are you sure you want to delete this car?";
                 string title = "Delete CAR ID: " + CARID;
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
