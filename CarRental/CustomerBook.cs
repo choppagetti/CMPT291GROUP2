@@ -63,7 +63,7 @@ namespace CarRental
             // If it returns nothing, then we can assume that the customer is a gold member that will upgrade and we will show cars of other type
             else
             {
-                MessageBox.Show(this.customerAvail.returnDate.Value.ToString());
+                //MessageBox.Show(this.customerAvail.returnDate.Value.ToString());
                 D3.myReader.Close();
                 if (CarType == "Sedan")
                 {
@@ -78,7 +78,7 @@ namespace CarRental
                              " and ((convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') between R.PickupDate and R.ReturnDate)" +
                              " or (convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "') between R.PickupDate and R.ReturnDate)" +
                              " or (R.PickUpDate > convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') and R.ReturnDate < convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "'))))");
-                    MessageBox.Show(D3.myCommand.CommandText);
+                    //MessageBox.Show(D3.myCommand.CommandText);
                 }
                 else if (CarType == "SUV")
                 {
