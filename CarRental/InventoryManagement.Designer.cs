@@ -376,11 +376,11 @@
             // 
             this.page_name.AutoSize = true;
             this.page_name.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.page_name.Location = new System.Drawing.Point(562, 37);
+            this.page_name.Location = new System.Drawing.Point(507, 37);
             this.page_name.Name = "page_name";
-            this.page_name.Size = new System.Drawing.Size(671, 70);
+            this.page_name.Size = new System.Drawing.Size(782, 70);
             this.page_name.TabIndex = 24;
-            this.page_name.Text = "INVENTORY MANAGEMENT";
+            this.page_name.Text = "CAR INVENTORY MANAGEMENT";
             this.page_name.Click += new System.EventHandler(this.label9_Click);
             // 
             // logout_button
