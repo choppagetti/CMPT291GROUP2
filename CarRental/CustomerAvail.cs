@@ -129,7 +129,8 @@ namespace CarRental
                 {
                     MessageBox.Show("No available cars for your search. You are eligible for a free upgrade for other car types.", "No Cars Available");
                     D2.myReader.Close();
-                    // This function will check for other cars of other car types, but not if they have chosen the highest car type which is Luxury
+
+                    // This function will check for other cars of other car types for upgrading, but not if they have chosen the highest car type which is Luxury
                     if ((CheckDate_Gold(D2, pickupDate.Value, returnDate.Value, CarType.Text.Trim(), PickUpLoc.Text.Trim()) == false) || CarType.Text.Trim() == "Luxury")
                     {
                         MessageBox.Show("No available cars for upgrading. Please try another search option.", "No Cars Available");
@@ -222,60 +223,102 @@ namespace CarRental
         private bool CheckDate_Gold (Database D2, DateTime PickupD, DateTime ReturnD, String CT, String Loc)
         {
             bool avail_date = true;
-            // Creates a list of car types taken from the database
 
-            D2.query("select Car.[Car_ID]" +
+            if (CT == "Luxury")
+            { return avail_date = false; }
+
+            // Will check for car types higher than Sedan
+            if (CT == "Sedan")
+            {
+                D2.query("select C.[Car_ID]" +
+                     " from Car C, CarType CT, Branch B, RentalTrans RT" +
+                     " where C.[CT_ID] = CT.[CT_ID] and C.[BID] = B.[BID] and C.[CAR_ID] = RT.[CAR_ID]" +
+                     " and CT.[CT_ID] = RT.[CT_ID] and RT.[PickUpBID] = B.[BID] and (CT.[Type] = 'SUV' or CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')");
+            }
+            // Will check for car types higher than SUV
+            else if (CT == "SUV")
+            {
+                D2.query("select Car.[Car_ID]" +
                      " from Car, CarType, Branch, RentalTrans" +
                      " where Car.[CT_ID] = CarType.[CT_ID] and Car.[BID] = Branch.[BID] and Car.[CAR_ID] = RentalTrans.[CAR_ID]" +
-                     " and CarType.[CT_ID] = RentalTrans.[CT_ID] and RentalTrans.[PickUpBID] = Branch.[BID] and CarType.[Type] != " + "'" + CT + "'");
+                     " and CarType.[CT_ID] = RentalTrans.[CT_ID] and RentalTrans.[PickUpBID] = Branch.[BID] and (CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')");
+            }
+            // Will check for car types higher than Minivan
+            else if (CT == "Minivan")
+            {
+                D2.query("select Car.[Car_ID]" +
+                     " from Car, CarType, Branch, RentalTrans" +
+                     " where Car.[CT_ID] = CarType.[CT_ID] and Car.[BID] = Branch.[BID] and Car.[CAR_ID] = RentalTrans.[CAR_ID]" +
+                     " and CarType.[CT_ID] = RentalTrans.[CT_ID] and RentalTrans.[PickUpBID] = Branch.[BID] and CT.[Type] = 'Luxury'");
+            }
+
             if (D2.myReader.Read() == false) // Means it's not linked to a transaction therefore free
             {
-                //MessageBox.Show("If for CheckDate_Gold");
                 avail_date = true;
-                //MessageBox.Show("Not linked to a transaction");
                 D2.myReader.Close();
             }
             else // If it's linked to a transaction, check if the dates conflict
             {
                 D2.myReader.Close();
-                string UpgradeType;
 
-                List<string> CarTypes = new List<string>();
-                D2.query("select [Type] from CarType CT");
-                while (D2.myReader.Read())
-                {
-                    CarTypes.Add(D2.myReader["Type"].ToString().Trim());
-                }
-                D2.myReader.Close();
+                // If they are looking for a Luxury car at this point, then the function will return false as it is the highest car type already
+                if (CT == "Luxury")
+                {return avail_date = false;}
 
-                int index = CarTypes.IndexOf(CT);
-
-                if (index != 3) { UpgradeType = CarTypes[index + 1]; }
-                else { UpgradeType = CarTypes[index]; }
-
-                D2.myReader.Close();
-                //MessageBox.Show("Linked to a transaction");
                 // Query: (cars - cars with transactions whose dates overlap with the specified dates)
-                D2.query("select C.CAR_ID, C.Make, C.Model" +
+                // Will check for car types higher than Sedan
+                else if (CT == "Sedan")
+                {
+                    D2.query("select C.CAR_ID, C.Make, C.Model" +
                          " from Car C, CarType CT, Branch B " +
-                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + Loc + "'" + " and CT.[Type] = " + "'" + UpgradeType + "'" +
+                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + Loc + "'" + " and (CT.[Type] = 'SUV' or CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
                          " except" +
                          " (select C.CAR_ID, C.Make, C.Model " +
                          " from Car C, CarType CT, Branch B, RentalTrans R" +
                          " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
-                         " and B.[Name] = " + "'" + Loc + "'" + " and CT.[Type] = " + "'" + UpgradeType + "'" +
+                         " and B.[Name] = " + "'" + Loc + "'" + " and (CT.[Type] = 'SUV' or CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
                          " and ((convert(smalldatetime, " + "'" + PickupD + "') between R.PickupDate and R.ReturnDate)" +
                          " or (convert(smalldatetime, " + "'" + ReturnD + "') between R.PickupDate and R.ReturnDate)" +
                          " or (R.PickUpDate > convert(smalldatetime, " + "'" + PickupD + "') and R.ReturnDate < convert(smalldatetime, " + "'" + ReturnD + "'))))");
+                }
 
-                MessageBox.Show(D2.myCommand.CommandText);
+                // Will check for car types higher than SUV
+                else if (CT == "SUV")
+                {
+                    D2.query("select C.CAR_ID, C.Make, C.Model" +
+                         " from Car C, CarType CT, Branch B " +
+                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + Loc + "'" + " and (CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                         " except" +
+                         " (select C.CAR_ID, C.Make, C.Model " +
+                         " from Car C, CarType CT, Branch B, RentalTrans R" +
+                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
+                         " and B.[Name] = " + "'" + Loc + "'" + " and (CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                         " and ((convert(smalldatetime, " + "'" + PickupD + "') between R.PickupDate and R.ReturnDate)" +
+                         " or (convert(smalldatetime, " + "'" + ReturnD + "') between R.PickupDate and R.ReturnDate)" +
+                         " or (R.PickUpDate > convert(smalldatetime, " + "'" + PickupD + "') and R.ReturnDate < convert(smalldatetime, " + "'" + ReturnD + "'))))");
+                }
+                else if (CT == "Minivan")
+                {
+                    D2.query("select C.CAR_ID, C.Make, C.Model" +
+                         " from Car C, CarType CT, Branch B " +
+                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + Loc + "'" + " and CT.[Type] = 'Luxury'" +
+                         " except" +
+                         " (select C.CAR_ID, C.Make, C.Model " +
+                         " from Car C, CarType CT, Branch B, RentalTrans R" +
+                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
+                         " and B.[Name] = " + "'" + Loc + "'" + " and CT.[Type] = 'Luxury'" +
+                         " and ((convert(smalldatetime, " + "'" + PickupD + "') between R.PickupDate and R.ReturnDate)" +
+                         " or (convert(smalldatetime, " + "'" + ReturnD + "') between R.PickupDate and R.ReturnDate)" +
+                         " or (R.PickUpDate > convert(smalldatetime, " + "'" + PickupD + "') and R.ReturnDate < convert(smalldatetime, " + "'" + ReturnD + "'))))");
+                }
+
                 if (D2.myReader.Read() == true)
                 {
                     D2.myReader.Close();
                     avail_date = true;
                 }
                 else
-                { avail_date = false; }
+                {avail_date = false;}
                 D2.myReader.Close();
             }
             return avail_date;
