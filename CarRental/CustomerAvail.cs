@@ -238,18 +238,18 @@ namespace CarRental
             // Will check for car types higher than SUV
             else if (CT == "SUV")
             {
-                D2.query("select Car.[Car_ID]" +
-                     " from Car, CarType, Branch, RentalTrans" +
-                     " where Car.[CT_ID] = CarType.[CT_ID] and Car.[BID] = Branch.[BID] and Car.[CAR_ID] = RentalTrans.[CAR_ID]" +
-                     " and CarType.[CT_ID] = RentalTrans.[CT_ID] and RentalTrans.[PickUpBID] = Branch.[BID] and (CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')");
+                D2.query("select C.[Car_ID]" +
+                     " from Car C, CarType CT, Branch B, RentalTrans RT" +
+                     " where C.[CT_ID] = CT.[CT_ID] and C.[BID] = B.[BID] and C.[CAR_ID] = RT.[CAR_ID]" +
+                     " and CT.[CT_ID] = RT.[CT_ID] and RT.[PickUpBID] = B.[BID] and (CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')");
             }
             // Will check for car types higher than Minivan
             else if (CT == "Minivan")
             {
-                D2.query("select Car.[Car_ID]" +
-                     " from Car, CarType, Branch, RentalTrans" +
-                     " where Car.[CT_ID] = CarType.[CT_ID] and Car.[BID] = Branch.[BID] and Car.[CAR_ID] = RentalTrans.[CAR_ID]" +
-                     " and CarType.[CT_ID] = RentalTrans.[CT_ID] and RentalTrans.[PickUpBID] = Branch.[BID] and CT.[Type] = 'Luxury'");
+                D2.query("select C.[Car_ID]" +
+                     " from Car C, CarType CT, Branch B, RentalTrans RT" +
+                     " where C.[CT_ID] = CT.[CT_ID] and C.[BID] = B.[BID] and C.[CAR_ID] = RT.[CAR_ID]" +
+                     " and CT.[CT_ID] = RT.[CT_ID] and RT.[PickUpBID] = B.[BID] and CT.[Type] = 'Luxury'");
             }
 
             if (D2.myReader.Read() == false) // Means it's not linked to a transaction therefore free
@@ -337,7 +337,7 @@ namespace CarRental
 
             else
             {
-                RetLoc.Text = PickUpLoc.SelectedValue.ToString();
+                RetLoc.Text = PickUpLoc.Text;
                 retLocReq.Visible = false;
                 return_loc.Visible = false;
                 RetLoc.Visible = false;
