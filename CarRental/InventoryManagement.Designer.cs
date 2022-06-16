@@ -73,10 +73,8 @@
             this.CARID_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CARID_textBox.Location = new System.Drawing.Point(21, 45);
             this.CARID_textBox.Name = "CARID_textBox";
-            this.CARID_textBox.ReadOnly = true;
             this.CARID_textBox.Size = new System.Drawing.Size(189, 39);
             this.CARID_textBox.TabIndex = 0;
-            this.CARID_textBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // CARID_label
             // 
@@ -88,7 +86,6 @@
             this.CARID_label.Size = new System.Drawing.Size(88, 32);
             this.CARID_label.TabIndex = 1;
             this.CARID_label.Text = "CAR ID";
-            this.CARID_label.Click += new System.EventHandler(this.label1_Click);
             // 
             // PIN_label
             // 
@@ -100,7 +97,6 @@
             this.PIN_label.Size = new System.Drawing.Size(51, 32);
             this.PIN_label.TabIndex = 2;
             this.PIN_label.Text = "PIN";
-            this.PIN_label.Click += new System.EventHandler(this.label2_Click);
             // 
             // TYPE_label
             // 
@@ -112,7 +108,6 @@
             this.TYPE_label.Size = new System.Drawing.Size(65, 32);
             this.TYPE_label.TabIndex = 3;
             this.TYPE_label.Text = "TYPE";
-            this.TYPE_label.Click += new System.EventHandler(this.label3_Click);
             // 
             // PLATENO_label
             // 
@@ -123,7 +118,6 @@
             this.PLATENO_label.Size = new System.Drawing.Size(125, 32);
             this.PLATENO_label.TabIndex = 4;
             this.PLATENO_label.Text = "PLATE NO.";
-            this.PLATENO_label.Click += new System.EventHandler(this.label4_Click);
             // 
             // MODEL_label
             // 
@@ -135,7 +129,6 @@
             this.MODEL_label.Size = new System.Drawing.Size(94, 32);
             this.MODEL_label.TabIndex = 5;
             this.MODEL_label.Text = "MODEL";
-            this.MODEL_label.Click += new System.EventHandler(this.label5_Click);
             // 
             // MAKE_label
             // 
@@ -147,7 +140,6 @@
             this.MAKE_label.Size = new System.Drawing.Size(77, 32);
             this.MAKE_label.TabIndex = 6;
             this.MAKE_label.Text = "MAKE";
-            this.MAKE_label.Click += new System.EventHandler(this.label6_Click);
             // 
             // MILES_label
             // 
@@ -159,7 +151,6 @@
             this.MILES_label.Size = new System.Drawing.Size(78, 32);
             this.MILES_label.TabIndex = 7;
             this.MILES_label.Text = "MILES";
-            this.MILES_label.Click += new System.EventHandler(this.label7_Click);
             // 
             // YEAR_label
             // 
@@ -171,7 +162,6 @@
             this.YEAR_label.Size = new System.Drawing.Size(68, 32);
             this.YEAR_label.TabIndex = 8;
             this.YEAR_label.Text = "YEAR";
-            this.YEAR_label.Click += new System.EventHandler(this.label8_Click);
             // 
             // PIN_textBox
             // 
@@ -180,7 +170,6 @@
             this.PIN_textBox.Name = "PIN_textBox";
             this.PIN_textBox.Size = new System.Drawing.Size(189, 39);
             this.PIN_textBox.TabIndex = 9;
-            this.PIN_textBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // TYPE_textBox
             // 
@@ -189,7 +178,6 @@
             this.TYPE_textBox.Name = "TYPE_textBox";
             this.TYPE_textBox.Size = new System.Drawing.Size(189, 39);
             this.TYPE_textBox.TabIndex = 10;
-            this.TYPE_textBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // PLATENO_textBox
             // 
@@ -198,7 +186,6 @@
             this.PLATENO_textBox.Name = "PLATENO_textBox";
             this.PLATENO_textBox.Size = new System.Drawing.Size(189, 39);
             this.PLATENO_textBox.TabIndex = 11;
-            this.PLATENO_textBox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // MODEL_textBox
             // 
@@ -207,7 +194,6 @@
             this.MODEL_textBox.Name = "MODEL_textBox";
             this.MODEL_textBox.Size = new System.Drawing.Size(189, 39);
             this.MODEL_textBox.TabIndex = 12;
-            this.MODEL_textBox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // MAKE_textBox
             // 
@@ -216,7 +202,6 @@
             this.MAKE_textBox.Name = "MAKE_textBox";
             this.MAKE_textBox.Size = new System.Drawing.Size(189, 39);
             this.MAKE_textBox.TabIndex = 13;
-            this.MAKE_textBox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // MILES_textBox
             // 
@@ -225,7 +210,6 @@
             this.MILES_textBox.Name = "MILES_textBox";
             this.MILES_textBox.Size = new System.Drawing.Size(189, 39);
             this.MILES_textBox.TabIndex = 14;
-            this.MILES_textBox.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // YEAR_textBox
             // 
@@ -234,7 +218,6 @@
             this.YEAR_textBox.Name = "YEAR_textBox";
             this.YEAR_textBox.Size = new System.Drawing.Size(189, 39);
             this.YEAR_textBox.TabIndex = 15;
-            this.YEAR_textBox.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // ValueGrid
             // 
@@ -381,7 +364,6 @@
             this.page_name.Size = new System.Drawing.Size(782, 70);
             this.page_name.TabIndex = 24;
             this.page_name.Text = "CAR INVENTORY MANAGEMENT";
-            this.page_name.Click += new System.EventHandler(this.label9_Click);
             // 
             // logout_button
             // 
@@ -391,7 +373,6 @@
             this.logout_button.TabIndex = 23;
             this.logout_button.Text = "LOG OUT";
             this.logout_button.UseVisualStyleBackColor = true;
-            this.logout_button.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // panel2
             // 
@@ -420,7 +401,6 @@
             this.Branch_label.Size = new System.Drawing.Size(116, 38);
             this.Branch_label.TabIndex = 23;
             this.Branch_label.Text = "Branch: ";
-            this.Branch_label.Click += new System.EventHandler(this.label9_Click_1);
             // 
             // InventoryManagement
             // 

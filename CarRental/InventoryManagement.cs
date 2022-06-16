@@ -35,6 +35,7 @@ namespace CarRental
             MAKE_textBox.Clear();
             MILES_textBox.Clear();
             YEAR_textBox.Clear();
+            CARID_textBox.ReadOnly = false;
             string BranchName = comboBox1.Text.Trim().ToString();
             string query1 = "select C.[CAR_ID], C.[PIN], CT.[Type], C.[PlateNo], C.Model, C.[Make], C.[Miles], C.[Year]" +
                          " from Car C, CarType CT, Branch B " +
@@ -48,95 +49,6 @@ namespace CarRental
                      D.myReader["Model"].ToString(), D.myReader["Make"].ToString(), D.myReader["Miles"].ToString(), D.myReader["Year"].ToString());
             }
             D.myReader.Close();
-        }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void ValueGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -212,7 +124,7 @@ namespace CarRental
                 }
                 else
                 {
-                    MessageBox.Show("Please click on a car in the table");
+                    MessageBox.Show("Please click on an existing car in the table");
                 }
             }
             catch (Exception E) 
@@ -243,7 +155,7 @@ namespace CarRental
             }
             else
             {
-                MessageBox.Show("Please click on a car in the table");
+                MessageBox.Show("Please click on an existing car in the table");
             }
         }
 
@@ -259,6 +171,7 @@ namespace CarRental
                 MAKE_textBox.Clear();
                 MILES_textBox.Clear();
                 YEAR_textBox.Clear();
+                CARID_textBox.ReadOnly = false;
             }
             else
             {
@@ -270,12 +183,8 @@ namespace CarRental
                 MAKE_textBox.Text    = ValueGrid.SelectedRows[0].Cells[5].Value.ToString();
                 MILES_textBox.Text   = ValueGrid.SelectedRows[0].Cells[6].Value.ToString();
                 YEAR_textBox.Text    = ValueGrid.SelectedRows[0].Cells[7].Value.ToString();
+                CARID_textBox.ReadOnly = true;
             }
-        }
-
-        private void label9_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
