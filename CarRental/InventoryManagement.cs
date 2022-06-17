@@ -94,6 +94,24 @@ namespace CarRental
                     return;
                 }
 
+                // Gets the CT_ID of the car
+                string getTypeID = "select CT.[CT_ID]" +
+                    " from CarType CT " +
+                    " where CT.[Type] = " + "'" + TYPE + "'";
+                D.query(getTypeID);
+                D.myReader.Read();
+                string TypeID = D.myReader["CT_ID"].ToString();
+                D.myReader.Close();
+
+                // Gets the BID of the car
+                string getBID = "select B.[BID]" +
+                    " from Branch B" +
+                    " where B.[Name] = " + "'" + BRANCH + "'";
+                D.query(getBID);
+                D.myReader.Read();
+                string BID = D.myReader["BID"].ToString();
+                D.myReader.Close();
+
                 string message = "Are you sure you want to add a new car to the inventory?";
                 string title = "Add CAR ID: " + CARID;
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -101,10 +119,16 @@ namespace CarRental
                 if (result == DialogResult.Yes) 
                 {
                     MessageBox.Show("ADDED");
-                    //string addQuery = ;
-                    //D.insert(addQuery);
-                    //this.TEST(sender, e);
-                    //this.ValueGrid_CellContentClick(sender, e);
+                    
+                    /*
+                    string addQuery = "insert into Car (CAR_ID, PIN, PlateNo, Model, Make, Miles, Year, BID, CT_ID)" +
+                        "values ('" + CAR_ID + "', '" + PIN + "', '" + PLATENO + "','" + MODEL + "', " +
+                        "'" + MAKE + "', '" + MILES + "', '" + YEAR + "', '" + BID + "', '" + TypeID + "', ";
+                    D.insert(addQuery);
+                    this.TEST(sender, e);
+                    this.ValueGrid_CellContentClick(sender, e);
+                    */
+                    
                 }
             }
 
@@ -228,7 +252,7 @@ namespace CarRental
             {
                 CARID_textBox.Text   = ValueGrid.SelectedRows[0].Cells[0].Value.ToString().Trim();
                 PIN_textBox.Text     = ValueGrid.SelectedRows[0].Cells[1].Value.ToString().Trim();
-                TYPE_comboBox.Text = ValueGrid.SelectedRows[0].Cells[2].Value.ToString().Trim();
+                TYPE_comboBox.Text   = ValueGrid.SelectedRows[0].Cells[2].Value.ToString().Trim();
                 PLATENO_textBox.Text = ValueGrid.SelectedRows[0].Cells[3].Value.ToString().Trim();
                 MODEL_textBox.Text   = ValueGrid.SelectedRows[0].Cells[4].Value.ToString().Trim();
                 MAKE_textBox.Text    = ValueGrid.SelectedRows[0].Cells[5].Value.ToString().Trim();
