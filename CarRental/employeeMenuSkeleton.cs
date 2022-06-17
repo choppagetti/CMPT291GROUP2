@@ -21,7 +21,6 @@ namespace CarRental
         {
             InitializeComponent();
             D2 = new Database();
-            this.start = start;
         }
         private void logo_Load(object sender, EventArgs e)
         {
