@@ -38,7 +38,6 @@
             this.MILES_label = new System.Windows.Forms.Label();
             this.YEAR_label = new System.Windows.Forms.Label();
             this.PIN_textBox = new System.Windows.Forms.TextBox();
-            this.TYPE_textBox = new System.Windows.Forms.TextBox();
             this.PLATENO_textBox = new System.Windows.Forms.TextBox();
             this.MODEL_textBox = new System.Windows.Forms.TextBox();
             this.MAKE_textBox = new System.Windows.Forms.TextBox();
@@ -56,12 +55,13 @@
             this.add_button = new System.Windows.Forms.Button();
             this.update_button = new System.Windows.Forms.Button();
             this.delete_button = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.BRANCH_comboBox = new System.Windows.Forms.ComboBox();
             this.headerBackground = new System.Windows.Forms.Panel();
             this.page_name = new System.Windows.Forms.Label();
             this.logout_button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sidebarBackground = new System.Windows.Forms.Panel();
+            this.TYPE_comboBox = new System.Windows.Forms.ComboBox();
             this.Branch_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ValueGrid)).BeginInit();
             this.headerBackground.SuspendLayout();
@@ -170,14 +170,6 @@
             this.PIN_textBox.Name = "PIN_textBox";
             this.PIN_textBox.Size = new System.Drawing.Size(189, 39);
             this.PIN_textBox.TabIndex = 9;
-            // 
-            // TYPE_textBox
-            // 
-            this.TYPE_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TYPE_textBox.Location = new System.Drawing.Point(21, 336);
-            this.TYPE_textBox.Name = "TYPE_textBox";
-            this.TYPE_textBox.Size = new System.Drawing.Size(189, 39);
-            this.TYPE_textBox.TabIndex = 10;
             // 
             // PLATENO_textBox
             // 
@@ -334,15 +326,15 @@
             this.delete_button.UseVisualStyleBackColor = false;
             this.delete_button.Click += new System.EventHandler(this.delete_button_Click);
             // 
-            // comboBox1
+            // BRANCH_comboBox
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(762, 168);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(326, 46);
-            this.comboBox1.TabIndex = 20;
-            this.comboBox1.TextChanged += new System.EventHandler(this.TEST);
+            this.BRANCH_comboBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BRANCH_comboBox.FormattingEnabled = true;
+            this.BRANCH_comboBox.Location = new System.Drawing.Point(762, 168);
+            this.BRANCH_comboBox.Name = "BRANCH_comboBox";
+            this.BRANCH_comboBox.Size = new System.Drawing.Size(326, 46);
+            this.BRANCH_comboBox.TabIndex = 20;
+            this.BRANCH_comboBox.TextChanged += new System.EventHandler(this.TEST);
             // 
             // headerBackground
             // 
@@ -385,12 +377,22 @@
             // sidebarBackground
             // 
             this.sidebarBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.sidebarBackground.Controls.Add(this.TYPE_comboBox);
             this.sidebarBackground.Controls.Add(this.PLATENO_label);
             this.sidebarBackground.Controls.Add(this.CARID_textBox);
             this.sidebarBackground.Location = new System.Drawing.Point(0, 130);
             this.sidebarBackground.Name = "sidebarBackground";
             this.sidebarBackground.Size = new System.Drawing.Size(232, 684);
             this.sidebarBackground.TabIndex = 22;
+            // 
+            // TYPE_comboBox
+            // 
+            this.TYPE_comboBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TYPE_comboBox.FormattingEnabled = true;
+            this.TYPE_comboBox.Location = new System.Drawing.Point(21, 207);
+            this.TYPE_comboBox.Name = "TYPE_comboBox";
+            this.TYPE_comboBox.Size = new System.Drawing.Size(189, 40);
+            this.TYPE_comboBox.TabIndex = 24;
             // 
             // Branch_label
             // 
@@ -409,7 +411,7 @@
             this.ClientSize = new System.Drawing.Size(1540, 802);
             this.Controls.Add(this.Branch_label);
             this.Controls.Add(this.headerBackground);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.BRANCH_comboBox);
             this.Controls.Add(this.delete_button);
             this.Controls.Add(this.update_button);
             this.Controls.Add(this.add_button);
@@ -419,7 +421,6 @@
             this.Controls.Add(this.MAKE_textBox);
             this.Controls.Add(this.MODEL_textBox);
             this.Controls.Add(this.PLATENO_textBox);
-            this.Controls.Add(this.TYPE_textBox);
             this.Controls.Add(this.PIN_textBox);
             this.Controls.Add(this.YEAR_label);
             this.Controls.Add(this.MILES_label);
@@ -456,7 +457,6 @@
         private Label MILES_label;
         private Label YEAR_label;
         private TextBox PIN_textBox;
-        private TextBox TYPE_textBox;
         private TextBox PLATENO_textBox;
         private TextBox MODEL_textBox;
         private TextBox MAKE_textBox;
@@ -466,7 +466,7 @@
         private Button add_button;
         private Button update_button;
         private Button delete_button;
-        private ComboBox comboBox1;
+        private ComboBox BRANCH_comboBox;
         private Panel headerBackground;
         private Panel panel2;
         private Panel sidebarBackground;
@@ -481,5 +481,6 @@
         private DataGridViewTextBoxColumn MILES;
         private DataGridViewTextBoxColumn YEAR;
         private Label Branch_label;
+        private ComboBox TYPE_comboBox;
     }
 }
