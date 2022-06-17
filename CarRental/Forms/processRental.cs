@@ -62,33 +62,21 @@ namespace CarRental.Forms
                 if ((checkCarAvail(daps, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == false))
                 {
                     MessageBox.Show("No Cars Available. Please change branch location and or car type");
-
                 }
                 else if ((checkDate(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == false))
                 {
                     MessageBox.Show("No Cars Available. Please change pickup date and or return date");
-
                 }
                 else if ((checkDate_Gold(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim())) == true && member == true)
                 {
                     MessageBox.Show("Customer is a Gold DAPS Member and qualifies for an upgrade. Select UPGRADE to continue.");
-
                 }
                 else
                 {
                     MessageBox.Show("damn");
                 }
-
-            }
-            
-          
-            
-            
-            
-
-            
+            }           
         }
-
         //checks if text fields are filled
         private bool textFieldCheck()
         {
