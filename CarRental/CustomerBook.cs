@@ -32,23 +32,6 @@ namespace CarRental
             string PickupLoc = this.customerAvail.PickUpLoc.Text.Trim().ToString();
             string ReturnLoc = this.customerAvail.RetLoc.Text.Trim().ToString();
 
-            string UpgradeType;
-            // Creates a list of car types taken from the database
-            List<string> CarTypes = new List<string>();
-            D3.query("select [Type] from CarType CT");
-            while (D3.myReader.Read())
-            {
-                CarTypes.Add(D3.myReader["Type"].ToString().Trim());
-            }
-            D3.myReader.Close();
-
-            int index = CarTypes.IndexOf(CarType);
-            int count = CarTypes.Count(); 
-
-            if (index != (count - 1))
-            { UpgradeType = CarTypes[index + 1];}
-            else { UpgradeType = CarTypes[index];}
-
             // Takes the eligible car details from the database (cars that match the car type and pickup branch that aren't linked to a transaction for the selected dates)
             string query1 = "select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo]" +
                          " from Car C, CarType CT, Branch B " +
@@ -64,7 +47,7 @@ namespace CarRental
             D3.query(query1);
             ValueGrid.Rows.Clear();
 
-            // If the reader returns something, then that means that the customer's search (gold or non-gold) went through
+            // If the reader returns something, then that means that the customer's initial search (gold or non-gold) went through
             if (D3.myReader.Read() == true)
             {
                 D3.myReader.Close();
@@ -76,21 +59,55 @@ namespace CarRental
                 }
                 D3.myReader.Close();
             }
+
             // If it returns nothing, then we can assume that the customer is a gold member that will upgrade and we will show cars of other type
             else
             {
+                //MessageBox.Show(this.customerAvail.returnDate.Value.ToString());
                 D3.myReader.Close();
-                D3.query("select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo]" +
-                         " from Car C, CarType CT, Branch B " +
-                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + PickupLoc + "'" + " and CT.[Type] = " + "'" + UpgradeType + "'" +
-                         " except" +
-                         " (select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo] " +
-                         " from Car C, CarType CT, Branch B, RentalTrans R" +
-                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
-                         " and B.[Name] = " + "'" + PickupLoc + "'" + " and CT.[Type] = " + "'" + UpgradeType + "'" +
-                         " and ((convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') between R.PickupDate and R.ReturnDate)" +
-                         " or (convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "') between R.PickupDate and R.ReturnDate)" +
-                         " or (R.PickUpDate > convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') and R.ReturnDate < convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "'))))");
+                if (CarType == "Sedan")
+                {
+                    D3.query("select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo]" +
+                             " from Car C, CarType CT, Branch B " +
+                             " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + PickupLoc + "'" + " and (CT.[Type] = 'SUV' or CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                             " except" +
+                             " (select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo] " +
+                             " from Car C, CarType CT, Branch B, RentalTrans R" +
+                             " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
+                             " and B.[Name] = " + "'" + PickupLoc + "'" + " and (CT.[Type] = 'SUV' or CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                             " and ((convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') between R.PickupDate and R.ReturnDate)" +
+                             " or (convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "') between R.PickupDate and R.ReturnDate)" +
+                             " or (R.PickUpDate > convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') and R.ReturnDate < convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "'))))");
+                    //MessageBox.Show(D3.myCommand.CommandText);
+                }
+                else if (CarType == "SUV")
+                {
+                    D3.query("select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo]" +
+                             " from Car C, CarType CT, Branch B " +
+                             " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + PickupLoc + "'" + " and (CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                             " except" +
+                             " (select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo] " +
+                             " from Car C, CarType CT, Branch B, RentalTrans R" +
+                             " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
+                             " and B.[Name] = " + "'" + PickupLoc + "'" + " and (CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                             " and ((convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') between R.PickupDate and R.ReturnDate)" +
+                             " or (convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "') between R.PickupDate and R.ReturnDate)" +
+                             " or (R.PickUpDate > convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') and R.ReturnDate < convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "'))))");
+                }
+                else if (CarType == "Minivan")
+                {
+                    D3.query("select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo]" +
+                             " from Car C, CarType CT, Branch B " +
+                             " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + PickupLoc + "'" + " and CT.[Type] = 'Luxury'" +
+                             " except" +
+                             " (select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo] " +
+                             " from Car C, CarType CT, Branch B, RentalTrans R" +
+                             " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
+                             " and B.[Name] = " + "'" + PickupLoc + "'" + " and CT.[Type] = 'Luxury'" +
+                             " and ((convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') between R.PickupDate and R.ReturnDate)" +
+                             " or (convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "') between R.PickupDate and R.ReturnDate)" +
+                             " or (R.PickUpDate > convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') and R.ReturnDate < convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "'))))");
+                }
                 while (D3.myReader.Read())
                 {
                     ValueGrid.Rows.Add(D3.myReader["CAR_ID"].ToString(), D3.myReader["Type"].ToString(), D3.myReader["Make"].ToString(), D3.myReader["Model"].ToString(),
