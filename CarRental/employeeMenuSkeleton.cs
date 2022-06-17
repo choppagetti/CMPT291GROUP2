@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.SqlClient;
 
 namespace CarRental
 {
@@ -14,9 +15,12 @@ namespace CarRental
     {
         //fields
         private Form activeForm;
+        public Database D2;
+        public Start start;
         public employeeMenuSkeleton()
         {
             InitializeComponent();
+            D2 = new Database();
         }
         private void logo_Load(object sender, EventArgs e)
         {
