@@ -38,7 +38,6 @@
             this.MILES_label = new System.Windows.Forms.Label();
             this.YEAR_label = new System.Windows.Forms.Label();
             this.PIN_textBox = new System.Windows.Forms.TextBox();
-            this.TYPE_textBox = new System.Windows.Forms.TextBox();
             this.PLATENO_textBox = new System.Windows.Forms.TextBox();
             this.MODEL_textBox = new System.Windows.Forms.TextBox();
             this.MAKE_textBox = new System.Windows.Forms.TextBox();
@@ -56,12 +55,13 @@
             this.add_button = new System.Windows.Forms.Button();
             this.update_button = new System.Windows.Forms.Button();
             this.delete_button = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.BRANCH_comboBox = new System.Windows.Forms.ComboBox();
             this.headerBackground = new System.Windows.Forms.Panel();
             this.page_name = new System.Windows.Forms.Label();
             this.logout_button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sidebarBackground = new System.Windows.Forms.Panel();
+            this.TYPE_comboBox = new System.Windows.Forms.ComboBox();
             this.Branch_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.ValueGrid)).BeginInit();
             this.headerBackground.SuspendLayout();
@@ -73,10 +73,8 @@
             this.CARID_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.CARID_textBox.Location = new System.Drawing.Point(21, 45);
             this.CARID_textBox.Name = "CARID_textBox";
-            this.CARID_textBox.ReadOnly = true;
             this.CARID_textBox.Size = new System.Drawing.Size(189, 39);
             this.CARID_textBox.TabIndex = 0;
-            this.CARID_textBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // CARID_label
             // 
@@ -88,7 +86,6 @@
             this.CARID_label.Size = new System.Drawing.Size(88, 32);
             this.CARID_label.TabIndex = 1;
             this.CARID_label.Text = "CAR ID";
-            this.CARID_label.Click += new System.EventHandler(this.label1_Click);
             // 
             // PIN_label
             // 
@@ -100,7 +97,6 @@
             this.PIN_label.Size = new System.Drawing.Size(51, 32);
             this.PIN_label.TabIndex = 2;
             this.PIN_label.Text = "PIN";
-            this.PIN_label.Click += new System.EventHandler(this.label2_Click);
             // 
             // TYPE_label
             // 
@@ -112,7 +108,6 @@
             this.TYPE_label.Size = new System.Drawing.Size(65, 32);
             this.TYPE_label.TabIndex = 3;
             this.TYPE_label.Text = "TYPE";
-            this.TYPE_label.Click += new System.EventHandler(this.label3_Click);
             // 
             // PLATENO_label
             // 
@@ -123,7 +118,6 @@
             this.PLATENO_label.Size = new System.Drawing.Size(125, 32);
             this.PLATENO_label.TabIndex = 4;
             this.PLATENO_label.Text = "PLATE NO.";
-            this.PLATENO_label.Click += new System.EventHandler(this.label4_Click);
             // 
             // MODEL_label
             // 
@@ -135,7 +129,6 @@
             this.MODEL_label.Size = new System.Drawing.Size(94, 32);
             this.MODEL_label.TabIndex = 5;
             this.MODEL_label.Text = "MODEL";
-            this.MODEL_label.Click += new System.EventHandler(this.label5_Click);
             // 
             // MAKE_label
             // 
@@ -147,7 +140,6 @@
             this.MAKE_label.Size = new System.Drawing.Size(77, 32);
             this.MAKE_label.TabIndex = 6;
             this.MAKE_label.Text = "MAKE";
-            this.MAKE_label.Click += new System.EventHandler(this.label6_Click);
             // 
             // MILES_label
             // 
@@ -159,7 +151,6 @@
             this.MILES_label.Size = new System.Drawing.Size(78, 32);
             this.MILES_label.TabIndex = 7;
             this.MILES_label.Text = "MILES";
-            this.MILES_label.Click += new System.EventHandler(this.label7_Click);
             // 
             // YEAR_label
             // 
@@ -171,7 +162,6 @@
             this.YEAR_label.Size = new System.Drawing.Size(68, 32);
             this.YEAR_label.TabIndex = 8;
             this.YEAR_label.Text = "YEAR";
-            this.YEAR_label.Click += new System.EventHandler(this.label8_Click);
             // 
             // PIN_textBox
             // 
@@ -180,16 +170,6 @@
             this.PIN_textBox.Name = "PIN_textBox";
             this.PIN_textBox.Size = new System.Drawing.Size(189, 39);
             this.PIN_textBox.TabIndex = 9;
-            this.PIN_textBox.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
-            // 
-            // TYPE_textBox
-            // 
-            this.TYPE_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TYPE_textBox.Location = new System.Drawing.Point(21, 336);
-            this.TYPE_textBox.Name = "TYPE_textBox";
-            this.TYPE_textBox.Size = new System.Drawing.Size(189, 39);
-            this.TYPE_textBox.TabIndex = 10;
-            this.TYPE_textBox.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // PLATENO_textBox
             // 
@@ -198,7 +178,6 @@
             this.PLATENO_textBox.Name = "PLATENO_textBox";
             this.PLATENO_textBox.Size = new System.Drawing.Size(189, 39);
             this.PLATENO_textBox.TabIndex = 11;
-            this.PLATENO_textBox.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
             // 
             // MODEL_textBox
             // 
@@ -207,7 +186,6 @@
             this.MODEL_textBox.Name = "MODEL_textBox";
             this.MODEL_textBox.Size = new System.Drawing.Size(189, 39);
             this.MODEL_textBox.TabIndex = 12;
-            this.MODEL_textBox.TextChanged += new System.EventHandler(this.textBox5_TextChanged);
             // 
             // MAKE_textBox
             // 
@@ -216,7 +194,6 @@
             this.MAKE_textBox.Name = "MAKE_textBox";
             this.MAKE_textBox.Size = new System.Drawing.Size(189, 39);
             this.MAKE_textBox.TabIndex = 13;
-            this.MAKE_textBox.TextChanged += new System.EventHandler(this.textBox6_TextChanged);
             // 
             // MILES_textBox
             // 
@@ -225,7 +202,6 @@
             this.MILES_textBox.Name = "MILES_textBox";
             this.MILES_textBox.Size = new System.Drawing.Size(189, 39);
             this.MILES_textBox.TabIndex = 14;
-            this.MILES_textBox.TextChanged += new System.EventHandler(this.textBox7_TextChanged);
             // 
             // YEAR_textBox
             // 
@@ -234,7 +210,6 @@
             this.YEAR_textBox.Name = "YEAR_textBox";
             this.YEAR_textBox.Size = new System.Drawing.Size(189, 39);
             this.YEAR_textBox.TabIndex = 15;
-            this.YEAR_textBox.TextChanged += new System.EventHandler(this.textBox8_TextChanged);
             // 
             // ValueGrid
             // 
@@ -351,15 +326,15 @@
             this.delete_button.UseVisualStyleBackColor = false;
             this.delete_button.Click += new System.EventHandler(this.delete_button_Click);
             // 
-            // comboBox1
+            // BRANCH_comboBox
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(762, 168);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(326, 46);
-            this.comboBox1.TabIndex = 20;
-            this.comboBox1.TextChanged += new System.EventHandler(this.TEST);
+            this.BRANCH_comboBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BRANCH_comboBox.FormattingEnabled = true;
+            this.BRANCH_comboBox.Location = new System.Drawing.Point(762, 168);
+            this.BRANCH_comboBox.Name = "BRANCH_comboBox";
+            this.BRANCH_comboBox.Size = new System.Drawing.Size(326, 46);
+            this.BRANCH_comboBox.TabIndex = 20;
+            this.BRANCH_comboBox.TextChanged += new System.EventHandler(this.TEST);
             // 
             // headerBackground
             // 
@@ -381,7 +356,6 @@
             this.page_name.Size = new System.Drawing.Size(782, 70);
             this.page_name.TabIndex = 24;
             this.page_name.Text = "CAR INVENTORY MANAGEMENT";
-            this.page_name.Click += new System.EventHandler(this.label9_Click);
             // 
             // logout_button
             // 
@@ -391,7 +365,6 @@
             this.logout_button.TabIndex = 23;
             this.logout_button.Text = "LOG OUT";
             this.logout_button.UseVisualStyleBackColor = true;
-            this.logout_button.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // panel2
             // 
@@ -404,12 +377,22 @@
             // sidebarBackground
             // 
             this.sidebarBackground.BackColor = System.Drawing.Color.Gainsboro;
+            this.sidebarBackground.Controls.Add(this.TYPE_comboBox);
             this.sidebarBackground.Controls.Add(this.PLATENO_label);
             this.sidebarBackground.Controls.Add(this.CARID_textBox);
             this.sidebarBackground.Location = new System.Drawing.Point(0, 130);
             this.sidebarBackground.Name = "sidebarBackground";
             this.sidebarBackground.Size = new System.Drawing.Size(232, 684);
             this.sidebarBackground.TabIndex = 22;
+            // 
+            // TYPE_comboBox
+            // 
+            this.TYPE_comboBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.TYPE_comboBox.FormattingEnabled = true;
+            this.TYPE_comboBox.Location = new System.Drawing.Point(21, 207);
+            this.TYPE_comboBox.Name = "TYPE_comboBox";
+            this.TYPE_comboBox.Size = new System.Drawing.Size(189, 40);
+            this.TYPE_comboBox.TabIndex = 24;
             // 
             // Branch_label
             // 
@@ -420,7 +403,6 @@
             this.Branch_label.Size = new System.Drawing.Size(116, 38);
             this.Branch_label.TabIndex = 23;
             this.Branch_label.Text = "Branch: ";
-            this.Branch_label.Click += new System.EventHandler(this.label9_Click_1);
             // 
             // InventoryManagement
             // 
@@ -429,7 +411,7 @@
             this.ClientSize = new System.Drawing.Size(1540, 802);
             this.Controls.Add(this.Branch_label);
             this.Controls.Add(this.headerBackground);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.BRANCH_comboBox);
             this.Controls.Add(this.delete_button);
             this.Controls.Add(this.update_button);
             this.Controls.Add(this.add_button);
@@ -439,7 +421,6 @@
             this.Controls.Add(this.MAKE_textBox);
             this.Controls.Add(this.MODEL_textBox);
             this.Controls.Add(this.PLATENO_textBox);
-            this.Controls.Add(this.TYPE_textBox);
             this.Controls.Add(this.PIN_textBox);
             this.Controls.Add(this.YEAR_label);
             this.Controls.Add(this.MILES_label);
@@ -476,7 +457,6 @@
         private Label MILES_label;
         private Label YEAR_label;
         private TextBox PIN_textBox;
-        private TextBox TYPE_textBox;
         private TextBox PLATENO_textBox;
         private TextBox MODEL_textBox;
         private TextBox MAKE_textBox;
@@ -486,7 +466,7 @@
         private Button add_button;
         private Button update_button;
         private Button delete_button;
-        private ComboBox comboBox1;
+        private ComboBox BRANCH_comboBox;
         private Panel headerBackground;
         private Panel panel2;
         private Panel sidebarBackground;
@@ -501,5 +481,6 @@
         private DataGridViewTextBoxColumn MILES;
         private DataGridViewTextBoxColumn YEAR;
         private Label Branch_label;
+        private ComboBox TYPE_comboBox;
     }
 }
