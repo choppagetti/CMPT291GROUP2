@@ -16,12 +16,19 @@ namespace CarRental
         public InventoryManagement()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen; 
             D = new Database();
 
-            this.StartPosition = FormStartPosition.CenterScreen;
+            // Query for the branch name combo box
             D.query("select [Name] from Branch");
             while (D.myReader.Read())
-            { comboBox1.Items.Add(D.myReader["Name"].ToString()); }
+            { BRANCH_comboBox.Items.Add(D.myReader["Name"].ToString()); }
+            D.myReader.Close();
+
+            // Query for the car type combo box
+            D.query("select [Type] from CarType");
+            while (D.myReader.Read())
+            { TYPE_comboBox.Items.Add(D.myReader["Type"].ToString().Trim()); }
             D.myReader.Close();
 
         }
@@ -29,13 +36,14 @@ namespace CarRental
         {
             CARID_textBox.Clear();
             PIN_textBox.Clear();
-            TYPE_textBox.Clear();
+            TYPE_comboBox.SelectedIndex = -1;
             PLATENO_textBox.Clear();
             MODEL_textBox.Clear();
             MAKE_textBox.Clear();
             MILES_textBox.Clear();
             YEAR_textBox.Clear();
-            string BranchName = comboBox1.Text.Trim().ToString();
+            CARID_textBox.ReadOnly = false;
+            string BranchName = BRANCH_comboBox.Text.Trim().ToString();
             string query1 = "select C.[CAR_ID], C.[PIN], CT.[Type], C.[PlateNo], C.Model, C.[Make], C.[Miles], C.[Year]" +
                          " from Car C, CarType CT, Branch B " +
                          " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + BranchName + "'";
@@ -49,95 +57,6 @@ namespace CarRental
             }
             D.myReader.Close();
         }
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox8_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox7_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox6_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox5_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox4_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox3_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label9_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void ValueGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -146,80 +65,118 @@ namespace CarRental
 
         private void add_button_Click(object sender, EventArgs e)
         {
-            string CARID = CARID_textBox.Text;
-            MessageBox.Show("ADD");
+            string CARID   = CARID_textBox.Text;
+            if (CARID == "") { MessageBox.Show("Please fill out CAR ID to add a new car to the inventory.", "Missing field"); }
+            string PIN     = PIN_textBox.Text;
+            if (PIN == "") { MessageBox.Show("Please fill out PIN to add a new car to the inventory.", "Missing field"); }
+            string PLATENO = PLATENO_textBox.Text;
+            if (PLATENO == "") { MessageBox.Show("Please fill out PLATE NO. to add a new car to the inventory.", "Missing field"); }
+            string TYPE    = TYPE_comboBox.Text;
+            if (TYPE == "") { MessageBox.Show("Please select TYPE to add a new car to the inventory.", "Missing field"); }
+            string MODEL   = MODEL_textBox.Text;
+            string MAKE    = MAKE_textBox.Text;
+            string MILES   = MILES_textBox.Text;
+            string YEAR    = YEAR_textBox.Text;
+            string BRANCH  = BRANCH_comboBox.Text;
+            if (BRANCH == "") { MessageBox.Show("Please select branch name to add a new car to the inventory.", "Missing field"); }
+            else
+            {
+                // Checks to see if given CAR ID already exists in database
+                List<string> CarIDs = new List<string>();
+                D.query("select [CAR_ID] from Car");
+                while (D.myReader.Read())
+                { CarIDs.Add(D.myReader["CAR_ID"].ToString()); }
+                D.myReader.Close();
+
+                if (CarIDs.Contains(CARID))
+                {
+                    MessageBox.Show("Unable to add. Car ID already exists in the system.", "Error");
+                    return;
+                }
+
+                string message = "Are you sure you want to add a new car to the inventory?";
+                string title = "Add CAR ID: " + CARID;
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes) 
+                {
+                    MessageBox.Show("ADDED");
+                    //string addQuery = ;
+                    //D.insert(addQuery);
+                    //this.TEST(sender, e);
+                    //this.ValueGrid_CellContentClick(sender, e);
+                }
+            }
+
         }
 
         private void update_button_Click(object sender, EventArgs e)
         {   
             string CARID   = CARID_textBox.Text;
 
-            try 
+            if (CARID != "") // Checks if user clicked on a car in table
             {
-                if (CARID != "") // Checks if user clicked on a car in table
+                List<string> CarIDs = new List<string>();
+                D.query("select [CAR_ID] from Car");
+                while (D.myReader.Read())
+                { CarIDs.Add(D.myReader["CAR_ID"].ToString()); }
+                D.myReader.Close();
+
+                if (!CarIDs.Contains(CARID))
                 {
-                    string PIN     = PIN_textBox.Text;
-                    string PLATENO = PLATENO_textBox.Text;
-                    string TYPE    = TYPE_textBox.Text;
-                    string MODEL   = MODEL_textBox.Text;
-                    string MAKE    = MAKE_textBox.Text;
-                    string MILES   = MILES_textBox.Text;
-                    string YEAR    = YEAR_textBox.Text;
-
-                    // Gets the CT_ID of the car
-                    string getTypeID = "select CT.[CT_ID]" +
-                        " from CarType CT " +
-                        " where CT.[Type] = " + "'" + TYPE + "'";
-                    D.query(getTypeID);
-                    D.myReader.Read();
-                    string TypeID = D.myReader["CT_ID"].ToString();
-                    D.myReader.Close();
-
-                    // Gets the BID of the car
-                    string getBID = "select B.[BID]" +
-                        " from Car C, Branch B" +
-                        " where C.BID = B.BID and C.[CAR_ID] = " + "'" + CARID + "'";
-                    D.query(getBID);
-                    D.myReader.Read();
-                    string BID = D.myReader["BID"].ToString();
-                    D.myReader.Close();
-
-                    // Display message box to allow update
-                    string message = "Are you sure you want to change this car's details?";
-                    string title = "Update CAR ID: " + CARID;
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result = MessageBox.Show(message, title, buttons);
-                    if (result == DialogResult.Yes)
-                    {
-                        string updateQuery = "update Car set PIN = '" + PIN + "', " +
-                            "PlateNO = '" + PLATENO + "', " +
-                            "Model = '" + MODEL + "', " +
-                            "Make = '" + MAKE + "', " +
-                            "Miles = '" + MILES + "', " +
-                            "Year = '" + YEAR + "', " +
-                            "BID = '" + BID + "', " +
-                            "CT_ID = '" + TypeID + "'" +
-                            "where CAR_ID = '" + CARID + "'";
-                        D.insert(updateQuery);
-                        this.TEST(sender, e);
-                        this.ValueGrid_CellContentClick(sender, e);
-
-                    }
-                    else
-                    {
-                        this.Close();
-                    }
+                    MessageBox.Show("Unable to update. Car ID can not be found in the system. Please click on an existing car in the table.", "Error");
+                    return;
                 }
-                else
+
+                string PIN     = PIN_textBox.Text;
+                string PLATENO = PLATENO_textBox.Text;
+                string TYPE    = TYPE_comboBox.Text;
+                string MODEL   = MODEL_textBox.Text;
+                string MAKE    = MAKE_textBox.Text;
+                string MILES   = MILES_textBox.Text;
+                string YEAR    = YEAR_textBox.Text;
+
+                // Gets the CT_ID of the car
+                string getTypeID = "select CT.[CT_ID]" +
+                    " from CarType CT " +
+                    " where CT.[Type] = " + "'" + TYPE + "'";
+                D.query(getTypeID);
+                D.myReader.Read();
+                string TypeID = D.myReader["CT_ID"].ToString();
+                D.myReader.Close();
+                
+                
+                // Gets the BID of the car
+                string getBID = "select B.[BID]" +
+                    " from Car C, Branch B" +
+                    " where C.BID = B.BID and C.[CAR_ID] = " + "'" + CARID + "'";
+                D.query(getBID);
+                D.myReader.Read();
+                string BID = D.myReader["BID"].ToString();
+                D.myReader.Close();
+
+                // Display message box to allow update
+                string message = "Are you sure you want to change this car's details?";
+                string title = "Update CAR ID: " + CARID;
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result = MessageBox.Show(message, title, buttons);
+                if (result == DialogResult.Yes)
                 {
-                    MessageBox.Show("Please click on a car in the table");
+                    string updateQuery = "update Car set PIN = '" + PIN + "', " +
+                        "PlateNO = '" + PLATENO + "', " +
+                        "Model = '" + MODEL + "', " +
+                        "Make = '" + MAKE + "', " +
+                        "Miles = '" + MILES + "', " +
+                        "Year = '" + YEAR + "', " +
+                        "BID = '" + BID + "', " +
+                        "CT_ID = '" + TypeID + "'" +
+                        "where CAR_ID = '" + CARID + "'";
+                    D.insert(updateQuery);
+                    this.TEST(sender, e);
+                    this.ValueGrid_CellContentClick(sender, e);
                 }
             }
-            catch (Exception E) 
-            {
-                MessageBox.Show(E.ToString(), "Error");
-            }
-           
+            else { MessageBox.Show("Please click on an existing car in the table"); }
         }
 
         private void delete_button_Click(object sender, EventArgs e)
@@ -227,24 +184,30 @@ namespace CarRental
             string CARID = CARID_textBox.Text;
             if (CARID != "")
             {
+                List<string> CarIDs = new List<string>();
+                D.query("select [CAR_ID] from Car");
+                while (D.myReader.Read())
+                { CarIDs.Add(D.myReader["CAR_ID"].ToString()); }
+                D.myReader.Close();
+
+                if (!CarIDs.Contains(CARID))
+                {
+                    MessageBox.Show("Unable to delete. Car ID can not be found in the system.", "Error");
+                    return;
+                }
+
                 string message = "Are you sure you want to delete this car?";
                 string title = "Delete CAR ID: " + CARID;
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result = MessageBox.Show(message, title, buttons);
                 if (result == DialogResult.Yes)
                 {
-                    D.insert("delete from Car where CAR_ID = '"+CARID+"'");
+                    D.insert("delete from Car where CAR_ID = '" + CARID + "'");
                     this.TEST(sender, e);
-                }
-                else
-                {
-                    this.Close();
                 }
             }
             else
-            {
-                MessageBox.Show("Please click on a car in the table");
-            }
+            { MessageBox.Show("Please click on an existing car in the table"); }
         }
 
         private void ValueGrid_CellContentClick(object sender, EventArgs e)
@@ -253,29 +216,26 @@ namespace CarRental
             {
                 CARID_textBox.Clear();
                 PIN_textBox.Clear();
-                TYPE_textBox.Clear();
+                TYPE_comboBox.SelectedIndex = -1;
                 PLATENO_textBox.Clear();
                 MODEL_textBox.Clear();
                 MAKE_textBox.Clear();
                 MILES_textBox.Clear();
                 YEAR_textBox.Clear();
+                CARID_textBox.ReadOnly = false;
             }
             else
             {
-                CARID_textBox.Text   = ValueGrid.SelectedRows[0].Cells[0].Value.ToString();
-                PIN_textBox.Text     = ValueGrid.SelectedRows[0].Cells[1].Value.ToString();
-                TYPE_textBox.Text    = ValueGrid.SelectedRows[0].Cells[2].Value.ToString();
-                PLATENO_textBox.Text = ValueGrid.SelectedRows[0].Cells[3].Value.ToString();
-                MODEL_textBox.Text   = ValueGrid.SelectedRows[0].Cells[4].Value.ToString();
-                MAKE_textBox.Text    = ValueGrid.SelectedRows[0].Cells[5].Value.ToString();
-                MILES_textBox.Text   = ValueGrid.SelectedRows[0].Cells[6].Value.ToString();
-                YEAR_textBox.Text    = ValueGrid.SelectedRows[0].Cells[7].Value.ToString();
+                CARID_textBox.Text   = ValueGrid.SelectedRows[0].Cells[0].Value.ToString().Trim();
+                PIN_textBox.Text     = ValueGrid.SelectedRows[0].Cells[1].Value.ToString().Trim();
+                TYPE_comboBox.Text = ValueGrid.SelectedRows[0].Cells[2].Value.ToString().Trim();
+                PLATENO_textBox.Text = ValueGrid.SelectedRows[0].Cells[3].Value.ToString().Trim();
+                MODEL_textBox.Text   = ValueGrid.SelectedRows[0].Cells[4].Value.ToString().Trim();
+                MAKE_textBox.Text    = ValueGrid.SelectedRows[0].Cells[5].Value.ToString().Trim();
+                MILES_textBox.Text   = ValueGrid.SelectedRows[0].Cells[6].Value.ToString().Trim();
+                YEAR_textBox.Text    = ValueGrid.SelectedRows[0].Cells[7].Value.ToString().Trim();
+                CARID_textBox.ReadOnly = true;
             }
-        }
-
-        private void label9_Click_1(object sender, EventArgs e)
-        {
-
         }
     }
 }
