@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-//----------This screen lets the user choose their pickup and return branches + dates and car type;   ----------
-//----------it also error-checks their input and doesn't allow them to go through with their selection----------
-//----------if their search filters don't return anything from the database                           ----------
 namespace CarRental
 {
+    //----------This screen lets the user choose their pickup and return branches + dates and car type;   ----------
+    //----------it also error-checks their input and doesn't allow them to go through with their selection----------
+    //----------if their search filters don't return anything from the database                           ----------
     public partial class CustomerAvail : Form
     {
         public Database D2;
@@ -23,7 +23,6 @@ namespace CarRental
             InitializeComponent();
             D2 = new Database();
             this.start = start;
-            // terry was here
 
             // Fills in the Car Type combo box with car type values from the database
             D2.query("select [Type] from CarType");
@@ -48,15 +47,19 @@ namespace CarRental
             RetLoc.Text = PickUpLoc.Text;
         }
 
+        //------Event for when the Home button is clicked------
         private void Home_Click(object sender, EventArgs e)
         {
+            // Closes the form and returns to the inital form (Start)
             this.DialogResult = DialogResult.OK;
         }
 
         private void CheckAvail_Click(object sender, EventArgs e)
         {
             // Ensures user fills in the required fields
-            if (!checkBox.Checked) // If the checkBox isn't checked, then we don't need a value for the Return Location
+
+            // If the checkBox isn't checked, then we don't need a value for the Return Location
+            if (!checkBox.Checked)
             {
                 if (IdBox.Text.Trim() == "" || PickUpLoc.Text.Trim() == "" || CarType.Text.Trim() == "")
                 {
@@ -64,7 +67,8 @@ namespace CarRental
                     return;
                 }
             }
-            else // Else, we will need a value for the Return Location
+            // Else, we will need a value for the Return Location
+            else
             {
                 if (IdBox.Text.Trim() == "" || PickUpLoc.Text.Trim() == "" || RetLoc.Text.Trim() == "" || CarType.Text.Trim() == "")
                 {
@@ -125,7 +129,8 @@ namespace CarRental
             // If customer is a gold member
             else
             {
-                if (CheckCar(D2, CarType.Text.Trim(), PickUpLoc.Text.Trim()) == false) // If there are no car records for their search filters
+                // If there are no car records for their search filters
+                if (CheckCar(D2, CarType.Text.Trim(), PickUpLoc.Text.Trim()) == false)
                 {
                     MessageBox.Show("No available cars for your search. You are eligible for a free upgrade for other car types.", "No Cars Available");
                     D2.myReader.Close();
@@ -138,9 +143,9 @@ namespace CarRental
                     }
                     D2.myReader.Close();
                 }
-                else // If there are car records matching their search filters
+                // If there are car records matching their search filters
+                else
                 {
-                    //MessageBox.Show("Car records matching search filters");
                     D2.myReader.Close();
                     if (CheckDate(D2, pickupDate.Value, returnDate.Value, CarType.Text.Trim(), PickUpLoc.Text.Trim()) == false)
                     {
@@ -174,7 +179,7 @@ namespace CarRental
             return avail;
         }
 
-        //------Function that checks if the selected car is available for the selected dates------
+        //------Function that checks if the selected car type has availability for the selected dates------
         private bool CheckDate (Database D2, DateTime PickupD, DateTime ReturnD, String CT, String Loc)
         {
             bool avail_date = true;
@@ -183,17 +188,17 @@ namespace CarRental
                      " from Car, CarType, Branch, RentalTrans" +
                      " where Car.[CT_ID] = CarType.[CT_ID] and Car.[BID] = Branch.[BID] and Car.[CAR_ID] = RentalTrans.[CAR_ID]" +
                      " and CarType.[CT_ID] = RentalTrans.[CT_ID] and RentalTrans.[PickUpBID] = Branch.[BID] and CarType.[Type] = " + "'" + CT + "'");
-            if (D2.myReader.Read() == false) // Means it's not linked to a transaction therefore free
+            // Means it's not linked to a transaction therefore free
+            if (D2.myReader.Read() == false)
             {
-                //MessageBox.Show("If for CheckDate");
                 avail_date = true;
-                //MessageBox.Show("Not linked to a transaction");
                 D2.myReader.Close();
             }
-            else // If it's linked to a transaction, check if the dates conflict
+            // If it's linked to a transaction, check if the dates conflict
+            else
             {
                 D2.myReader.Close();
-                //MessageBox.Show("Linked to a transaction");
+
                 // Query: (cars - cars with transactions whose dates overlap with the specified dates)
                 D2.query("select C.CAR_ID, C.Make, C.Model" +
                          " from Car C, CarType CT, Branch B " +
@@ -224,6 +229,7 @@ namespace CarRental
         {
             bool avail_date = true;
 
+            // If Luxury is chosen, this will immediately return false as Luxury is the highest car type available
             if (CT == "Luxury")
             { return avail_date = false; }
 
@@ -261,7 +267,7 @@ namespace CarRental
             {
                 D2.myReader.Close();
 
-                // If they are looking for a Luxury car at this point, then the function will return false as it is the highest car type already
+                // If Luxury is chosen, this will immediately return false as Luxury is the highest car type available
                 if (CT == "Luxury")
                 {return avail_date = false;}
 
@@ -311,7 +317,7 @@ namespace CarRental
                          " or (convert(smalldatetime, " + "'" + ReturnD + "') between R.PickupDate and R.ReturnDate)" +
                          " or (R.PickUpDate > convert(smalldatetime, " + "'" + PickupD + "') and R.ReturnDate < convert(smalldatetime, " + "'" + ReturnD + "'))))");
                 }
-
+                // If results are returned
                 if (D2.myReader.Read() == true)
                 {
                     D2.myReader.Close();
@@ -324,17 +330,22 @@ namespace CarRental
             return avail_date;
         }
 
+        //------Event for when the checkbox is interacted with------
         private void checkBox_CheckedChanged_1(object sender, EventArgs e)
         {
+            // If the checkbox is ticked, this will display the labels and combo box for the Return Location
             if (checkBox.Checked)
             {
                 retLocReq.Visible = true;
                 return_loc.Visible = true;
                 RetLoc.Visible = true;
 
+                // The Return Location defaults to the same location selected in the Pick-Up Location combo box
                 RetLoc.Text = PickUpLoc.Text;
             }
 
+            // If the checkbox is unticked, this will hide the labels and combo box for the Return Location
+            // The Return Location will default back to the same location as the Pick-Up Location
             else
             {
                 RetLoc.Text = PickUpLoc.Text;
