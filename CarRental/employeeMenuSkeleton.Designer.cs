@@ -192,9 +192,8 @@
             this.empName.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.empName.Location = new System.Drawing.Point(1537, 80);
             this.empName.Name = "empName";
-            this.empName.Size = new System.Drawing.Size(140, 22);
+            this.empName.Size = new System.Drawing.Size(0, 22);
             this.empName.TabIndex = 0;
-            this.empName.Text = "Employee Name";
             // 
             // label1
             // 
@@ -202,11 +201,11 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.label1.Location = new System.Drawing.Point(689, 25);
+            this.label1.Location = new System.Drawing.Point(418, 25);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(464, 77);
+            this.label1.Size = new System.Drawing.Size(827, 77);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Branch Name";
+            this.label1.Text = "DAPS AUTOMOTIVE LTD.";
             // 
             // formsPane
             // 
