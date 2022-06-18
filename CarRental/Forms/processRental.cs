@@ -231,7 +231,7 @@ namespace CarRental.Forms
                 while (daps.myReader.Read())
                 {
                     inventory.Rows.Add(statusMember, daps.myReader["CAR_ID"].ToString(), daps.myReader["Type"].ToString(), daps.myReader["Make"].ToString(), daps.myReader["Model"].ToString(),
-                        daps.myReader["Name"].ToString(), "$" + price.ToString());
+                        daps.myReader["Name"].ToString(), price.ToString());
                 }
                 daps.myReader.Close();
             }
@@ -440,7 +440,7 @@ namespace CarRental.Forms
                     while (daps.myReader.Read())
                     {
                         inventory.Rows.Add(statusMember, daps.myReader["CAR_ID"].ToString(), daps.myReader["Type"].ToString(), daps.myReader["Make"].ToString(), daps.myReader["Model"].ToString(),
-                            daps.myReader["Name"].ToString(), "$" + totalPrice.ToString());
+                            daps.myReader["Name"].ToString(), totalPrice.ToString());
                     }
                     daps.myReader.Close();
                 }
@@ -667,19 +667,52 @@ namespace CarRental.Forms
         }
         private void authorizeTransac_Click(object sender, EventArgs e)
         { 
-            string carFull, transacID, pickUpD, returnD, custID, pickUpBrID, returnBrID, carID, typeID;
-            decimal price;
+            string carFull, transacIDString, customerID,pickUpD, returnD, pickUpBrID, returnBrID, carsID, typeID;
+            decimal price, transacID;
             if(inventory.CurrentCell != null)
             {
                 int row = inventory.CurrentCell.RowIndex;
                 int col = inventory.CurrentCell.ColumnIndex;
                 carFull = (string)(inventory.Rows[row].Cells[1].Value.ToString().Trim() + " " + inventory.Rows[row].Cells[6].Value);
-                daps.query("select max[TID] trans" +
+
+                daps.query("select max([TID]) as trans" +
                          " from RentalTrans");
                 daps.myReader.Read();
-                transacID = ((((decimal)daps.myReader["trans"]) + 1).ToString());
+                transacID = Int32.Parse(daps.myReader["trans"].ToString());
+                transacID += 1;
+                transacIDString = transacID.ToString();
                 daps.myReader.Close();
-                MessageBox.Show(transacID);
+
+                pickUpD= pickupDate.Value.ToShortDateString();
+                returnD = returnDate.Value.ToShortDateString();
+                customerID = custID.Text.ToString().Trim();
+                daps.query("select BID as bID" +
+                         " from Branch B" +
+                         " where B.[Name] = " + "'" + pickupBranch.Text.Trim() + "'");
+                daps.myReader.Read();
+                pickUpBrID = (daps.myReader["bID"].ToString());
+                daps.myReader.Close();
+
+                daps.query("select BID as rBID" +
+                         " from Branch B" +
+                         " where B.[Name] = " + "'" + returnBranch.Text.Trim() + "'");
+                daps.myReader.Read();
+                returnBrID = (daps.myReader["rBID"].ToString());
+                daps.myReader.Close();
+
+                carsID = (string)(inventory.Rows[row].Cells[1].Value.ToString().Trim());
+
+                daps.query("select CT_ID as types" +
+                         " from CarType CT" +
+                         " where CT.[Type] = " + "'" + inventory.Rows[row].Cells[2].Value.ToString().Trim() + "'");
+                daps.myReader.Read();
+                typeID = daps.myReader["types"].ToString();
+                daps.myReader.Close();
+                price = decimal.Parse(inventory.Rows[row].Cells[6].Value.ToString());
+                daps.query("insert into RentalTrans values(" + "'00" + transacIDString + "'," + "'" + pickUpD + "'," + "'" + returnD + "'," + "'" + DBNull.Value + "'," + "'" + price + "'," + "'" + customerID + "'," + "'" + pickUpBrID + "'," + "'" + returnBrID + "'," + "'" + carsID + "'," + "'" + typeID + "');"); // actual return date is set to 1900-01-01 00:00:00
+                daps.myReader.Read();
+                daps.myReader.Close();
+                MessageBox.Show("00" + transacIDString + " pickup: " + pickUpD + " return: " + returnD + " custID: " + customerID + "  pickup Branch: " + pickUpBrID + "  return branch:" + returnBrID + " car ID: " + carsID + " " + " type ID: " + typeID);
             }
             else
             {
