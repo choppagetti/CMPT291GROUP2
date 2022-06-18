@@ -30,13 +30,14 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.custID = new System.Windows.Forms.TextBox();
+            this.normalRet = new System.Windows.Forms.Button();
             this.carIDRental = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.branches = new System.Windows.Forms.ComboBox();
+            this.transID = new System.Windows.Forms.TextBox();
             this.availability = new System.Windows.Forms.Button();
             this.returnDate = new System.Windows.Forms.DateTimePicker();
+            this.lateRet = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -65,33 +66,33 @@
             this.dataGridView1.Size = new System.Drawing.Size(1073, 471);
             this.dataGridView1.TabIndex = 43;
             // 
-            // textBox3
+            // custID
             // 
-            this.textBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox3.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(172)))), ((int)(((byte)(19)))));
-            this.textBox3.Location = new System.Drawing.Point(281, 71);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.PlaceholderText = "ENTER CUSTOMER ID";
-            this.textBox3.Size = new System.Drawing.Size(440, 23);
-            this.textBox3.TabIndex = 42;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.custID.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.custID.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.custID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(172)))), ((int)(((byte)(19)))));
+            this.custID.Location = new System.Drawing.Point(281, 71);
+            this.custID.Name = "custID";
+            this.custID.PlaceholderText = "ENTER CUSTOMER ID";
+            this.custID.Size = new System.Drawing.Size(440, 23);
+            this.custID.TabIndex = 42;
+            this.custID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button1
+            // normalRet
             // 
-            this.button1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.button1.FlatAppearance.BorderSize = 6;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.button1.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.button1.Location = new System.Drawing.Point(572, 708);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(300, 40);
-            this.button1.TabIndex = 41;
-            this.button1.Text = "AUTHORIZE RETURN";
-            this.button1.UseVisualStyleBackColor = false;
+            this.normalRet.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.normalRet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.normalRet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.normalRet.FlatAppearance.BorderSize = 6;
+            this.normalRet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.normalRet.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.normalRet.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.normalRet.Location = new System.Drawing.Point(352, 699);
+            this.normalRet.Name = "normalRet";
+            this.normalRet.Size = new System.Drawing.Size(300, 40);
+            this.normalRet.TabIndex = 41;
+            this.normalRet.Text = "AUTHORIZE RETURN";
+            this.normalRet.UseVisualStyleBackColor = false;
             // 
             // carIDRental
             // 
@@ -105,26 +106,26 @@
             this.carIDRental.TabIndex = 39;
             this.carIDRental.Text = "RETURN BRANCH";
             // 
-            // comboBox3
+            // branches
             // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(29, 287);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(140, 23);
-            this.comboBox3.TabIndex = 59;
+            this.branches.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.branches.FormattingEnabled = true;
+            this.branches.Location = new System.Drawing.Point(29, 287);
+            this.branches.Name = "branches";
+            this.branches.Size = new System.Drawing.Size(140, 23);
+            this.branches.TabIndex = 59;
             // 
-            // textBox9
+            // transID
             // 
-            this.textBox9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.textBox9.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(172)))), ((int)(((byte)(19)))));
-            this.textBox9.Location = new System.Drawing.Point(790, 71);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.PlaceholderText = "ENTER TRANSACTION ID";
-            this.textBox9.Size = new System.Drawing.Size(440, 23);
-            this.textBox9.TabIndex = 62;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.transID.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.transID.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.transID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(3)))), ((int)(((byte)(172)))), ((int)(((byte)(19)))));
+            this.transID.Location = new System.Drawing.Point(790, 71);
+            this.transID.Name = "transID";
+            this.transID.PlaceholderText = "ENTER TRANSACTION ID";
+            this.transID.Size = new System.Drawing.Size(440, 23);
+            this.transID.TabIndex = 62;
+            this.transID.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // availability
             // 
@@ -149,20 +150,37 @@
             this.returnDate.Size = new System.Drawing.Size(140, 23);
             this.returnDate.TabIndex = 64;
             // 
+            // lateRet
+            // 
+            this.lateRet.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.lateRet.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lateRet.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(163)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.lateRet.FlatAppearance.BorderSize = 6;
+            this.lateRet.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.lateRet.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lateRet.ForeColor = System.Drawing.SystemColors.HighlightText;
+            this.lateRet.Location = new System.Drawing.Point(790, 699);
+            this.lateRet.Name = "lateRet";
+            this.lateRet.Size = new System.Drawing.Size(300, 40);
+            this.lateRet.TabIndex = 65;
+            this.lateRet.Text = "LATE RETURN";
+            this.lateRet.UseVisualStyleBackColor = false;
+            // 
             // processReturns
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1306, 821);
+            this.Controls.Add(this.lateRet);
             this.Controls.Add(this.returnDate);
             this.Controls.Add(this.availability);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.transID);
+            this.Controls.Add(this.branches);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.custID);
+            this.Controls.Add(this.normalRet);
             this.Controls.Add(this.carIDRental);
             this.Name = "processReturns";
             this.Text = "processReturns";
@@ -175,12 +193,13 @@
         #endregion
         private Label label1;
         private DataGridView dataGridView1;
-        private TextBox textBox3;
-        private Button button1;
+        private TextBox custID;
+        private Button normalRet;
         private Label carIDRental;
-        private ComboBox comboBox3;
-        private TextBox textBox9;
+        private ComboBox branches;
+        private TextBox transID;
         private Button availability;
         private DateTimePicker returnDate;
+        private Button lateRet;
     }
 }
