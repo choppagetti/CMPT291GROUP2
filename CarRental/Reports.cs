@@ -13,24 +13,32 @@ namespace CarRental
 {
     public partial class Reports : Form
     {
-        public Database D2;
+        public Database reports;
         public Reports()
         {
             InitializeComponent();
-            D2 = new Database();
+            reports = new Database();
         }
 
         private void EmpRepButt_Click(object sender, EventArgs e)
         {
-            if (EmpFilterBox.Text == "Most Sold (Units)")
+            reports.query("select [Name] from Branch");
+            while (reports.myReader.Read())
             {
-                D2.query("select EFName");
-                while (D2.myReader.Read())
-                {
-                    EmpRepTable.Rows.Add(D2.myReader["EFName"].ToString(), ELName)
-                }
-                D2.myReader.Close();
+                MessageBox.Show(reports.myReader["Name"].ToString());
             }
+            reports.myReader.Close();
+
+
+            //if (EmpFilterBox.Text == "Most Sold (Units)")
+            //{
+            //    D2.query("select EFName");
+            //    while (D2.myReader.Read())
+            //    {
+            //        EmpRepTable.Rows.Add(D2.myReader["EFName"].ToString(), ELName);
+            //    }
+            //    D2.myReader.Close();
+            //}
 
         }
 

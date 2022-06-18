@@ -14,7 +14,7 @@ namespace CarRental
         public SqlDataReader myReader;
         public Database()
         {
-            String connectionString = "Server = AS-M004167; Database = CarRentals; Trusted_Connection = yes;";
+            String connectionString = "Server = DESKTOP-1ECBI0I; Database = CarRentals; Trusted_Connection = yes;";
             this.myConnection = new SqlConnection(connectionString); // Timeout in seconds
 
             try
