@@ -17,7 +17,7 @@ namespace CarRental
         public Reports()
         {
             InitializeComponent();
-            D2 = new Database();
+            D2 = new Database(); 
         }
 
         private void EmpRepButt_Click(object sender, EventArgs e)
