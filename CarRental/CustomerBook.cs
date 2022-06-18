@@ -9,10 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 
-//----------This screen displays the cars that are available to the user based on their search filters in a grid;----------
-//----------the price is calculated in this function and is displayed on the top-right corner of the screen      ----------
 namespace CarRental
 {
+    //----------This screen displays the cars that are available to the user based on their search filters in a grid;----------
+    //----------the price is calculated in this function and is displayed on the top-right corner of the screen      ----------
     public partial class CustomerBook : Form
     {
         public Database D3;
@@ -60,11 +60,12 @@ namespace CarRental
                 D3.myReader.Close();
             }
 
-            // If it returns nothing, then we can assume that the customer is a gold member that will upgrade and we will show cars of other type
+            // If it returns nothing, then we can assume that the customer is a gold member that will upgrade and we will show cars of types higher than the
+            // selected car type
             else
             {
-                //MessageBox.Show(this.customerAvail.returnDate.Value.ToString());
                 D3.myReader.Close();
+
                 if (CarType == "Sedan")
                 {
                     D3.query("select C.[CAR_ID], CT.[Type], C.[Make], C.Model, C.[Year], C.[Miles], C.[PIN], C.[PlateNo]" +
@@ -78,7 +79,6 @@ namespace CarRental
                              " and ((convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') between R.PickupDate and R.ReturnDate)" +
                              " or (convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "') between R.PickupDate and R.ReturnDate)" +
                              " or (R.PickUpDate > convert(smalldatetime, " + "'" + this.customerAvail.pickupDate.Value + "') and R.ReturnDate < convert(smalldatetime, " + "'" + this.customerAvail.returnDate.Value + "'))))");
-                    //MessageBox.Show(D3.myCommand.CommandText);
                 }
                 else if (CarType == "SUV")
                 {
@@ -123,6 +123,7 @@ namespace CarRental
         //------Function that calculates the car price depending on car type, duration, and customer's membership type------
         private decimal GetPrice(Database D3, CustomerAvail customerAvail, String CT_Name)
         {
+            // Calculates the amount of days between the selected Pick-Up and Return date
             decimal days;
             TimeSpan diff = (customerAvail.returnDate.Value.Date - customerAvail.pickupDate.Value.Date);
             days = diff.Days;
@@ -210,15 +211,17 @@ namespace CarRental
                     int weeks = (int)days / 7; // Gets the amount of full weeks
                     int wks_remainder = (int)days % 7; // Gets the amount of remaining days
 
+                    // If the customer is returning to a different branch
                     if ((customerAvail.checkBox.Checked == true) && (customerAvail.PickUpLoc.Text != customerAvail.RetLoc.Text))
                     {
+                        // If the customer is a gold member
                         if (CustMemb == true)
-                        {Price = ((decimal)weeks * WklyRate) + ((decimal)wks_remainder * DailyRate);}
+                        {Price = (weeks * WklyRate) + (wks_remainder * DailyRate);}
                         else
-                        {Price = ((decimal)weeks * WklyRate) + ((decimal)wks_remainder * DailyRate) + BFee;}
+                        {Price = (weeks * WklyRate) + (wks_remainder * DailyRate) + BFee;}
                     }
                     else
-                    {Price = ((decimal)weeks * WklyRate) + ((decimal)wks_remainder * DailyRate);}
+                    {Price = (weeks * WklyRate) + (wks_remainder * DailyRate);}
 
                     return Price;
                 }
@@ -229,13 +232,16 @@ namespace CarRental
             {
                 if (days % 30 == 0) // If full months
                 {
+                    // If the customer is returning to a different branch
                     if ((customerAvail.checkBox.Checked == true) && (customerAvail.PickUpLoc.Text != customerAvail.RetLoc.Text))
                     {
+                        // If the customer is a gold member
                         if (CustMemb == true)
-                        {Price = ((int)days / 30) * MthlyRate;}
+                        {Price = ((int)days / 30) * MthlyRate;} // No extra charge
                         else
                         {Price = (((int)days / 30) * MthlyRate) + BFee;}
                     }
+                    // If the customer is returning to the same branch
                     else
                     {Price = ((int)days / 30) * MthlyRate;}
 
@@ -247,22 +253,26 @@ namespace CarRental
                     int months = (int)days / 30; // e.g. 64 / 30 = 2
                     int m_remainder = (int)days % 30; // e.g. 64 % 30 = 4
 
+                    MessageBox.Show("months: " + months.ToString() + ", days: " + m_remainder.ToString());
                     if ((m_remainder >= 7) && (m_remainder < 30)) // If the remainder is a week or more
                     {
-                        int weeks = (int)m_remainder / 7;
-                        int w_remainder = (int)weeks % 7;
-
+                        int w_remainder = (int)m_remainder % 7;
+                        int weeks = (int)m_remainder / 7; // How many weeks are leftover
+                        MessageBox.Show("week remainder: " + w_remainder.ToString() + ", weeks: " + weeks.ToString());
                         if (w_remainder == 0) // If the remaining weeks are full weeks
                         {
+                            // If the customer is returning to a different branch
                             if ((customerAvail.checkBox.Checked == true) && (customerAvail.PickUpLoc.Text != customerAvail.RetLoc.Text))
                             {
+                                // If the customer is a gold member
                                 if (CustMemb == true)
-                                {Price = (months * MthlyRate) + (w_remainder * WklyRate);}
+                                {Price = (months * MthlyRate) + (weeks * WklyRate);} // No extra charge
                                 else
-                                {Price = (months * MthlyRate) + (w_remainder * WklyRate) + BFee;}
+                                {Price = (months * MthlyRate) + (weeks * WklyRate) + BFee;}
                             }
+                            // If the customer is returning to the same branch
                             else
-                            {Price = (months * MthlyRate) + (w_remainder * WklyRate);}
+                            {Price = (months * MthlyRate) + (weeks * WklyRate);}
 
                             return Price;
                         }
@@ -272,25 +282,28 @@ namespace CarRental
                             if ((customerAvail.checkBox.Checked == true) && (customerAvail.PickUpLoc.Text != customerAvail.RetLoc.Text))
                             {
                                 if (CustMemb == true)
-                                {Price = (months * MthlyRate) + (w_remainder * WklyRate) + (d_remainder * DailyRate);}
+                                {Price = (months * MthlyRate) + (weeks * WklyRate) + (d_remainder * DailyRate);}
                                 else
-                                {Price = (months * MthlyRate) + (w_remainder * WklyRate) + (d_remainder * DailyRate) + BFee;}
+                                {Price = (months * MthlyRate) + (weeks * WklyRate) + (d_remainder * DailyRate) + BFee;}
                             }
                             else
-                            {Price = (months * MthlyRate) + (w_remainder * WklyRate) + (d_remainder * DailyRate);}
+                            {Price = (months * MthlyRate) + (weeks * WklyRate) + (d_remainder * DailyRate);}
                         }
                         return Price;
                     }
 
                     else // If the remainder is less than a week
                     {
+                        // If the customer is returning to a different branch
                         if ((customerAvail.checkBox.Checked == true) && (customerAvail.PickUpLoc.Text != customerAvail.RetLoc.Text))
                         {
+                            // If the customer is a gold member
                             if (CustMemb == true)
-                            {Price = (months * MthlyRate) + (m_remainder * DailyRate);}
+                            {Price = (months * MthlyRate) + (m_remainder * DailyRate);} // No extra charge
                             else
                             {Price = (months * MthlyRate) + (m_remainder * DailyRate) + BFee;}
                         }
+                        // If the customer is returning to the same branch
                         else
                         {Price = (months * MthlyRate) + (m_remainder * DailyRate);}
 
