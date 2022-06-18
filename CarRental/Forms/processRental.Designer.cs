@@ -38,13 +38,6 @@
             this.authorizeTransac = new System.Windows.Forms.Button();
             this.custID = new System.Windows.Forms.TextBox();
             this.inventory = new System.Windows.Forms.DataGridView();
-            this.memberShip = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carType = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.makeC = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.carModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.branchAccess = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.costTot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -57,6 +50,13 @@
             this.returnDate = new System.Windows.Forms.DateTimePicker();
             this.availability = new System.Windows.Forms.Button();
             this.carTypes = new System.Windows.Forms.ComboBox();
+            this.memberShip = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carType = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.makeC = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.carModel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BranchID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.costTot = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.inventory)).BeginInit();
             this.SuspendLayout();
             // 
@@ -101,7 +101,7 @@
             this.carType,
             this.makeC,
             this.carModel,
-            this.branchAccess,
+            this.BranchID,
             this.costTot});
             this.inventory.Location = new System.Drawing.Point(195, 68);
             this.inventory.Name = "inventory";
@@ -109,69 +109,6 @@
             this.inventory.Size = new System.Drawing.Size(1073, 658);
             this.inventory.TabIndex = 25;
             this.inventory.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.inventory_CellContentClick);
-            // 
-            // memberShip
-            // 
-            this.memberShip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.memberShip.DefaultCellStyle = dataGridViewCellStyle1;
-            this.memberShip.HeaderText = "MEMBER STATUS";
-            this.memberShip.Name = "memberShip";
-            // 
-            // carID
-            // 
-            this.carID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.carID.DefaultCellStyle = dataGridViewCellStyle2;
-            this.carID.HeaderText = "CAR ID";
-            this.carID.Name = "carID";
-            // 
-            // carType
-            // 
-            this.carType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.carType.DefaultCellStyle = dataGridViewCellStyle3;
-            this.carType.HeaderText = "CAR TYPE";
-            this.carType.Name = "carType";
-            // 
-            // makeC
-            // 
-            this.makeC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.makeC.DefaultCellStyle = dataGridViewCellStyle4;
-            this.makeC.HeaderText = "MAKE";
-            this.makeC.Name = "makeC";
-            // 
-            // carModel
-            // 
-            this.carModel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.carModel.DefaultCellStyle = dataGridViewCellStyle5;
-            this.carModel.HeaderText = "MODEL";
-            this.carModel.Name = "carModel";
-            // 
-            // branchAccess
-            // 
-            this.branchAccess.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.branchAccess.DefaultCellStyle = dataGridViewCellStyle6;
-            this.branchAccess.HeaderText = "BRANCH";
-            this.branchAccess.Name = "branchAccess";
-            // 
-            // costTot
-            // 
-            this.costTot.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.costTot.DefaultCellStyle = dataGridViewCellStyle7;
-            this.costTot.HeaderText = "TOTAL COST";
-            this.costTot.Name = "costTot";
             // 
             // label1
             // 
@@ -309,6 +246,69 @@
             this.carTypes.Size = new System.Drawing.Size(140, 23);
             this.carTypes.TabIndex = 42;
             // 
+            // memberShip
+            // 
+            this.memberShip.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.memberShip.DefaultCellStyle = dataGridViewCellStyle1;
+            this.memberShip.HeaderText = "MEMBER STATUS";
+            this.memberShip.Name = "memberShip";
+            // 
+            // carID
+            // 
+            this.carID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.carID.DefaultCellStyle = dataGridViewCellStyle2;
+            this.carID.HeaderText = "CAR ID";
+            this.carID.Name = "carID";
+            // 
+            // carType
+            // 
+            this.carType.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.carType.DefaultCellStyle = dataGridViewCellStyle3;
+            this.carType.HeaderText = "CAR TYPE";
+            this.carType.Name = "carType";
+            // 
+            // makeC
+            // 
+            this.makeC.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.makeC.DefaultCellStyle = dataGridViewCellStyle4;
+            this.makeC.HeaderText = "MAKE";
+            this.makeC.Name = "makeC";
+            // 
+            // carModel
+            // 
+            this.carModel.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.carModel.DefaultCellStyle = dataGridViewCellStyle5;
+            this.carModel.HeaderText = "MODEL";
+            this.carModel.Name = "carModel";
+            // 
+            // BranchID
+            // 
+            this.BranchID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.BranchID.DefaultCellStyle = dataGridViewCellStyle6;
+            this.BranchID.HeaderText = "BRANCH";
+            this.BranchID.Name = "BranchID";
+            // 
+            // costTot
+            // 
+            this.costTot.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.costTot.DefaultCellStyle = dataGridViewCellStyle7;
+            this.costTot.HeaderText = "TOTAL COST";
+            this.costTot.Name = "costTot";
+            // 
             // processRental
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -360,7 +360,7 @@
         private DataGridViewTextBoxColumn carType;
         private DataGridViewTextBoxColumn makeC;
         private DataGridViewTextBoxColumn carModel;
-        private DataGridViewTextBoxColumn branchAccess;
+        private DataGridViewTextBoxColumn BranchID;
         private DataGridViewTextBoxColumn costTot;
     }
 }

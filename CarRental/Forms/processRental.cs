@@ -667,13 +667,19 @@ namespace CarRental.Forms
         }
         private void authorizeTransac_Click(object sender, EventArgs e)
         { 
-            string carFull;
+            string carFull, transacID, pickUpD, returnD, custID, pickUpBrID, returnBrID, carID, typeID;
+            decimal price;
             if(inventory.CurrentCell != null)
             {
                 int row = inventory.CurrentCell.RowIndex;
                 int col = inventory.CurrentCell.ColumnIndex;
                 carFull = (string)(inventory.Rows[row].Cells[1].Value.ToString().Trim() + " " + inventory.Rows[row].Cells[6].Value);
-                MessageBox.Show(carFull);
+                daps.query("select max[TID] trans" +
+                         " from RentalTrans");
+                daps.myReader.Read();
+                transacID = ((((decimal)daps.myReader["trans"]) + 1).ToString());
+                daps.myReader.Close();
+                MessageBox.Show(transacID);
             }
             else
             {
