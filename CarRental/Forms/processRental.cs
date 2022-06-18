@@ -59,23 +59,29 @@ namespace CarRental.Forms
             if (validCustomer(custID.Text) == true)
             {
                 member = memberStatusCheck(custID.Text);
-                if ((checkCarAvail(daps, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == false))
+                if ((checkCarAvail(daps, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == false) && (checkDate(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == false))
                 {
-                    MessageBox.Show("No Cars Available. Please change branch location and or car type");
+                    if ((checkDate_Gold(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim())) == true && member == true)
+                    {
+                        MessageBox.Show("Customer is a Gold DAPS Member and qualifies for an upgrade. Select UPGRADE to continue.");
+                    }
+                    else
+                    {
+                        MessageBox.Show("No Cars Available. Please change branch location and or car type");
+                    }
                 }
-                else if ((checkDate(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == false))
+                else if ((checkCarAvail(daps, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == true) && (checkDate(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == true))
                 {
-                    MessageBox.Show("No Cars Available. Please change pickup date and or return date");
-                }
-                else if ((checkDate_Gold(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim())) == true && member == true)
-                {
-                    MessageBox.Show("Customer is a Gold DAPS Member and qualifies for an upgrade. Select UPGRADE to continue.");
+                    MessageBox.Show("Cars Available.");
+                    decimal totalVal = getPriceRegular(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim(), returnBranch.Text.Trim());
+                    availableList(daps, member, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim(), totalVal);
                 }
                 else
                 {
                     MessageBox.Show("damn");
+
                 }
-            }           
+            }
         }
         //checks if text fields are filled
         private bool textFieldCheck()
@@ -93,7 +99,7 @@ namespace CarRental.Forms
         // Checks the validity of the dates in the boxes
         private bool dateValidity(DateTime returnD, DateTime pickD)
         {
-            if( returnD.CompareTo(pickD) < 0)
+            if (returnD.CompareTo(pickD) < 0)
             {
                 MessageBox.Show("Please enter a valid return date (at least 1 day after the pick-up date).", "Error");
                 return false;
@@ -112,7 +118,7 @@ namespace CarRental.Forms
             while (daps.myReader.Read())
             { customerIDs.Add(daps.myReader["CID"].ToString()); }
             daps.myReader.Close();
-            
+
             if (customerIDs.Contains(cid))
             {
                 return true;
@@ -190,6 +196,265 @@ namespace CarRental.Forms
             }
             return avail_date;
         }
+        //finds all avaiable cars for specified options
+        private bool availableList(Database daps, bool member, DateTime pickupDate, DateTime returnDate, String carType, String branchLoc, decimal price)
+        {
+            string statusMember;
+            if (member == true)
+            {
+                statusMember = "Gold";
+            }
+            else
+            {
+                statusMember = "Regular";
+            }
+            // Takes the eligible car details from the database (cars that match the car type and pickup branch that aren't linked to a transaction for the selected dates)
+            string query1 = "select C.[CAR_ID], CT.[Type],C.[Make], C.[Model], B.[Name]" +
+                         " from Car C, CarType CT, Branch B " +
+                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + branchLoc + "'" + " and CT.[Type] = " + "'" + carType + "'" +
+                         " except" +
+                         " (select C.[CAR_ID], CT.[Type], C.[Make], C.[Model], B.[Name]  " +
+                         " from Car C, CarType CT, Branch B, RentalTrans R" +
+                         " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
+                         " and B.[Name] = " + "'" + branchLoc + "'" + " and CT.[Type] = " + "'" + carType + "'" +
+                         " and ((convert(smalldatetime, " + "'" + pickupDate + "') between R.PickupDate and R.ReturnDate)" +
+                         " or (convert(smalldatetime, " + "'" + returnDate + "') between R.PickupDate and R.ReturnDate)" +
+                         " or (R.PickUpDate > convert(smalldatetime, " + "'" + pickupDate + "') and R.ReturnDate < convert(smalldatetime, " + "'" + returnDate + "'))))";
+            daps.query(query1);
+            inventory.Rows.Clear();
+
+            // If the reader returns something, then that means that the customer's initial search (gold or non-gold) went through
+            if (daps.myReader.Read() == true)
+            {
+                daps.myReader.Close();
+                daps.query(query1);
+                while (daps.myReader.Read())
+                {
+                    inventory.Rows.Add(statusMember, daps.myReader["CAR_ID"].ToString(), daps.myReader["Type"].ToString(), daps.myReader["Make"].ToString(), daps.myReader["Model"].ToString(),
+                        daps.myReader["Name"].ToString(), "$" + price.ToString());
+                }
+                daps.myReader.Close();
+            }
+            return true;
+
+        }
+        private decimal getPriceRegular(Database daps, DateTime pickDate, DateTime returnDate, String carType, String pickupBranch, String returnBranch)
+        {
+            decimal duration, dRate, wRate, mRate, price, bFee;
+            TimeSpan diff = (returnDate.Date - pickDate.Date);
+            duration = diff.Days;
+
+            // Gets the car's daily rate
+            daps.query("select DRate" +
+                         " from CarType" +
+                         " where CarType.[Type] = " + "'" + carType + "'");
+            daps.myReader.Read();
+            dRate = (decimal)daps.myReader["DRate"];
+            daps.myReader.Close();
+
+            // Gets the car's weekly rate
+            daps.query("select WRate" +
+                         " from CarType" +
+                         " where CarType.[Type] = " + "'" + carType + "'");
+            daps.myReader.Read();
+            wRate = (decimal)daps.myReader["WRate"];
+            daps.myReader.Close();
+
+            // Gets the car's monthly rate
+            daps.query("select MRate" +
+                         " from CarType" +
+                         " where CarType.[Type] = " + "'" + carType + "'");
+            daps.myReader.Read();
+            mRate = (decimal)daps.myReader["MRate"];
+            daps.myReader.Close();
+
+            // Gets the car's branch fee
+            daps.query("select BranchFee" +
+                         " from CarType" +
+                         " where CarType.[Type] = " + "'" + carType + "'");
+            daps.myReader.Read();
+            bFee = (decimal)daps.myReader["BranchFee"];
+            daps.myReader.Close();
+
+            // DAILY RATE
+            if ((duration > 0) && (duration < 7))
+            {
+                // Multiplies the car's daily rate by the number of days
+                if ((pickupBranch != returnBranch)) // If the car is to be returned at a different location
+                {
+                    price = (dRate * duration) + bFee;
+                }
+                else // If the car is to be returned to the same location
+                { price = (dRate * duration); }
+
+                return price;
+            }
+            // WEEKLY RATE
+            else if ((duration >= 7) && (duration < 30))
+            {
+                if (duration % 7 == 0) // Full weeks
+                {
+                    if ((pickupBranch != returnBranch))
+                    {
+                        price = ((duration / 7) * wRate) + bFee;
+                    }
+                    else // If returning to same location
+                    { price = (duration / 7) * wRate; }
+
+                    return price;
+                }
+                else // Uneven weeks
+                {
+                    int weeks = (int)duration / 7; // Gets the amount of full weeks
+                    int wks_remainder = (int)duration % 7; // Gets the amount of remaining days
+
+                    if ((pickupBranch != returnBranch))
+                    {
+                        price = ((decimal)weeks * wRate) + ((decimal)wks_remainder * dRate) + bFee;
+                    }
+                    else
+                    { price = ((decimal)weeks * wRate) + ((decimal)wks_remainder * dRate); }
+
+                    return price;
+                }
+            }
+            // MONTHLY RATE
+            else
+            {
+                if (duration % 30 == 0) // If full months
+                {
+                    if ((pickupBranch != returnBranch))
+                    {
+                        price = (((int)duration / 30) * mRate) + bFee;
+                    }
+                    else
+                    { price = ((int)duration / 30) * mRate; }
+
+                    return price;
+                }
+
+                else // If uneven months
+                {
+                    int months = (int)duration / 30; // e.g. 64 / 30 = 2
+                    int m_remainder = (int)duration % 30; // e.g. 64 % 30 = 4
+
+                    if ((m_remainder >= 7) && (m_remainder < 30)) // If the remainder is a week or more
+                    {
+                        int weeks = (int)m_remainder / 7;
+                        int w_remainder = (int)weeks % 7;
+
+                        if (w_remainder == 0) // If the remaining weeks are full weeks
+                        {
+                            if ((pickupBranch != returnBranch))
+                            {
+                                price = (months * mRate) + (w_remainder * wRate) + bFee;
+                            }
+                            else
+                            { price = (months * mRate) + (w_remainder * wRate); }
+
+                            return price;
+                        }
+                        else // If the remaining weeks are uneven
+                        {
+                            int d_remainder = w_remainder;
+                            if ((pickupBranch != returnBranch))
+                            {
+                                price = (months * mRate) + (w_remainder * wRate) + (d_remainder * dRate) + bFee;
+                            }
+                            else
+                            { price = (months * mRate) + (w_remainder * wRate) + (d_remainder * dRate); }
+                        }
+                        return price;
+                    }
+
+                    else // If the remainder is less than a week
+                    {
+                        if ((pickupBranch != returnBranch))
+                        {
+                            price = (months * mRate) + (m_remainder * dRate) + bFee;
+                        }
+                        else
+                        { price = (months * mRate) + (m_remainder * dRate); }
+
+                        return price;
+                    }
+                }
+            }
+        }
+        private void upgradeTransac_Click(object sender, EventArgs e)
+        {
+            if ((checkCarAvail(daps, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == false) && (checkDate(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == false))
+            {
+
+                inventory.Rows.Clear();
+                string carT = carTypes.Text.Trim();
+                DateTime pickUP = pickupDate.Value;
+                DateTime returnD = returnDate.Value;
+                string branchLoc = pickupBranch.Text.Trim();
+                if (((validCustomer(custID.Text.Trim())) == true) && ((memberStatusCheck(custID.Text.Trim())) == true) && ((checkDate_Gold(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim())) == true))
+                {
+                    string statusMember = "Gold";
+                    decimal totalPrice = getPriceGold(daps, pickUP, returnD, carT, branchLoc, returnBranch.Text.Trim());
+                    if (carT == "Sedan")
+                    {
+                        daps.query("select C.[CAR_ID], CT.[Type],C.[Make], C.[Model], B.[Name]" +
+                                 " from Car C, CarType CT, Branch B " +
+                                 " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + branchLoc + "'" + " and (CT.[Type] = 'SUV' or CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                                 " except" +
+                                 " (select C.[CAR_ID], CT.[Type],C.[Make], C.[Model], B.[Name] " +
+                                 " from Car C, CarType CT, Branch B, RentalTrans R" +
+                                 " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
+                                 " and B.[Name] = " + "'" + branchLoc + "'" + " and (CT.[Type] = 'SUV' or CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                                 " and ((convert(smalldatetime, " + "'" + pickUP + "') between R.PickupDate and R.ReturnDate)" +
+                                 " or (convert(smalldatetime, " + "'" + returnD + "') between R.PickupDate and R.ReturnDate)" +
+                                 " or (R.PickUpDate > convert(smalldatetime, " + "'" + pickUP + "') and R.ReturnDate < convert(smalldatetime, " + "'" + returnD + "'))))");
+                    }
+                    else if (carT == "SUV")
+                    {
+                        daps.query("select C.[CAR_ID], CT.[Type],C.[Make], C.[Model], B.[Name]" +
+                                 " from Car C, CarType CT, Branch B " +
+                                 " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + branchLoc + "'" + " and (CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                                 " except" +
+                                 " (select C.[CAR_ID], CT.[Type],C.[Make], C.[Model], B.[Name] " +
+                                 " from Car C, CarType CT, Branch B, RentalTrans R" +
+                                 " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
+                                 " and B.[Name] = " + "'" + branchLoc + "'" + " and (CT.[Type] = 'Minivan' or CT.[Type] = 'Luxury')" +
+                                 " and ((convert(smalldatetime, " + "'" + pickUP + "') between R.PickupDate and R.ReturnDate)" +
+                                 " or (convert(smalldatetime, " + "'" + returnD + "') between R.PickupDate and R.ReturnDate)" +
+                                 " or (R.PickUpDate > convert(smalldatetime, " + "'" + pickUP + "') and R.ReturnDate < convert(smalldatetime, " + "'" + returnD + "'))))");
+                    }
+                    else if (carT == "Minivan")
+                    {
+                        daps.query("select C.[CAR_ID], CT.[Type],C.[Make], C.[Model], B.[Name]" +
+                                 " from Car C, CarType CT, Branch B " +
+                                 " where C.BID = B.BID and C.CT_ID = CT.CT_ID and B.[Name] = " + "'" + branchLoc + "'" + " and CT.[Type] = 'Luxury'" +
+                                 " except" +
+                                 " (select C.[CAR_ID], CT.[Type],C.[Make], C.[Model], B.[Name] " +
+                                 " from Car C, CarType CT, Branch B, RentalTrans R" +
+                                 " where C.BID = B.BID and C.CT_ID = CT.CT_ID and R.CAR_ID = C.CAR_ID and R.CT_ID = CT.CT_ID and R.PickUpBID = B.BID" +
+                                 " and B.[Name] = " + "'" + branchLoc + "'" + " and CT.[Type] = 'Luxury'" +
+                                 " and ((convert(smalldatetime, " + "'" + pickUP + "') between R.PickupDate and R.ReturnDate)" +
+                                 " or (convert(smalldatetime, " + "'" + returnD + "') between R.PickupDate and R.ReturnDate)" +
+                                 " or (R.PickUpDate > convert(smalldatetime, " + "'" + pickUP + "') and R.ReturnDate < convert(smalldatetime, " + "'" + returnD + "'))))");
+                    }
+                    while (daps.myReader.Read())
+                    {
+                        inventory.Rows.Add(statusMember, daps.myReader["CAR_ID"].ToString(), daps.myReader["Type"].ToString(), daps.myReader["Make"].ToString(), daps.myReader["Model"].ToString(),
+                            daps.myReader["Name"].ToString(), "$" + totalPrice.ToString());
+                    }
+                    daps.myReader.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Customer is not a valid GOLD DAPS MEMBER.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Cannot Upgrade.");
+            }
+        }
+        
         //------Function that checks if the higher car types for gold members are available for the selected dates------
         private bool checkDate_Gold(Database daps, DateTime PickupD, DateTime ReturnD, string CT, string Loc)
         {
@@ -294,16 +559,127 @@ namespace CarRental.Forms
             }
             return avail_date;
         }
+        
+        private decimal getPriceGold(Database daps, DateTime pickDate, DateTime returnDate, String carType, String pickupBranch, String returnBranch)
+        {
+            decimal duration, dRate, wRate, mRate, price, bFee;
+            TimeSpan diff = (returnDate.Date - pickDate.Date);
+            duration = diff.Days;
 
+            // Gets the car's daily rate
+            daps.query("select DRate" +
+                         " from CarType" +
+                         " where CarType.[Type] = " + "'" + carType + "'");
+            daps.myReader.Read();
+            dRate = (decimal)daps.myReader["DRate"];
+            daps.myReader.Close();
 
+            // Gets the car's weekly rate
+            daps.query("select WRate" +
+                         " from CarType" +
+                         " where CarType.[Type] = " + "'" + carType + "'");
+            daps.myReader.Read();
+            wRate = (decimal)daps.myReader["WRate"];
+            daps.myReader.Close();
 
+            // Gets the car's monthly rate
+            daps.query("select MRate" +
+                         " from CarType" +
+                         " where CarType.[Type] = " + "'" + carType + "'");
+            daps.myReader.Read();
+            mRate = (decimal)daps.myReader["MRate"];
+            daps.myReader.Close();
 
+            // Gets the car's branch fee
+            daps.query("select BranchFee" +
+                         " from CarType" +
+                         " where CarType.[Type] = " + "'" + carType + "'");
+            daps.myReader.Read();
+            bFee = (decimal)daps.myReader["BranchFee"];
+            daps.myReader.Close();
+            // DAILY RATE
+            if ((duration > 0) && (duration < 7))
+            {
+                price = (dRate * duration);
+                return price;
+            }
+            // WEEKLY RATE
+            else if ((duration >= 7) && (duration < 30))
+            {
+                if (duration % 7 == 0) // Full weeks
+                {
+                    price = (duration / 7) * wRate;
+                    return price;
+                }
+                else // Uneven weeks
+                {
+                    int weeks = (int)duration / 7; // Gets the amount of full weeks
+                    int wks_remainder = (int)duration % 7; // Gets the amount of remaining days
+                    price = ((decimal)weeks * wRate) + ((decimal)wks_remainder * dRate);
+                    return price;
+                }
+            }
+            // MONTHLY RATE
+            else
+            {
+                if (duration % 30 == 0) // If full months
+                {
+                    price = ((int)duration / 30) * mRate;
+                    return price;
+                }
 
+                else // If uneven months
+                {
+                    int months = (int)duration / 30; // e.g. 64 / 30 = 2
+                    int m_remainder = (int)duration % 30; // e.g. 64 % 30 = 4
 
+                    if ((m_remainder >= 7) && (m_remainder < 30)) // If the remainder is a week or more
+                    {
+                        int weeks = (int)m_remainder / 7;
+                        int w_remainder = (int)weeks % 7;
 
+                        if (w_remainder == 0) // If the remaining weeks are full weeks
+                        {
+                            price = (months * mRate) + (w_remainder * wRate);
+                            return price;
+                        }
+                        else // If the remaining weeks are uneven
+                        {
+                            int d_remainder = w_remainder;
+                            price = (months * mRate) + (w_remainder * wRate) + (d_remainder * dRate);
+                        }
+                        return price;
+                    }
 
+                    else // If the remainder is less than a week
+                    {
+                        price = (months * mRate) + (m_remainder * dRate);
+                        return price;
+                    }
+                }
+            }
+        }
+        private void inventory_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int row = inventory.CurrentCell.RowIndex;
+            int col = inventory.CurrentCell.ColumnIndex;
 
-
+        }
+        private void authorizeTransac_Click(object sender, EventArgs e)
+        { 
+            string carFull;
+            if(inventory.CurrentCell != null)
+            {
+                int row = inventory.CurrentCell.RowIndex;
+                int col = inventory.CurrentCell.ColumnIndex;
+                carFull = (string)(inventory.Rows[row].Cells[1].Value.ToString().Trim() + " " + inventory.Rows[row].Cells[6].Value);
+                MessageBox.Show(carFull);
+            }
+            else
+            {
+                MessageBox.Show("Please select an item from the list.");
+            }
+        }
 
     }
 }
