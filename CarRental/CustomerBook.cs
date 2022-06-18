@@ -25,6 +25,7 @@ namespace CarRental
             this.customerAvail = customerAvail;
             this.start = start;
 
+            // Takes the input from the previous form and assigns each to a variable to be used in this form
             string CarType = this.customerAvail.CarType.Text.Trim().ToString();
             string CID = this.customerAvail.IdBox.Text.Trim().ToString();
             string PickupDate = this.customerAvail.pickupDate.Text.Trim().ToString();
@@ -216,7 +217,7 @@ namespace CarRental
                     {
                         // If the customer is a gold member
                         if (CustMemb == true)
-                        {Price = (weeks * WklyRate) + (wks_remainder * DailyRate);}
+                        {Price = (weeks * WklyRate) + (wks_remainder * DailyRate);} // No extra charge
                         else
                         {Price = (weeks * WklyRate) + (wks_remainder * DailyRate) + BFee;}
                     }
@@ -253,12 +254,11 @@ namespace CarRental
                     int months = (int)days / 30; // e.g. 64 / 30 = 2
                     int m_remainder = (int)days % 30; // e.g. 64 % 30 = 4
 
-                    MessageBox.Show("months: " + months.ToString() + ", days: " + m_remainder.ToString());
                     if ((m_remainder >= 7) && (m_remainder < 30)) // If the remainder is a week or more
                     {
                         int w_remainder = (int)m_remainder % 7;
                         int weeks = (int)m_remainder / 7; // How many weeks are leftover
-                        MessageBox.Show("week remainder: " + w_remainder.ToString() + ", weeks: " + weeks.ToString());
+
                         if (w_remainder == 0) // If the remaining weeks are full weeks
                         {
                             // If the customer is returning to a different branch
@@ -313,8 +313,10 @@ namespace CarRental
             }
         }
 
+        //------Event for when the Home button is clicked------
         private void Home_Click(object sender, EventArgs e)
         {
+            // Closes the form and returns to the initial form (Start)
             this.DialogResult = DialogResult.OK;
         }
 
@@ -325,10 +327,14 @@ namespace CarRental
             customerConfirm.ShowDialog();
         }
 
+        //------Event for when a cell on the grid is clicked------
         private void ValueGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+            // Takes the row and column index of the clicked cell
             int row = ValueGrid.CurrentCell.RowIndex;
             int col = ValueGrid.CurrentCell.ColumnIndex;
+
+            // Combines the row index of columns 2 and 3 to display the car name to the customer when clicked
             SelectedCar.Text = (string)(ValueGrid.Rows[row].Cells[2].Value.ToString().Trim() + " " + ValueGrid.Rows[row].Cells[3].Value.ToString().Trim());
         }
 
