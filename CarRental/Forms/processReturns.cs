@@ -31,13 +31,10 @@ namespace CarRental.Forms
         private void label1_Click(object sender, EventArgs e)
         {
 
-        }
-
-        
+        }  
 
         private void availability_Click(object sender, EventArgs e)
         {
-            
             if (validCustomer(custID.Text) == true && textFieldCheck() == true)
             {
                 string cust = custID.Text.Trim();
@@ -56,6 +53,27 @@ namespace CarRental.Forms
                     }
                 }
                 daps.myReader.Close();
+
+                daps.query("select MembType from Customer where Customer.[CID] = " + "'" + custID.Text + "'");
+                daps.myReader.Read();
+                bool membType = (bool)daps.myReader["MembType"];
+                daps.myReader.Close();
+
+                if (membType == false)
+                {
+                    daps.query("select R.CID " +
+                               "from RentalTrans R, Customer C " +
+                               "where R.CID = C.CID and C.CID = '" + custID.Text.Trim() + "' " +
+                               "group by R.CID " +
+                               "having count(*) > 3");
+                    if (daps.myReader.Read() == true)
+                    {
+                        daps.myReader.Close();
+                        daps.query("update Customer set MembType = 1 where CID = '" + custID.Text.Trim() + "'");
+                        MessageBox.Show("You have exceeded 3 transactions and your membership has been converted to Gold.");
+                        daps.myReader.Close();
+                    }
+                }
             }
             else
             {
