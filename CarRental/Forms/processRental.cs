@@ -341,16 +341,16 @@ namespace CarRental.Forms
                     if ((m_remainder >= 7) && (m_remainder < 30)) // If the remainder is a week or more
                     {
                         int weeks = (int)m_remainder / 7;
-                        int w_remainder = (int)weeks % 7;
+                        int w_remainder = (int)m_remainder % 7;
 
                         if (w_remainder == 0) // If the remaining weeks are full weeks
                         {
                             if ((pickupBranch != returnBranch))
                             {
-                                price = (months * mRate) + (w_remainder * wRate) + bFee;
+                                price = (months * mRate) + (weeks * wRate) + bFee;
                             }
                             else
-                            { price = (months * mRate) + (w_remainder * wRate); }
+                            { price = (months * mRate) + (weeks * wRate); }
 
                             return price;
                         }
@@ -359,10 +359,10 @@ namespace CarRental.Forms
                             int d_remainder = w_remainder;
                             if ((pickupBranch != returnBranch))
                             {
-                                price = (months * mRate) + (w_remainder * wRate) + (d_remainder * dRate) + bFee;
+                                price = (months * mRate) + (weeks * wRate) + (d_remainder * dRate) + bFee;
                             }
                             else
-                            { price = (months * mRate) + (w_remainder * wRate) + (d_remainder * dRate); }
+                            { price = (months * mRate) + (weeks * wRate) + (d_remainder * dRate); }
                         }
                         return price;
                     }
@@ -636,17 +636,17 @@ namespace CarRental.Forms
                     if ((m_remainder >= 7) && (m_remainder < 30)) // If the remainder is a week or more
                     {
                         int weeks = (int)m_remainder / 7;
-                        int w_remainder = (int)weeks % 7;
+                        int w_remainder = (int)m_remainder % 7;
 
                         if (w_remainder == 0) // If the remaining weeks are full weeks
                         {
-                            price = (months * mRate) + (w_remainder * wRate);
+                            price = (months * mRate) + (weeks * wRate);
                             return price;
                         }
                         else // If the remaining weeks are uneven
                         {
                             int d_remainder = w_remainder;
-                            price = (months * mRate) + (w_remainder * wRate) + (d_remainder * dRate);
+                            price = (months * mRate) + (weeks * wRate) + (d_remainder * dRate);
                         }
                         return price;
                     }
