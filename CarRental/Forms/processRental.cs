@@ -72,9 +72,17 @@ namespace CarRental.Forms
                 }
                 else if ((checkCarAvail(daps, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == true) && (checkDate(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim()) == true))
                 {
-                    MessageBox.Show("Cars Available.");
-                    decimal totalVal = getPriceRegular(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim(), returnBranch.Text.Trim());
-                    availableList(daps, member, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim(), totalVal);
+                    if((returnBranch.Text != pickupBranch.Text) && (member == true))
+                    {
+                        decimal goldVal = getPriceGold(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim(), returnBranch.Text.Trim());
+                        availableList(daps, member, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim(), goldVal);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Cars Available.");
+                        decimal totalVal = getPriceRegular(daps, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim(), returnBranch.Text.Trim());
+                        availableList(daps, member, pickupDate.Value, returnDate.Value, carTypes.Text.Trim(), pickupBranch.Text.Trim(), totalVal);
+                    }
                 }
                 else
                 {
@@ -601,7 +609,7 @@ namespace CarRental.Forms
             if ((duration > 0) && (duration < 7))
             {
                 price = (dRate * duration);
-                return price;
+                return price + 1;
             }
             // WEEKLY RATE
             else if ((duration >= 7) && (duration < 30))
