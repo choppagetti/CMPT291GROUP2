@@ -57,6 +57,7 @@ namespace CarRental
             returns.BackColor = ColorTranslator.FromHtml("#192bc2");
             rentals.BackColor = ColorTranslator.FromHtml("#192bc2");
             reports.BackColor = ColorTranslator.FromHtml("#192bc2");
+            open_Forms(new Forms.AvailabilityandCost(), sender);
         }
 
         private void inventory_Click(object sender, EventArgs e)
