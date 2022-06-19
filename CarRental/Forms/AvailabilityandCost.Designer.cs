@@ -61,20 +61,21 @@
             // 
             this.carTypes.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.carTypes.FormattingEnabled = true;
-            this.carTypes.Location = new System.Drawing.Point(61, 146);
+            this.carTypes.Location = new System.Drawing.Point(40, 145);
             this.carTypes.Name = "carTypes";
             this.carTypes.Size = new System.Drawing.Size(140, 23);
             this.carTypes.TabIndex = 55;
             // 
             // availability
             // 
+            this.availability.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.availability.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(96)))), ((int)(((byte)(26)))), ((int)(((byte)(62)))));
             this.availability.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(50)))), ((int)(((byte)(96)))));
             this.availability.FlatAppearance.BorderSize = 6;
             this.availability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.availability.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.availability.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.availability.Location = new System.Drawing.Point(61, 610);
+            this.availability.Location = new System.Drawing.Point(40, 609);
             this.availability.Name = "availability";
             this.availability.Size = new System.Drawing.Size(140, 40);
             this.availability.TabIndex = 54;
@@ -85,7 +86,7 @@
             // returnDate
             // 
             this.returnDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.returnDate.Location = new System.Drawing.Point(61, 315);
+            this.returnDate.Location = new System.Drawing.Point(40, 314);
             this.returnDate.Name = "returnDate";
             this.returnDate.Size = new System.Drawing.Size(140, 23);
             this.returnDate.TabIndex = 53;
@@ -93,7 +94,7 @@
             // pickupDate
             // 
             this.pickupDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.pickupDate.Location = new System.Drawing.Point(61, 222);
+            this.pickupDate.Location = new System.Drawing.Point(40, 221);
             this.pickupDate.Name = "pickupDate";
             this.pickupDate.Size = new System.Drawing.Size(140, 23);
             this.pickupDate.TabIndex = 52;
@@ -103,7 +104,7 @@
             // 
             this.returnBranch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.returnBranch.FormattingEnabled = true;
-            this.returnBranch.Location = new System.Drawing.Point(61, 509);
+            this.returnBranch.Location = new System.Drawing.Point(40, 508);
             this.returnBranch.Name = "returnBranch";
             this.returnBranch.Size = new System.Drawing.Size(140, 23);
             this.returnBranch.TabIndex = 51;
@@ -112,7 +113,7 @@
             // 
             this.pickupBranch.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.pickupBranch.FormattingEnabled = true;
-            this.pickupBranch.Location = new System.Drawing.Point(61, 412);
+            this.pickupBranch.Location = new System.Drawing.Point(40, 411);
             this.pickupBranch.Name = "pickupBranch";
             this.pickupBranch.Size = new System.Drawing.Size(140, 23);
             this.pickupBranch.TabIndex = 50;
@@ -123,7 +124,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(50)))), ((int)(((byte)(96)))));
-            this.label5.Location = new System.Drawing.Point(90, 122);
+            this.label5.Location = new System.Drawing.Point(69, 121);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(80, 21);
             this.label5.TabIndex = 49;
@@ -135,7 +136,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(50)))), ((int)(((byte)(96)))));
-            this.label4.Location = new System.Drawing.Point(61, 485);
+            this.label4.Location = new System.Drawing.Point(40, 484);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(139, 21);
             this.label4.TabIndex = 48;
@@ -147,7 +148,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(50)))), ((int)(((byte)(96)))));
-            this.label3.Location = new System.Drawing.Point(68, 388);
+            this.label3.Location = new System.Drawing.Point(47, 387);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(133, 21);
             this.label3.TabIndex = 47;
@@ -159,7 +160,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(50)))), ((int)(((byte)(96)))));
-            this.label2.Location = new System.Drawing.Point(72, 291);
+            this.label2.Location = new System.Drawing.Point(51, 290);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(112, 21);
             this.label2.TabIndex = 46;
@@ -171,7 +172,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(135)))), ((int)(((byte)(50)))), ((int)(((byte)(96)))));
-            this.label1.Location = new System.Drawing.Point(78, 198);
+            this.label1.Location = new System.Drawing.Point(57, 197);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 21);
             this.label1.TabIndex = 45;
