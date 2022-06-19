@@ -24,18 +24,18 @@ namespace CarRental
             D2 = new Database();
             this.start = start;
 
-            // Fills in the Car Type combo box with car type values from the database
+            // Fills in the Car Type combo box and list with car type values from the database
             D2.query("select [Type] from CarType");
             while (D2.myReader.Read())
-            { CarType.Items.Add(D2.myReader["Type"].ToString()); }
+            { CarType.Items.Add(D2.myReader["Type"].ToString().Trim());}
             D2.myReader.Close();
 
-            // Fills in the Pick-up and Return Location combo boxes with Branch name values from the database
+            // Fills in the Pick-up and Return Location combo boxes and list with Branch name values from the database
             D2.query("select [Name] from Branch");
             while (D2.myReader.Read())
             {
-             PickUpLoc.Items.Add(D2.myReader["Name"].ToString());
-             RetLoc.Items.Add(D2.myReader["Name"].ToString());
+             PickUpLoc.Items.Add(D2.myReader["Name"].ToString().Trim());
+             RetLoc.Items.Add(D2.myReader["Name"].ToString().Trim());
             }
             D2.myReader.Close();
 
@@ -57,7 +57,6 @@ namespace CarRental
         private void CheckAvail_Click(object sender, EventArgs e)
         {
             // Ensures user fills in the required fields
-
             // If the checkBox isn't checked, then we don't need a value for the Return Location
             if (!checkBox.Checked)
             {
@@ -77,16 +76,53 @@ namespace CarRental
                 }
             }
 
+            List<string> CarTypes = new List<string>();
+            List<string> Branches = new List<string>();
+
+            // Fills in the Car Types list with car type values from the database
+            D2.query("select [Type] from CarType");
+            while (D2.myReader.Read())
+            {CarTypes.Add(D2.myReader["Type"].ToString().Trim());}
+            D2.myReader.Close();
+
+            // Ensures the user enters a valid car type into the combo box
+            if (!CarTypes.Contains(CarType.Text.Trim()))
+            {
+                MessageBox.Show("Please choose a valid Car Type.", "Error");
+                return;
+            }
+
+            // Fills in the Branches list with Branch name values from the database
+            D2.query("select [Name] from Branch");
+            while (D2.myReader.Read())
+            {Branches.Add(D2.myReader["Name"].ToString().Trim());}
+            D2.myReader.Close();
+            MessageBox.Show("'" + Branches[0].ToString() + "'");
+
+            // Ensures the user enters a valid pick-up location into the combo box
+            if (!Branches.Contains(PickUpLoc.Text.Trim()))
+            {
+                MessageBox.Show("Please choose a valid Pick-Up Location.", "Error");
+                return;
+            }
+
+            // Ensures the user enters a valid return location into the combo box
+            if ((checkBox.Checked == true) && (!Branches.Contains(RetLoc.Text.Trim())))
+            {
+                MessageBox.Show("Please choose a valid Return Location.", "Error");
+                return;
+            }
+
             // Takes all of the customer IDs from the database and adds them to a list
             List<string> CustID = new List<string>();
             D2.query("select CID from Customer");
             while (D2.myReader.Read())
-            {CustID.Add(D2.myReader["CID"].ToString());}
+            {CustID.Add(D2.myReader["CID"].ToString().Trim());}
             D2.myReader.Close();
 
             // If the customer ID entered is not in the database, error message is thrown
-            if (!CustID.Contains(IdBox.Text))
-            {   MessageBox.Show("Customer ID could not be found in the system.", "Error");
+            if (!CustID.Contains(IdBox.Text.Trim()))
+            {   MessageBox.Show("Customer ID could not be found in the system. Please enter a valid Customer ID.", "Error");
                 return;
             }
 
