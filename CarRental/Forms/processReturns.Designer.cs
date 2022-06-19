@@ -32,8 +32,6 @@
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.custID = new System.Windows.Forms.TextBox();
             this.normalRet = new System.Windows.Forms.Button();
-            this.carIDRental = new System.Windows.Forms.Label();
-            this.branches = new System.Windows.Forms.ComboBox();
             this.transID = new System.Windows.Forms.TextBox();
             this.availability = new System.Windows.Forms.Button();
             this.returnDate = new System.Windows.Forms.DateTimePicker();
@@ -47,7 +45,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.label1.Location = new System.Drawing.Point(39, 341);
+            this.label1.Location = new System.Drawing.Point(39, 299);
             this.label1.Name = "label1";
             this.label1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
             this.label1.Size = new System.Drawing.Size(117, 21);
@@ -94,27 +92,6 @@
             this.normalRet.Text = "AUTHORIZE RETURN";
             this.normalRet.UseVisualStyleBackColor = false;
             // 
-            // carIDRental
-            // 
-            this.carIDRental.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.carIDRental.AutoSize = true;
-            this.carIDRental.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.carIDRental.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(209)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.carIDRental.Location = new System.Drawing.Point(30, 263);
-            this.carIDRental.Name = "carIDRental";
-            this.carIDRental.Size = new System.Drawing.Size(139, 21);
-            this.carIDRental.TabIndex = 39;
-            this.carIDRental.Text = "RETURN BRANCH";
-            // 
-            // branches
-            // 
-            this.branches.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.branches.FormattingEnabled = true;
-            this.branches.Location = new System.Drawing.Point(29, 287);
-            this.branches.Name = "branches";
-            this.branches.Size = new System.Drawing.Size(140, 23);
-            this.branches.TabIndex = 59;
-            // 
             // transID
             // 
             this.transID.Anchor = System.Windows.Forms.AnchorStyles.Top;
@@ -135,7 +112,7 @@
             this.availability.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.availability.Font = new System.Drawing.Font("Verdana", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.availability.ForeColor = System.Drawing.SystemColors.HighlightText;
-            this.availability.Location = new System.Drawing.Point(29, 461);
+            this.availability.Location = new System.Drawing.Point(29, 419);
             this.availability.Name = "availability";
             this.availability.Size = new System.Drawing.Size(140, 40);
             this.availability.TabIndex = 63;
@@ -145,7 +122,7 @@
             // returnDate
             // 
             this.returnDate.Anchor = System.Windows.Forms.AnchorStyles.Left;
-            this.returnDate.Location = new System.Drawing.Point(29, 365);
+            this.returnDate.Location = new System.Drawing.Point(29, 323);
             this.returnDate.Name = "returnDate";
             this.returnDate.Size = new System.Drawing.Size(140, 23);
             this.returnDate.TabIndex = 64;
@@ -176,12 +153,10 @@
             this.Controls.Add(this.returnDate);
             this.Controls.Add(this.availability);
             this.Controls.Add(this.transID);
-            this.Controls.Add(this.branches);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.custID);
             this.Controls.Add(this.normalRet);
-            this.Controls.Add(this.carIDRental);
             this.Name = "processReturns";
             this.Text = "processReturns";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -195,8 +170,6 @@
         private DataGridView dataGridView1;
         private TextBox custID;
         private Button normalRet;
-        private Label carIDRental;
-        private ComboBox branches;
         private TextBox transID;
         private Button availability;
         private DateTimePicker returnDate;

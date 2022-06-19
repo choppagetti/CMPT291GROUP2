@@ -212,6 +212,7 @@
             this.pickupDate.Name = "pickupDate";
             this.pickupDate.Size = new System.Drawing.Size(140, 23);
             this.pickupDate.TabIndex = 39;
+            this.pickupDate.Value = new System.DateTime(2022, 6, 18, 17, 44, 37, 0);
             // 
             // returnDate
             // 
