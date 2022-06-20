@@ -58,7 +58,6 @@
             this.BRANCH_comboBox = new System.Windows.Forms.ComboBox();
             this.headerBackground = new System.Windows.Forms.Panel();
             this.page_name = new System.Windows.Forms.Label();
-            this.logout_button = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.sidebarBackground = new System.Windows.Forms.Panel();
             this.TYPE_comboBox = new System.Windows.Forms.ComboBox();
@@ -340,7 +339,6 @@
             // 
             this.headerBackground.BackColor = System.Drawing.Color.LightSteelBlue;
             this.headerBackground.Controls.Add(this.page_name);
-            this.headerBackground.Controls.Add(this.logout_button);
             this.headerBackground.Controls.Add(this.panel2);
             this.headerBackground.Location = new System.Drawing.Point(-5, 0);
             this.headerBackground.Name = "headerBackground";
@@ -356,15 +354,6 @@
             this.page_name.Size = new System.Drawing.Size(782, 70);
             this.page_name.TabIndex = 24;
             this.page_name.Text = "CAR INVENTORY MANAGEMENT";
-            // 
-            // logout_button
-            // 
-            this.logout_button.Location = new System.Drawing.Point(17, 12);
-            this.logout_button.Name = "logout_button";
-            this.logout_button.Size = new System.Drawing.Size(112, 34);
-            this.logout_button.TabIndex = 23;
-            this.logout_button.Text = "LOG OUT";
-            this.logout_button.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -387,6 +376,8 @@
             // 
             // TYPE_comboBox
             // 
+            this.TYPE_comboBox.BackColor = System.Drawing.SystemColors.Window;
+            this.TYPE_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TYPE_comboBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TYPE_comboBox.FormattingEnabled = true;
             this.TYPE_comboBox.Location = new System.Drawing.Point(21, 207);
@@ -470,7 +461,6 @@
         private Panel headerBackground;
         private Panel panel2;
         private Panel sidebarBackground;
-        private Button logout_button;
         private Label page_name;
         private DataGridViewTextBoxColumn CAR_ID;
         private DataGridViewTextBoxColumn PIN;
