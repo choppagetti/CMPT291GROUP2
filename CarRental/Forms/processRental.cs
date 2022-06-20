@@ -86,7 +86,7 @@ namespace CarRental.Forms
                 }
                 else
                 {
-                    MessageBox.Show("damn");
+                    MessageBox.Show("No Cars Available. Please change branch location and or car type");
 
                 }
             }
@@ -720,7 +720,8 @@ namespace CarRental.Forms
                 daps.query("insert into RentalTrans values(" + "'00" + transacIDString + "'," + "'" + pickUpD + "'," + "'" + returnD + "'," + "'" + DBNull.Value + "'," + "'" + price + "'," + "'" + customerID + "'," + "'" + pickUpBrID + "'," + "'" + returnBrID + "'," + "'" + carsID + "'," + "'" + typeID + "');"); // actual return date is set to 1900-01-01 00:00:00
                 daps.myReader.Read();
                 daps.myReader.Close();
-                MessageBox.Show("00" + transacIDString + " pickup: " + pickUpD + " return: " + returnD + " custID: " + customerID + "  pickup Branch: " + pickUpBrID + "  return branch:" + returnBrID + " car ID: " + carsID + " " + " type ID: " + typeID);
+                MessageBox.Show("Transaction ID: 00" + transacIDString + "\n" + "Pickup Date: " + pickUpD + "\n" + "Return Date: " + returnD + "\n" + "Customer ID: " + customerID + "\n" + "Pickup Branch: " + pickUpBrID + "\n" + "Return Branch: " + returnBrID + 
+                    "\n" + "Car ID: " + carsID + "\n" + "Car Type ID: " + typeID, "Booking Details");
             }
             else
             {
