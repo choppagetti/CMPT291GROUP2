@@ -320,13 +320,6 @@ namespace CarRental
             this.DialogResult = DialogResult.OK;
         }
 
-        private void SelectButton_Click_1(object sender, EventArgs e)
-        {
-            CustomerConfirm customerConfirm = new(this);
-            this.Hide();
-            customerConfirm.ShowDialog();
-        }
-
         //------Event for when a cell on the grid is clicked------
         private void ValueGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

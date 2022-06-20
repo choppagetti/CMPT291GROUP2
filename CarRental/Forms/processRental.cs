@@ -609,7 +609,7 @@ namespace CarRental.Forms
             if ((duration > 0) && (duration < 7))
             {
                 price = (dRate * duration);
-                return price + 1;
+                return price;
             }
             // WEEKLY RATE
             else if ((duration >= 7) && (duration < 30))
