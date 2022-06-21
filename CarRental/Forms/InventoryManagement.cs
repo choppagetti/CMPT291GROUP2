@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CarRental
+namespace CarRental.Forms
 {
     public partial class InventoryManagement : Form
     {
@@ -69,6 +69,8 @@ namespace CarRental
         private void add_button_Click(object sender, EventArgs e)
         {
             // The following block takes all user inputs and error checks 
+            string BRANCH = BRANCH_comboBox.Text;
+            if (BRANCH == "") { MessageBox.Show("Please select branch name to add a new car to the inventory.", "Missing field"); return; }
             string CARID = CARID_textBox.Text;
             if (CARID == "") { MessageBox.Show("Please fill out CAR ID to add a new car to the inventory.", "Missing field"); return; }
             string PIN = PIN_textBox.Text;
@@ -85,8 +87,6 @@ namespace CarRental
             if (MILES == "") { MessageBox.Show("Please fill out MILES to add a new car to the inventory.", "Missing field"); return; }
             string YEAR = YEAR_textBox.Text;
             if (YEAR == "") { MessageBox.Show("Please fill out YEAR to add a new car to the inventory.", "Missing field"); return; }
-            string BRANCH = BRANCH_comboBox.Text;
-            if (BRANCH == "") { MessageBox.Show("Please select branch name to add a new car to the inventory.", "Missing field"); return; }
             else
             {
                 // The following block checks to see if given CAR ID already exists in database
@@ -133,7 +133,7 @@ namespace CarRental
                     // The following block adds the new car details to database 
                     string addQuery = "insert into Car " +
                         "values ('" + CARID + "', '" + PIN + "', '" + PLATENO + "','" + MODEL + "', " +
-                        "'" + MAKE + "', '" + MILES + "', '" + YEAR + "', '" + BID + "', '" + TypeID + "') ";
+                        "'" + MAKE + "', " + Int32.Parse(MILES) + ", " + Int32.Parse(YEAR) + ", '" + BID + "', '" + TypeID + "') ";
                     D.insert(addQuery);
 
                     // Calls the two functions to update the information on the gridview automatically

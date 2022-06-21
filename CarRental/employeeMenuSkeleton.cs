@@ -69,6 +69,7 @@ namespace CarRental
             returns.BackColor = ColorTranslator.FromHtml("#192bc2");
             rentals.BackColor = ColorTranslator.FromHtml("#192bc2");
             reports.BackColor = ColorTranslator.FromHtml("#192bc2");
+            open_Forms(new Forms.InventoryManagement(), sender);
         }
 
         private void returns_Click(object sender, EventArgs e)
@@ -92,6 +93,7 @@ namespace CarRental
             returns.BackColor = ColorTranslator.FromHtml("#192bc2");
             rentals.BackColor = ColorTranslator.FromHtml("#192bc2");
             inventory.BackColor = ColorTranslator.FromHtml("#192bc2");
+            open_Forms(new Forms.FilipReports(), sender);
         }
 
         private void rentals_Click(object sender, EventArgs e)
