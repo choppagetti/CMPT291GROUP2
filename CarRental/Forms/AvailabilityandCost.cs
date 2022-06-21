@@ -65,7 +65,7 @@ namespace CarRental.Forms
             }
             else
             {
-                MessageBox.Show("No Hits.");
+                MessageBox.Show("No cars found.");
             }
         }
         //checks if text fields are filled

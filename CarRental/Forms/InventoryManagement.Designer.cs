@@ -70,9 +70,10 @@
             // CARID_textBox
             // 
             this.CARID_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CARID_textBox.Location = new System.Drawing.Point(21, 45);
+            this.CARID_textBox.Location = new System.Drawing.Point(17, 36);
+            this.CARID_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.CARID_textBox.Name = "CARID_textBox";
-            this.CARID_textBox.Size = new System.Drawing.Size(189, 39);
+            this.CARID_textBox.Size = new System.Drawing.Size(152, 34);
             this.CARID_textBox.TabIndex = 0;
             // 
             // CARID_label
@@ -80,9 +81,10 @@
             this.CARID_label.AutoSize = true;
             this.CARID_label.BackColor = System.Drawing.Color.Gainsboro;
             this.CARID_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CARID_label.Location = new System.Drawing.Point(75, 140);
+            this.CARID_label.Location = new System.Drawing.Point(60, 112);
+            this.CARID_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.CARID_label.Name = "CARID_label";
-            this.CARID_label.Size = new System.Drawing.Size(88, 32);
+            this.CARID_label.Size = new System.Drawing.Size(73, 28);
             this.CARID_label.TabIndex = 1;
             this.CARID_label.Text = "CAR ID";
             // 
@@ -91,9 +93,10 @@
             this.PIN_label.AutoSize = true;
             this.PIN_label.BackColor = System.Drawing.Color.Gainsboro;
             this.PIN_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PIN_label.Location = new System.Drawing.Point(90, 217);
+            this.PIN_label.Location = new System.Drawing.Point(72, 174);
+            this.PIN_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PIN_label.Name = "PIN_label";
-            this.PIN_label.Size = new System.Drawing.Size(51, 32);
+            this.PIN_label.Size = new System.Drawing.Size(43, 28);
             this.PIN_label.TabIndex = 2;
             this.PIN_label.Text = "PIN";
             // 
@@ -102,9 +105,10 @@
             this.TYPE_label.AutoSize = true;
             this.TYPE_label.BackColor = System.Drawing.Color.Gainsboro;
             this.TYPE_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.TYPE_label.Location = new System.Drawing.Point(85, 300);
+            this.TYPE_label.Location = new System.Drawing.Point(68, 240);
+            this.TYPE_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.TYPE_label.Name = "TYPE_label";
-            this.TYPE_label.Size = new System.Drawing.Size(65, 32);
+            this.TYPE_label.Size = new System.Drawing.Size(54, 28);
             this.TYPE_label.TabIndex = 3;
             this.TYPE_label.Text = "TYPE";
             // 
@@ -112,9 +116,10 @@
             // 
             this.PLATENO_label.AutoSize = true;
             this.PLATENO_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PLATENO_label.Location = new System.Drawing.Point(56, 253);
+            this.PLATENO_label.Location = new System.Drawing.Point(45, 202);
+            this.PLATENO_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.PLATENO_label.Name = "PLATENO_label";
-            this.PLATENO_label.Size = new System.Drawing.Size(125, 32);
+            this.PLATENO_label.Size = new System.Drawing.Size(104, 28);
             this.PLATENO_label.TabIndex = 4;
             this.PLATENO_label.Text = "PLATE NO.";
             // 
@@ -123,9 +128,10 @@
             this.MODEL_label.AutoSize = true;
             this.MODEL_label.BackColor = System.Drawing.Color.Gainsboro;
             this.MODEL_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MODEL_label.Location = new System.Drawing.Point(72, 464);
+            this.MODEL_label.Location = new System.Drawing.Point(58, 371);
+            this.MODEL_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MODEL_label.Name = "MODEL_label";
-            this.MODEL_label.Size = new System.Drawing.Size(94, 32);
+            this.MODEL_label.Size = new System.Drawing.Size(78, 28);
             this.MODEL_label.TabIndex = 5;
             this.MODEL_label.Text = "MODEL";
             // 
@@ -134,9 +140,10 @@
             this.MAKE_label.AutoSize = true;
             this.MAKE_label.BackColor = System.Drawing.Color.Gainsboro;
             this.MAKE_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MAKE_label.Location = new System.Drawing.Point(78, 548);
+            this.MAKE_label.Location = new System.Drawing.Point(62, 438);
+            this.MAKE_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MAKE_label.Name = "MAKE_label";
-            this.MAKE_label.Size = new System.Drawing.Size(77, 32);
+            this.MAKE_label.Size = new System.Drawing.Size(65, 28);
             this.MAKE_label.TabIndex = 6;
             this.MAKE_label.Text = "MAKE";
             // 
@@ -145,9 +152,10 @@
             this.MILES_label.AutoSize = true;
             this.MILES_label.BackColor = System.Drawing.Color.Gainsboro;
             this.MILES_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MILES_label.Location = new System.Drawing.Point(78, 626);
+            this.MILES_label.Location = new System.Drawing.Point(62, 501);
+            this.MILES_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.MILES_label.Name = "MILES_label";
-            this.MILES_label.Size = new System.Drawing.Size(78, 32);
+            this.MILES_label.Size = new System.Drawing.Size(65, 28);
             this.MILES_label.TabIndex = 7;
             this.MILES_label.Text = "MILES";
             // 
@@ -156,58 +164,65 @@
             this.YEAR_label.AutoSize = true;
             this.YEAR_label.BackColor = System.Drawing.Color.Gainsboro;
             this.YEAR_label.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.YEAR_label.Location = new System.Drawing.Point(83, 706);
+            this.YEAR_label.Location = new System.Drawing.Point(66, 565);
+            this.YEAR_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.YEAR_label.Name = "YEAR_label";
-            this.YEAR_label.Size = new System.Drawing.Size(68, 32);
+            this.YEAR_label.Size = new System.Drawing.Size(58, 28);
             this.YEAR_label.TabIndex = 8;
             this.YEAR_label.Text = "YEAR";
             // 
             // PIN_textBox
             // 
             this.PIN_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PIN_textBox.Location = new System.Drawing.Point(21, 254);
+            this.PIN_textBox.Location = new System.Drawing.Point(17, 203);
+            this.PIN_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PIN_textBox.Name = "PIN_textBox";
-            this.PIN_textBox.Size = new System.Drawing.Size(189, 39);
+            this.PIN_textBox.Size = new System.Drawing.Size(152, 34);
             this.PIN_textBox.TabIndex = 9;
             // 
             // PLATENO_textBox
             // 
             this.PLATENO_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.PLATENO_textBox.Location = new System.Drawing.Point(21, 418);
+            this.PLATENO_textBox.Location = new System.Drawing.Point(17, 334);
+            this.PLATENO_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.PLATENO_textBox.Name = "PLATENO_textBox";
-            this.PLATENO_textBox.Size = new System.Drawing.Size(189, 39);
+            this.PLATENO_textBox.Size = new System.Drawing.Size(152, 34);
             this.PLATENO_textBox.TabIndex = 11;
             // 
             // MODEL_textBox
             // 
             this.MODEL_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MODEL_textBox.Location = new System.Drawing.Point(21, 500);
+            this.MODEL_textBox.Location = new System.Drawing.Point(17, 400);
+            this.MODEL_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MODEL_textBox.Name = "MODEL_textBox";
-            this.MODEL_textBox.Size = new System.Drawing.Size(189, 39);
+            this.MODEL_textBox.Size = new System.Drawing.Size(152, 34);
             this.MODEL_textBox.TabIndex = 12;
             // 
             // MAKE_textBox
             // 
             this.MAKE_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MAKE_textBox.Location = new System.Drawing.Point(21, 584);
+            this.MAKE_textBox.Location = new System.Drawing.Point(17, 467);
+            this.MAKE_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MAKE_textBox.Name = "MAKE_textBox";
-            this.MAKE_textBox.Size = new System.Drawing.Size(189, 39);
+            this.MAKE_textBox.Size = new System.Drawing.Size(152, 34);
             this.MAKE_textBox.TabIndex = 13;
             // 
             // MILES_textBox
             // 
             this.MILES_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.MILES_textBox.Location = new System.Drawing.Point(21, 662);
+            this.MILES_textBox.Location = new System.Drawing.Point(17, 530);
+            this.MILES_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.MILES_textBox.Name = "MILES_textBox";
-            this.MILES_textBox.Size = new System.Drawing.Size(189, 39);
+            this.MILES_textBox.Size = new System.Drawing.Size(152, 34);
             this.MILES_textBox.TabIndex = 14;
             // 
             // YEAR_textBox
             // 
             this.YEAR_textBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.YEAR_textBox.Location = new System.Drawing.Point(21, 742);
+            this.YEAR_textBox.Location = new System.Drawing.Point(17, 594);
+            this.YEAR_textBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.YEAR_textBox.Name = "YEAR_textBox";
-            this.YEAR_textBox.Size = new System.Drawing.Size(189, 39);
+            this.YEAR_textBox.Size = new System.Drawing.Size(152, 34);
             this.YEAR_textBox.TabIndex = 15;
             // 
             // ValueGrid
@@ -222,12 +237,13 @@
             this.MAKE,
             this.MILES,
             this.YEAR});
-            this.ValueGrid.Location = new System.Drawing.Point(256, 256);
+            this.ValueGrid.Location = new System.Drawing.Point(205, 205);
+            this.ValueGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.ValueGrid.Name = "ValueGrid";
             this.ValueGrid.RowHeadersWidth = 62;
             this.ValueGrid.RowTemplate.Height = 33;
             this.ValueGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ValueGrid.Size = new System.Drawing.Size(1260, 437);
+            this.ValueGrid.Size = new System.Drawing.Size(1008, 350);
             this.ValueGrid.TabIndex = 16;
             this.ValueGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ValueGrid_CellContentClick);
             this.ValueGrid.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.ValueGrid_CellContentClick);
@@ -293,9 +309,10 @@
             // 
             this.add_button.BackColor = System.Drawing.Color.LightSteelBlue;
             this.add_button.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.add_button.Location = new System.Drawing.Point(316, 723);
+            this.add_button.Location = new System.Drawing.Point(253, 578);
+            this.add_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.add_button.Name = "add_button";
-            this.add_button.Size = new System.Drawing.Size(185, 50);
+            this.add_button.Size = new System.Drawing.Size(148, 40);
             this.add_button.TabIndex = 17;
             this.add_button.Text = "ADD";
             this.add_button.UseVisualStyleBackColor = false;
@@ -305,9 +322,10 @@
             // 
             this.update_button.BackColor = System.Drawing.Color.LightSteelBlue;
             this.update_button.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.update_button.Location = new System.Drawing.Point(811, 723);
+            this.update_button.Location = new System.Drawing.Point(649, 578);
+            this.update_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.update_button.Name = "update_button";
-            this.update_button.Size = new System.Drawing.Size(185, 50);
+            this.update_button.Size = new System.Drawing.Size(148, 40);
             this.update_button.TabIndex = 18;
             this.update_button.Text = "UPDATE";
             this.update_button.UseVisualStyleBackColor = false;
@@ -317,9 +335,10 @@
             // 
             this.delete_button.BackColor = System.Drawing.Color.LightSteelBlue;
             this.delete_button.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.delete_button.Location = new System.Drawing.Point(1287, 723);
+            this.delete_button.Location = new System.Drawing.Point(1030, 578);
+            this.delete_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.delete_button.Name = "delete_button";
-            this.delete_button.Size = new System.Drawing.Size(185, 50);
+            this.delete_button.Size = new System.Drawing.Size(148, 40);
             this.delete_button.TabIndex = 19;
             this.delete_button.Text = "DELETE";
             this.delete_button.UseVisualStyleBackColor = false;
@@ -329,9 +348,10 @@
             // 
             this.BRANCH_comboBox.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.BRANCH_comboBox.FormattingEnabled = true;
-            this.BRANCH_comboBox.Location = new System.Drawing.Point(762, 168);
+            this.BRANCH_comboBox.Location = new System.Drawing.Point(610, 134);
+            this.BRANCH_comboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.BRANCH_comboBox.Name = "BRANCH_comboBox";
-            this.BRANCH_comboBox.Size = new System.Drawing.Size(326, 46);
+            this.BRANCH_comboBox.Size = new System.Drawing.Size(262, 39);
             this.BRANCH_comboBox.TabIndex = 20;
             this.BRANCH_comboBox.TextChanged += new System.EventHandler(this.TEST);
             // 
@@ -340,27 +360,30 @@
             this.headerBackground.BackColor = System.Drawing.Color.LightSteelBlue;
             this.headerBackground.Controls.Add(this.page_name);
             this.headerBackground.Controls.Add(this.panel2);
-            this.headerBackground.Location = new System.Drawing.Point(-5, 0);
+            this.headerBackground.Location = new System.Drawing.Point(-4, 0);
+            this.headerBackground.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.headerBackground.Name = "headerBackground";
-            this.headerBackground.Size = new System.Drawing.Size(1701, 130);
+            this.headerBackground.Size = new System.Drawing.Size(1361, 104);
             this.headerBackground.TabIndex = 21;
             // 
             // page_name
             // 
             this.page_name.AutoSize = true;
             this.page_name.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.page_name.Location = new System.Drawing.Point(507, 37);
+            this.page_name.Location = new System.Drawing.Point(406, 30);
+            this.page_name.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.page_name.Name = "page_name";
-            this.page_name.Size = new System.Drawing.Size(782, 70);
+            this.page_name.Size = new System.Drawing.Size(658, 60);
             this.page_name.TabIndex = 24;
             this.page_name.Text = "CAR INVENTORY MANAGEMENT";
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.panel2.Location = new System.Drawing.Point(117, 130);
+            this.panel2.Location = new System.Drawing.Point(94, 104);
+            this.panel2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 675);
+            this.panel2.Size = new System.Drawing.Size(186, 540);
             this.panel2.TabIndex = 22;
             // 
             // sidebarBackground
@@ -369,9 +392,10 @@
             this.sidebarBackground.Controls.Add(this.TYPE_comboBox);
             this.sidebarBackground.Controls.Add(this.PLATENO_label);
             this.sidebarBackground.Controls.Add(this.CARID_textBox);
-            this.sidebarBackground.Location = new System.Drawing.Point(0, 130);
+            this.sidebarBackground.Location = new System.Drawing.Point(0, 104);
+            this.sidebarBackground.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.sidebarBackground.Name = "sidebarBackground";
-            this.sidebarBackground.Size = new System.Drawing.Size(232, 684);
+            this.sidebarBackground.Size = new System.Drawing.Size(186, 547);
             this.sidebarBackground.TabIndex = 22;
             // 
             // TYPE_comboBox
@@ -380,26 +404,28 @@
             this.TYPE_comboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TYPE_comboBox.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.TYPE_comboBox.FormattingEnabled = true;
-            this.TYPE_comboBox.Location = new System.Drawing.Point(21, 207);
+            this.TYPE_comboBox.Location = new System.Drawing.Point(17, 166);
+            this.TYPE_comboBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.TYPE_comboBox.Name = "TYPE_comboBox";
-            this.TYPE_comboBox.Size = new System.Drawing.Size(189, 40);
+            this.TYPE_comboBox.Size = new System.Drawing.Size(152, 36);
             this.TYPE_comboBox.TabIndex = 24;
             // 
             // Branch_label
             // 
             this.Branch_label.AutoSize = true;
             this.Branch_label.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Branch_label.Location = new System.Drawing.Point(642, 171);
+            this.Branch_label.Location = new System.Drawing.Point(507, 137);
+            this.Branch_label.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.Branch_label.Name = "Branch_label";
-            this.Branch_label.Size = new System.Drawing.Size(116, 38);
+            this.Branch_label.Size = new System.Drawing.Size(99, 32);
             this.Branch_label.TabIndex = 23;
             this.Branch_label.Text = "Branch: ";
             // 
             // InventoryManagement
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1540, 802);
+            this.ClientSize = new System.Drawing.Size(1232, 642);
             this.Controls.Add(this.Branch_label);
             this.Controls.Add(this.headerBackground);
             this.Controls.Add(this.BRANCH_comboBox);
@@ -422,6 +448,7 @@
             this.Controls.Add(this.CARID_label);
             this.Controls.Add(this.sidebarBackground);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "InventoryManagement";
             this.Text = "Form1";
             this.TextChanged += new System.EventHandler(this.TEST);
