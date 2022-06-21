@@ -29,14 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.SelectButton = new System.Windows.Forms.Button();
             this.ValueGrid = new System.Windows.Forms.DataGridView();
-            this.Home = new System.Windows.Forms.Button();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.DollarLabel = new System.Windows.Forms.Label();
-            this.SelectedCar = new System.Windows.Forms.Label();
-            this.selectedLabel = new System.Windows.Forms.Label();
-            this.PriceLabel = new System.Windows.Forms.Label();
             this.IDcol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TypeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.MakeCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -45,6 +38,12 @@
             this.MilesCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PINCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PlateNoCol = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Home = new System.Windows.Forms.Button();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.DollarLabel = new System.Windows.Forms.Label();
+            this.SelectedCar = new System.Windows.Forms.Label();
+            this.selectedLabel = new System.Windows.Forms.Label();
+            this.PriceLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ValueGrid)).BeginInit();
             this.panel4.SuspendLayout();
@@ -53,24 +52,11 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panel1.Controls.Add(this.SelectButton);
             this.panel1.Controls.Add(this.ValueGrid);
             this.panel1.Location = new System.Drawing.Point(12, 51);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1051, 604);
             this.panel1.TabIndex = 3;
-            // 
-            // SelectButton
-            // 
-            this.SelectButton.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.SelectButton.Font = new System.Drawing.Font("Segoe UI Semibold", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.SelectButton.Location = new System.Drawing.Point(897, 542);
-            this.SelectButton.Name = "SelectButton";
-            this.SelectButton.Size = new System.Drawing.Size(137, 45);
-            this.SelectButton.TabIndex = 13;
-            this.SelectButton.Text = "Select";
-            this.SelectButton.UseVisualStyleBackColor = false;
-            this.SelectButton.Click += new System.EventHandler(this.SelectButton_Click_1);
             // 
             // ValueGrid
             // 
@@ -88,9 +74,65 @@
             this.ValueGrid.Name = "ValueGrid";
             this.ValueGrid.RowHeadersWidth = 51;
             this.ValueGrid.RowTemplate.Height = 29;
-            this.ValueGrid.Size = new System.Drawing.Size(1051, 469);
+            this.ValueGrid.Size = new System.Drawing.Size(1051, 549);
             this.ValueGrid.TabIndex = 12;
             this.ValueGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ValueGrid_CellContentClick);
+            // 
+            // IDcol
+            // 
+            this.IDcol.HeaderText = "Car ID";
+            this.IDcol.MinimumWidth = 6;
+            this.IDcol.Name = "IDcol";
+            this.IDcol.Width = 125;
+            // 
+            // TypeCol
+            // 
+            this.TypeCol.HeaderText = "Type";
+            this.TypeCol.MinimumWidth = 6;
+            this.TypeCol.Name = "TypeCol";
+            this.TypeCol.Width = 125;
+            // 
+            // MakeCol
+            // 
+            this.MakeCol.HeaderText = "Make";
+            this.MakeCol.MinimumWidth = 6;
+            this.MakeCol.Name = "MakeCol";
+            this.MakeCol.Width = 125;
+            // 
+            // ModelCol
+            // 
+            this.ModelCol.HeaderText = "Model";
+            this.ModelCol.MinimumWidth = 6;
+            this.ModelCol.Name = "ModelCol";
+            this.ModelCol.Width = 125;
+            // 
+            // YearCol
+            // 
+            this.YearCol.HeaderText = "Year";
+            this.YearCol.MinimumWidth = 6;
+            this.YearCol.Name = "YearCol";
+            this.YearCol.Width = 125;
+            // 
+            // MilesCol
+            // 
+            this.MilesCol.HeaderText = "Miles";
+            this.MilesCol.MinimumWidth = 6;
+            this.MilesCol.Name = "MilesCol";
+            this.MilesCol.Width = 125;
+            // 
+            // PINCol
+            // 
+            this.PINCol.HeaderText = "VIN";
+            this.PINCol.MinimumWidth = 6;
+            this.PINCol.Name = "PINCol";
+            this.PINCol.Width = 125;
+            // 
+            // PlateNoCol
+            // 
+            this.PlateNoCol.HeaderText = "Plate Number";
+            this.PlateNoCol.MinimumWidth = 6;
+            this.PlateNoCol.Name = "PlateNoCol";
+            this.PlateNoCol.Width = 125;
             // 
             // Home
             // 
@@ -155,62 +197,6 @@
             this.PriceLabel.TabIndex = 6;
             this.PriceLabel.Text = "Price";
             // 
-            // IDcol
-            // 
-            this.IDcol.HeaderText = "Car ID";
-            this.IDcol.MinimumWidth = 6;
-            this.IDcol.Name = "IDcol";
-            this.IDcol.Width = 125;
-            // 
-            // TypeCol
-            // 
-            this.TypeCol.HeaderText = "Type";
-            this.TypeCol.MinimumWidth = 6;
-            this.TypeCol.Name = "TypeCol";
-            this.TypeCol.Width = 125;
-            // 
-            // MakeCol
-            // 
-            this.MakeCol.HeaderText = "Make";
-            this.MakeCol.MinimumWidth = 6;
-            this.MakeCol.Name = "MakeCol";
-            this.MakeCol.Width = 125;
-            // 
-            // ModelCol
-            // 
-            this.ModelCol.HeaderText = "Model";
-            this.ModelCol.MinimumWidth = 6;
-            this.ModelCol.Name = "ModelCol";
-            this.ModelCol.Width = 125;
-            // 
-            // YearCol
-            // 
-            this.YearCol.HeaderText = "Year";
-            this.YearCol.MinimumWidth = 6;
-            this.YearCol.Name = "YearCol";
-            this.YearCol.Width = 125;
-            // 
-            // MilesCol
-            // 
-            this.MilesCol.HeaderText = "Miles";
-            this.MilesCol.MinimumWidth = 6;
-            this.MilesCol.Name = "MilesCol";
-            this.MilesCol.Width = 125;
-            // 
-            // PINCol
-            // 
-            this.PINCol.HeaderText = "VIN";
-            this.PINCol.MinimumWidth = 6;
-            this.PINCol.Name = "PINCol";
-            this.PINCol.Width = 125;
-            // 
-            // PlateNoCol
-            // 
-            this.PlateNoCol.HeaderText = "Plate Number";
-            this.PlateNoCol.MinimumWidth = 6;
-            this.PlateNoCol.Name = "PlateNoCol";
-            this.PlateNoCol.Width = 125;
-            // 
             // CustomerBook
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
@@ -238,7 +224,6 @@
         private Label selectedLabel;
         private Label SelectedCar;
         private Label DollarLabel;
-        private Button SelectButton;
         public DataGridView ValueGrid;
         private DataGridViewTextBoxColumn IDcol;
         private DataGridViewTextBoxColumn TypeCol;
