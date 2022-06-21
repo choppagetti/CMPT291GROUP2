@@ -167,7 +167,9 @@ namespace CarRental
 
                 // The following block takes all user inputs to update
                 string PIN     = PIN_textBox.Text;
+                if (PIN == "") { MessageBox.Show("Please fill out PIN.", "Missing field"); return; }
                 string PLATENO = PLATENO_textBox.Text;
+                if (PLATENO == "") { MessageBox.Show("Please fill out PLATE NO.", "Missing field"); return; }
                 string TYPE    = TYPE_comboBox.Text;
                 string MODEL   = MODEL_textBox.Text;
                 string MAKE    = MAKE_textBox.Text;
