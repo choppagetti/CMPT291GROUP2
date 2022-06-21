@@ -542,13 +542,7 @@
             "Bought Only Sedans",
             "Bought Only SUV\'s",
             "Bought Only Minivan\'s",
-            "Bought Only Luxury\'s",
-            "Pickup In AB",
-            "Pickup In SK",
-            "Pickup In ON",
-            "Return In AB",
-            "Return In SK",
-            "Return In ON"});
+            "Bought Only Luxury\'s"});
             this.CustFilterBox.Location = new System.Drawing.Point(437, 69);
             this.CustFilterBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustFilterBox.Name = "CustFilterBox";
