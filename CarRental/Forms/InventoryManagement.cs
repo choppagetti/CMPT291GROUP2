@@ -84,9 +84,13 @@ namespace CarRental.Forms
             string MAKE = MAKE_textBox.Text;
             if (MAKE == "") { MessageBox.Show("Please fill out MAKE to add a new car to the inventory.", "Missing field"); return; }
             string MILES = MILES_textBox.Text;
+            var isNumeric = int.TryParse(MILES, out int miles);
             if (MILES == "") { MessageBox.Show("Please fill out MILES to add a new car to the inventory.", "Missing field"); return; }
+            if (isNumeric == false) { MessageBox.Show("Please enter an integer in MILES to add a new car to the inventory.", "Error"); return; }
             string YEAR = YEAR_textBox.Text;
+            var isNum = int.TryParse(YEAR, out int year);
             if (YEAR == "") { MessageBox.Show("Please fill out YEAR to add a new car to the inventory.", "Missing field"); return; }
+            if (isNum == false) { MessageBox.Show("Please enter an integer in YEAR to add a new car to the inventory.", "Error"); return; }
             else
             {
                 // The following block checks to see if given CAR ID already exists in database
@@ -174,7 +178,11 @@ namespace CarRental.Forms
                 string MODEL   = MODEL_textBox.Text;
                 string MAKE    = MAKE_textBox.Text;
                 string MILES   = MILES_textBox.Text;
+                var isNumeric  = int.TryParse(MILES, out int miles);
+                if (isNumeric == false) { MessageBox.Show("Please enter an integer in MILES.", "Error"); return; }
                 string YEAR    = YEAR_textBox.Text;
+                var isNum      = int.TryParse(YEAR, out int year);
+                if (isNum == false) { MessageBox.Show("Please enter an integer in YEAR.", "Error"); return; }
 
                 // The following block gets the CT_ID of the car
                 string getTypeID = "select CT.[CT_ID]" +
@@ -206,8 +214,8 @@ namespace CarRental.Forms
                         "PlateNO = '" + PLATENO + "', " +
                         "Model = '" + MODEL + "', " +
                         "Make = '" + MAKE + "', " +
-                        "Miles = '" + MILES + "', " +
-                        "Year = '" + YEAR + "', " +
+                        "Miles = " + Int32.Parse(MILES) + ", " +
+                        "Year = " + Int32.Parse(YEAR) + ", " +
                         "BID = '" + BID + "', " +
                         "CT_ID = '" + TypeID + "'" +
                         "where CAR_ID = '" + CARID + "'";
