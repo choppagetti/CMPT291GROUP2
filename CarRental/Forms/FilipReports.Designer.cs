@@ -134,9 +134,10 @@
             this.CustomTab.Controls.Add(this.tabPage4);
             this.CustomTab.ItemSize = new System.Drawing.Size(64, 20);
             this.CustomTab.Location = new System.Drawing.Point(0, -1);
+            this.CustomTab.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustomTab.Name = "CustomTab";
             this.CustomTab.SelectedIndex = 0;
-            this.CustomTab.Size = new System.Drawing.Size(1463, 640);
+            this.CustomTab.Size = new System.Drawing.Size(1672, 853);
             this.CustomTab.TabIndex = 0;
             // 
             // tabPage1
@@ -152,9 +153,10 @@
             this.tabPage1.Controls.Add(this.EmpDateTo);
             this.tabPage1.Controls.Add(this.EmpFilterBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1455, 612);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage1.Size = new System.Drawing.Size(1664, 825);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Employee";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -164,9 +166,9 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(569, 52);
+            this.label5.Location = new System.Drawing.Point(643, 65);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 25);
+            this.label5.Size = new System.Drawing.Size(74, 32);
             this.label5.TabIndex = 9;
             this.label5.Text = "From:";
             // 
@@ -175,9 +177,9 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(865, 52);
+            this.label4.Location = new System.Drawing.Point(981, 65);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 25);
+            this.label4.Size = new System.Drawing.Size(44, 32);
             this.label4.TabIndex = 8;
             this.label4.Text = "To:";
             // 
@@ -185,17 +187,17 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(563, 60);
+            this.label3.Location = new System.Drawing.Point(643, 80);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(0, 15);
+            this.label3.Size = new System.Drawing.Size(0, 20);
             this.label3.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(459, 251);
+            this.label2.Location = new System.Drawing.Point(525, 335);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(0, 15);
+            this.label2.Size = new System.Drawing.Size(0, 20);
             this.label2.TabIndex = 6;
             // 
             // label1
@@ -203,9 +205,9 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(328, 52);
+            this.label1.Location = new System.Drawing.Point(366, 65);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(52, 25);
+            this.label1.Size = new System.Drawing.Size(65, 32);
             this.label1.TabIndex = 5;
             this.label1.Text = "Find:";
             // 
@@ -213,9 +215,10 @@
             // 
             this.EmpRepButt.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.EmpRepButt.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EmpRepButt.Location = new System.Drawing.Point(640, 501);
+            this.EmpRepButt.Location = new System.Drawing.Point(731, 668);
+            this.EmpRepButt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmpRepButt.Name = "EmpRepButt";
-            this.EmpRepButt.Size = new System.Drawing.Size(179, 40);
+            this.EmpRepButt.Size = new System.Drawing.Size(205, 53);
             this.EmpRepButt.TabIndex = 4;
             this.EmpRepButt.Text = "Run Report";
             this.EmpRepButt.UseMnemonic = false;
@@ -236,72 +239,94 @@
             this.BranchProvState,
             this.BranchPost,
             this.EmpAmt});
-            this.EmpRepTable.Location = new System.Drawing.Point(256, 121);
+            this.EmpRepTable.Location = new System.Drawing.Point(293, 161);
+            this.EmpRepTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmpRepTable.Name = "EmpRepTable";
+            this.EmpRepTable.RowHeadersWidth = 51;
             this.EmpRepTable.RowTemplate.Height = 25;
-            this.EmpRepTable.Size = new System.Drawing.Size(944, 336);
+            this.EmpRepTable.Size = new System.Drawing.Size(1079, 448);
             this.EmpRepTable.TabIndex = 3;
             // 
             // EmpFName
             // 
             this.EmpFName.HeaderText = "FName";
+            this.EmpFName.MinimumWidth = 6;
             this.EmpFName.Name = "EmpFName";
+            this.EmpFName.Width = 125;
             // 
             // EmpLName
             // 
             this.EmpLName.HeaderText = "LName";
+            this.EmpLName.MinimumWidth = 6;
             this.EmpLName.Name = "EmpLName";
+            this.EmpLName.Width = 125;
             // 
             // EmpEmail
             // 
             this.EmpEmail.HeaderText = "Email";
+            this.EmpEmail.MinimumWidth = 6;
             this.EmpEmail.Name = "EmpEmail";
+            this.EmpEmail.Width = 125;
             // 
             // EmpPhoneNum
             // 
             this.EmpPhoneNum.HeaderText = "Phone Num";
+            this.EmpPhoneNum.MinimumWidth = 6;
             this.EmpPhoneNum.Name = "EmpPhoneNum";
+            this.EmpPhoneNum.Width = 125;
             // 
             // EmpBranch
             // 
             this.EmpBranch.HeaderText = "Branch";
+            this.EmpBranch.MinimumWidth = 6;
             this.EmpBranch.Name = "EmpBranch";
+            this.EmpBranch.Width = 125;
             // 
             // BranchCity
             // 
             this.BranchCity.HeaderText = "City";
+            this.BranchCity.MinimumWidth = 6;
             this.BranchCity.Name = "BranchCity";
+            this.BranchCity.Width = 125;
             // 
             // BranchProvState
             // 
             this.BranchProvState.HeaderText = "Prov/State";
+            this.BranchProvState.MinimumWidth = 6;
             this.BranchProvState.Name = "BranchProvState";
+            this.BranchProvState.Width = 125;
             // 
             // BranchPost
             // 
             this.BranchPost.HeaderText = "Postal Code";
+            this.BranchPost.MinimumWidth = 6;
             this.BranchPost.Name = "BranchPost";
+            this.BranchPost.Width = 125;
             // 
             // EmpAmt
             // 
             this.EmpAmt.HeaderText = "Amount";
+            this.EmpAmt.MinimumWidth = 6;
             this.EmpAmt.Name = "EmpAmt";
+            this.EmpAmt.Width = 125;
             // 
             // EmpDateFrom
             // 
             this.EmpDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.EmpDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EmpDateFrom.Location = new System.Drawing.Point(630, 52);
+            this.EmpDateFrom.Location = new System.Drawing.Point(720, 69);
+            this.EmpDateFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmpDateFrom.Name = "EmpDateFrom";
-            this.EmpDateFrom.Size = new System.Drawing.Size(189, 23);
+            this.EmpDateFrom.Size = new System.Drawing.Size(215, 27);
             this.EmpDateFrom.TabIndex = 2;
             // 
             // EmpDateTo
             // 
             this.EmpDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.EmpDateTo.Location = new System.Drawing.Point(902, 52);
+            this.EmpDateTo.Location = new System.Drawing.Point(1031, 69);
+            this.EmpDateTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmpDateTo.Name = "EmpDateTo";
-            this.EmpDateTo.Size = new System.Drawing.Size(189, 23);
+            this.EmpDateTo.Size = new System.Drawing.Size(215, 27);
             this.EmpDateTo.TabIndex = 1;
             // 
             // EmpFilterBox
@@ -318,9 +343,10 @@
             "Sold Only SUV\'s",
             "Sold Only Minivan\'s",
             "Sold Only Luxury\'s"});
-            this.EmpFilterBox.Location = new System.Drawing.Point(382, 52);
+            this.EmpFilterBox.Location = new System.Drawing.Point(437, 69);
+            this.EmpFilterBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.EmpFilterBox.Name = "EmpFilterBox";
-            this.EmpFilterBox.Size = new System.Drawing.Size(121, 23);
+            this.EmpFilterBox.Size = new System.Drawing.Size(138, 28);
             this.EmpFilterBox.TabIndex = 0;
             // 
             // tabPage2
@@ -336,9 +362,10 @@
             this.tabPage2.Controls.Add(this.CustFilterBox);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1455, 612);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage2.Size = new System.Drawing.Size(1664, 825);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -347,9 +374,10 @@
             // 
             this.CustRepButt.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.CustRepButt.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CustRepButt.Location = new System.Drawing.Point(640, 501);
+            this.CustRepButt.Location = new System.Drawing.Point(731, 668);
+            this.CustRepButt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustRepButt.Name = "CustRepButt";
-            this.CustRepButt.Size = new System.Drawing.Size(179, 40);
+            this.CustRepButt.Size = new System.Drawing.Size(205, 53);
             this.CustRepButt.TabIndex = 18;
             this.CustRepButt.Text = "Run Report";
             this.CustRepButt.UseMnemonic = false;
@@ -370,65 +398,85 @@
             this.CustProvState,
             this.CustPostCode,
             this.CustAmt});
-            this.CustRepTable.Location = new System.Drawing.Point(256, 121);
+            this.CustRepTable.Location = new System.Drawing.Point(293, 161);
+            this.CustRepTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustRepTable.Name = "CustRepTable";
+            this.CustRepTable.RowHeadersWidth = 51;
             this.CustRepTable.RowTemplate.Height = 25;
-            this.CustRepTable.Size = new System.Drawing.Size(944, 336);
+            this.CustRepTable.Size = new System.Drawing.Size(1079, 448);
             this.CustRepTable.TabIndex = 17;
             // 
             // CustFName
             // 
             this.CustFName.HeaderText = "FName";
+            this.CustFName.MinimumWidth = 6;
             this.CustFName.Name = "CustFName";
+            this.CustFName.Width = 125;
             // 
             // CustLName
             // 
             this.CustLName.HeaderText = "LName";
+            this.CustLName.MinimumWidth = 6;
             this.CustLName.Name = "CustLName";
+            this.CustLName.Width = 125;
             // 
             // CustMemb
             // 
             this.CustMemb.HeaderText = "Membership";
+            this.CustMemb.MinimumWidth = 6;
             this.CustMemb.Name = "CustMemb";
+            this.CustMemb.Width = 125;
             // 
             // CustEmail
             // 
             this.CustEmail.HeaderText = "Email";
+            this.CustEmail.MinimumWidth = 6;
             this.CustEmail.Name = "CustEmail";
+            this.CustEmail.Width = 125;
             // 
             // CustPhoneNum
             // 
             this.CustPhoneNum.HeaderText = "Phone Num";
+            this.CustPhoneNum.MinimumWidth = 6;
             this.CustPhoneNum.Name = "CustPhoneNum";
+            this.CustPhoneNum.Width = 125;
             // 
             // CustCity
             // 
             this.CustCity.HeaderText = "City";
+            this.CustCity.MinimumWidth = 6;
             this.CustCity.Name = "CustCity";
+            this.CustCity.Width = 125;
             // 
             // CustProvState
             // 
             this.CustProvState.HeaderText = "Prov/State";
+            this.CustProvState.MinimumWidth = 6;
             this.CustProvState.Name = "CustProvState";
+            this.CustProvState.Width = 125;
             // 
             // CustPostCode
             // 
             this.CustPostCode.HeaderText = "Postal Code";
+            this.CustPostCode.MinimumWidth = 6;
             this.CustPostCode.Name = "CustPostCode";
+            this.CustPostCode.Width = 125;
             // 
             // CustAmt
             // 
             this.CustAmt.HeaderText = "Amount";
+            this.CustAmt.MinimumWidth = 6;
             this.CustAmt.Name = "CustAmt";
+            this.CustAmt.Width = 125;
             // 
             // label7
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(569, 52);
+            this.label7.Location = new System.Drawing.Point(640, 65);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(59, 25);
+            this.label7.Size = new System.Drawing.Size(74, 32);
             this.label7.TabIndex = 16;
             this.label7.Text = "From:";
             // 
@@ -437,9 +485,9 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(865, 52);
+            this.label8.Location = new System.Drawing.Point(981, 65);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(35, 25);
+            this.label8.Size = new System.Drawing.Size(44, 32);
             this.label8.TabIndex = 15;
             this.label8.Text = "To:";
             // 
@@ -447,9 +495,9 @@
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(541, 61);
+            this.label9.Location = new System.Drawing.Point(618, 81);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(0, 15);
+            this.label9.Size = new System.Drawing.Size(0, 20);
             this.label9.TabIndex = 14;
             // 
             // label10
@@ -457,9 +505,9 @@
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(328, 52);
+            this.label10.Location = new System.Drawing.Point(366, 65);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(52, 25);
+            this.label10.Size = new System.Drawing.Size(65, 32);
             this.label10.TabIndex = 13;
             this.label10.Text = "Find:";
             // 
@@ -467,17 +515,19 @@
             // 
             this.CustDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CustDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CustDateFrom.Location = new System.Drawing.Point(630, 52);
+            this.CustDateFrom.Location = new System.Drawing.Point(720, 69);
+            this.CustDateFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustDateFrom.Name = "CustDateFrom";
-            this.CustDateFrom.Size = new System.Drawing.Size(189, 23);
+            this.CustDateFrom.Size = new System.Drawing.Size(215, 27);
             this.CustDateFrom.TabIndex = 12;
             // 
             // CustDateTo
             // 
             this.CustDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CustDateTo.Location = new System.Drawing.Point(902, 52);
+            this.CustDateTo.Location = new System.Drawing.Point(1031, 69);
+            this.CustDateTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustDateTo.Name = "CustDateTo";
-            this.CustDateTo.Size = new System.Drawing.Size(189, 23);
+            this.CustDateTo.Size = new System.Drawing.Size(215, 27);
             this.CustDateTo.TabIndex = 11;
             // 
             // CustFilterBox
@@ -499,18 +549,19 @@
             "Return In AB",
             "Return In SK",
             "Return In ON"});
-            this.CustFilterBox.Location = new System.Drawing.Point(382, 52);
+            this.CustFilterBox.Location = new System.Drawing.Point(437, 69);
+            this.CustFilterBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustFilterBox.Name = "CustFilterBox";
-            this.CustFilterBox.Size = new System.Drawing.Size(121, 23);
+            this.CustFilterBox.Size = new System.Drawing.Size(138, 28);
             this.CustFilterBox.TabIndex = 10;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label6.Location = new System.Drawing.Point(454, 246);
+            this.label6.Location = new System.Drawing.Point(519, 328);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 25);
+            this.label6.Size = new System.Drawing.Size(0, 32);
             this.label6.TabIndex = 6;
             // 
             // tabPage3
@@ -525,9 +576,10 @@
             this.tabPage3.Controls.Add(this.BranchDateTo);
             this.tabPage3.Controls.Add(this.BranchFilterBox);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1455, 612);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage3.Size = new System.Drawing.Size(1664, 825);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Branch";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -536,9 +588,10 @@
             // 
             this.BranchRepButt.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BranchRepButt.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BranchRepButt.Location = new System.Drawing.Point(640, 501);
+            this.BranchRepButt.Location = new System.Drawing.Point(731, 668);
+            this.BranchRepButt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BranchRepButt.Name = "BranchRepButt";
-            this.BranchRepButt.Size = new System.Drawing.Size(179, 40);
+            this.BranchRepButt.Size = new System.Drawing.Size(205, 53);
             this.BranchRepButt.TabIndex = 25;
             this.BranchRepButt.Text = "Run Report";
             this.BranchRepButt.UseMnemonic = false;
@@ -560,69 +613,81 @@
             this.BranchStreet2,
             this.BranchPostCode,
             this.BranchAmt});
-            this.BranchRepTable.Location = new System.Drawing.Point(256, 121);
+            this.BranchRepTable.Location = new System.Drawing.Point(293, 161);
+            this.BranchRepTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BranchRepTable.Name = "BranchRepTable";
+            this.BranchRepTable.RowHeadersWidth = 51;
             this.BranchRepTable.RowTemplate.Height = 25;
-            this.BranchRepTable.Size = new System.Drawing.Size(944, 336);
+            this.BranchRepTable.Size = new System.Drawing.Size(1079, 448);
             this.BranchRepTable.TabIndex = 24;
             // 
             // BranchID
             // 
             this.BranchID.HeaderText = "BID";
+            this.BranchID.MinimumWidth = 6;
             this.BranchID.Name = "BranchID";
             this.BranchID.Width = 90;
             // 
             // BranchName
             // 
             this.BranchName.HeaderText = "Name";
+            this.BranchName.MinimumWidth = 6;
             this.BranchName.Name = "BranchName";
             this.BranchName.Width = 90;
             // 
             // BranchEmail
             // 
             this.BranchEmail.HeaderText = "Email";
+            this.BranchEmail.MinimumWidth = 6;
             this.BranchEmail.Name = "BranchEmail";
             this.BranchEmail.Width = 90;
             // 
             // BranchPhone
             // 
             this.BranchPhone.HeaderText = "PhoneNum";
+            this.BranchPhone.MinimumWidth = 6;
             this.BranchPhone.Name = "BranchPhone";
             this.BranchPhone.Width = 90;
             // 
             // City
             // 
             this.City.HeaderText = "BranchCity";
+            this.City.MinimumWidth = 6;
             this.City.Name = "City";
             this.City.Width = 90;
             // 
             // BranchLoc
             // 
             this.BranchLoc.HeaderText = "Prov/State";
+            this.BranchLoc.MinimumWidth = 6;
             this.BranchLoc.Name = "BranchLoc";
             this.BranchLoc.Width = 90;
             // 
             // BranchStreet1
             // 
             this.BranchStreet1.HeaderText = "Street1";
+            this.BranchStreet1.MinimumWidth = 6;
             this.BranchStreet1.Name = "BranchStreet1";
             this.BranchStreet1.Width = 90;
             // 
             // BranchStreet2
             // 
             this.BranchStreet2.HeaderText = "Street2";
+            this.BranchStreet2.MinimumWidth = 6;
             this.BranchStreet2.Name = "BranchStreet2";
             this.BranchStreet2.Width = 90;
             // 
             // BranchPostCode
             // 
             this.BranchPostCode.HeaderText = "Postal Code";
+            this.BranchPostCode.MinimumWidth = 6;
             this.BranchPostCode.Name = "BranchPostCode";
             this.BranchPostCode.Width = 90;
             // 
             // BranchAmt
             // 
             this.BranchAmt.HeaderText = "Amount";
+            this.BranchAmt.MinimumWidth = 6;
             this.BranchAmt.Name = "BranchAmt";
             this.BranchAmt.Width = 90;
             // 
@@ -631,9 +696,9 @@
             this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(569, 52);
+            this.label11.Location = new System.Drawing.Point(640, 65);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(59, 25);
+            this.label11.Size = new System.Drawing.Size(74, 32);
             this.label11.TabIndex = 23;
             this.label11.Text = "From:";
             // 
@@ -642,18 +707,18 @@
             this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(865, 52);
+            this.label12.Location = new System.Drawing.Point(981, 65);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(35, 25);
+            this.label12.Size = new System.Drawing.Size(44, 32);
             this.label12.TabIndex = 22;
             this.label12.Text = "To:";
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(328, 256);
+            this.label13.Location = new System.Drawing.Point(375, 341);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(0, 15);
+            this.label13.Size = new System.Drawing.Size(0, 20);
             this.label13.TabIndex = 21;
             // 
             // label14
@@ -661,9 +726,9 @@
             this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(328, 52);
+            this.label14.Location = new System.Drawing.Point(366, 65);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 25);
+            this.label14.Size = new System.Drawing.Size(65, 32);
             this.label14.TabIndex = 20;
             this.label14.Text = "Find:";
             // 
@@ -671,17 +736,19 @@
             // 
             this.BranchDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BranchDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BranchDateFrom.Location = new System.Drawing.Point(630, 52);
+            this.BranchDateFrom.Location = new System.Drawing.Point(720, 69);
+            this.BranchDateFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BranchDateFrom.Name = "BranchDateFrom";
-            this.BranchDateFrom.Size = new System.Drawing.Size(189, 23);
+            this.BranchDateFrom.Size = new System.Drawing.Size(215, 27);
             this.BranchDateFrom.TabIndex = 19;
             // 
             // BranchDateTo
             // 
             this.BranchDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.BranchDateTo.Location = new System.Drawing.Point(902, 52);
+            this.BranchDateTo.Location = new System.Drawing.Point(1031, 69);
+            this.BranchDateTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BranchDateTo.Name = "BranchDateTo";
-            this.BranchDateTo.Size = new System.Drawing.Size(189, 23);
+            this.BranchDateTo.Size = new System.Drawing.Size(215, 27);
             this.BranchDateTo.TabIndex = 18;
             // 
             // BranchFilterBox
@@ -698,9 +765,10 @@
             "Most SUV\'s",
             "Most Minivan\'s",
             "Most Luxury\'s"});
-            this.BranchFilterBox.Location = new System.Drawing.Point(382, 52);
+            this.BranchFilterBox.Location = new System.Drawing.Point(437, 69);
+            this.BranchFilterBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BranchFilterBox.Name = "BranchFilterBox";
-            this.BranchFilterBox.Size = new System.Drawing.Size(121, 23);
+            this.BranchFilterBox.Size = new System.Drawing.Size(138, 28);
             this.BranchFilterBox.TabIndex = 17;
             // 
             // tabPage4
@@ -719,9 +787,10 @@
             this.tabPage4.Controls.Add(this.CustomDateTo);
             this.tabPage4.Controls.Add(this.CustomFilterBox);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1455, 612);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tabPage4.Size = new System.Drawing.Size(1664, 825);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Custom";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -729,9 +798,10 @@
             // AmtTextBox
             // 
             this.AmtTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.AmtTextBox.Location = new System.Drawing.Point(671, 73);
+            this.AmtTextBox.Location = new System.Drawing.Point(767, 97);
+            this.AmtTextBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.AmtTextBox.Name = "AmtTextBox";
-            this.AmtTextBox.Size = new System.Drawing.Size(145, 23);
+            this.AmtTextBox.Size = new System.Drawing.Size(165, 27);
             this.AmtTextBox.TabIndex = 38;
             // 
             // label20
@@ -739,9 +809,9 @@
             this.label20.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(585, 68);
+            this.label20.Location = new System.Drawing.Point(669, 91);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(64, 25);
+            this.label20.Size = new System.Drawing.Size(81, 32);
             this.label20.TabIndex = 37;
             this.label20.Text = "Amt >";
             // 
@@ -750,9 +820,9 @@
             this.label19.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(584, 68);
+            this.label19.Location = new System.Drawing.Point(667, 91);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(0, 25);
+            this.label19.Size = new System.Drawing.Size(0, 32);
             this.label19.TabIndex = 35;
             // 
             // BranchPick
@@ -770,9 +840,10 @@
             "008 (AB)",
             "009 (AB)",
             "010 (ON)"});
-            this.BranchPick.Location = new System.Drawing.Point(358, 68);
+            this.BranchPick.Location = new System.Drawing.Point(409, 91);
+            this.BranchPick.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.BranchPick.Name = "BranchPick";
-            this.BranchPick.Size = new System.Drawing.Size(121, 23);
+            this.BranchPick.Size = new System.Drawing.Size(138, 28);
             this.BranchPick.TabIndex = 34;
             // 
             // label18
@@ -780,9 +851,9 @@
             this.label18.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(277, 66);
+            this.label18.Location = new System.Drawing.Point(317, 88);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(75, 25);
+            this.label18.Size = new System.Drawing.Size(92, 32);
             this.label18.TabIndex = 32;
             this.label18.Text = "Branch:";
             // 
@@ -790,9 +861,10 @@
             // 
             this.CustomRepButt.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.CustomRepButt.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CustomRepButt.Location = new System.Drawing.Point(604, 501);
+            this.CustomRepButt.Location = new System.Drawing.Point(690, 668);
+            this.CustomRepButt.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustomRepButt.Name = "CustomRepButt";
-            this.CustomRepButt.Size = new System.Drawing.Size(179, 40);
+            this.CustomRepButt.Size = new System.Drawing.Size(205, 53);
             this.CustomRepButt.TabIndex = 31;
             this.CustomRepButt.Text = "Run Report";
             this.CustomRepButt.UseMnemonic = false;
@@ -813,65 +885,85 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
-            this.CustomRepTable.Location = new System.Drawing.Point(256, 121);
+            this.CustomRepTable.Location = new System.Drawing.Point(293, 161);
+            this.CustomRepTable.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustomRepTable.Name = "CustomRepTable";
+            this.CustomRepTable.RowHeadersWidth = 51;
             this.CustomRepTable.RowTemplate.Height = 25;
-            this.CustomRepTable.Size = new System.Drawing.Size(944, 332);
+            this.CustomRepTable.Size = new System.Drawing.Size(1079, 443);
             this.CustomRepTable.TabIndex = 30;
             // 
             // dataGridViewTextBoxColumn1
             // 
             this.dataGridViewTextBoxColumn1.HeaderText = "BID";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.Width = 125;
             // 
             // dataGridViewTextBoxColumn2
             // 
             this.dataGridViewTextBoxColumn2.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.Width = 125;
             // 
             // dataGridViewTextBoxColumn3
             // 
             this.dataGridViewTextBoxColumn3.HeaderText = "Email";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.Width = 125;
             // 
             // dataGridViewTextBoxColumn4
             // 
             this.dataGridViewTextBoxColumn4.HeaderText = "PhoneNum";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.Width = 125;
             // 
             // dataGridViewTextBoxColumn5
             // 
             this.dataGridViewTextBoxColumn5.HeaderText = "BranchCity";
+            this.dataGridViewTextBoxColumn5.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
+            this.dataGridViewTextBoxColumn5.Width = 125;
             // 
             // dataGridViewTextBoxColumn6
             // 
             this.dataGridViewTextBoxColumn6.HeaderText = "Prov/State";
+            this.dataGridViewTextBoxColumn6.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.Width = 125;
             // 
             // dataGridViewTextBoxColumn7
             // 
             this.dataGridViewTextBoxColumn7.HeaderText = "Street1";
+            this.dataGridViewTextBoxColumn7.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
+            this.dataGridViewTextBoxColumn7.Width = 125;
             // 
             // dataGridViewTextBoxColumn8
             // 
             this.dataGridViewTextBoxColumn8.HeaderText = "Street2";
+            this.dataGridViewTextBoxColumn8.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.Width = 125;
             // 
             // dataGridViewTextBoxColumn9
             // 
             this.dataGridViewTextBoxColumn9.HeaderText = "Postal Code";
+            this.dataGridViewTextBoxColumn9.MinimumWidth = 6;
             this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.Width = 125;
             // 
             // label15
             // 
             this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(584, 18);
+            this.label15.Location = new System.Drawing.Point(667, 24);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(59, 25);
+            this.label15.Size = new System.Drawing.Size(74, 32);
             this.label15.TabIndex = 29;
             this.label15.Text = "From:";
             // 
@@ -880,9 +972,9 @@
             this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(880, 18);
+            this.label16.Location = new System.Drawing.Point(1006, 24);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(35, 25);
+            this.label16.Size = new System.Drawing.Size(44, 32);
             this.label16.TabIndex = 28;
             this.label16.Text = "To:";
             // 
@@ -891,9 +983,9 @@
             this.label17.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(277, 18);
+            this.label17.Location = new System.Drawing.Point(317, 24);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(52, 25);
+            this.label17.Size = new System.Drawing.Size(65, 32);
             this.label17.TabIndex = 27;
             this.label17.Text = "Find:";
             // 
@@ -901,17 +993,19 @@
             // 
             this.CustomDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CustomDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CustomDateFrom.Location = new System.Drawing.Point(671, 20);
+            this.CustomDateFrom.Location = new System.Drawing.Point(767, 27);
+            this.CustomDateFrom.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustomDateFrom.Name = "CustomDateFrom";
-            this.CustomDateFrom.Size = new System.Drawing.Size(189, 23);
+            this.CustomDateFrom.Size = new System.Drawing.Size(215, 27);
             this.CustomDateFrom.TabIndex = 26;
             // 
             // CustomDateTo
             // 
             this.CustomDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.CustomDateTo.Location = new System.Drawing.Point(951, 20);
+            this.CustomDateTo.Location = new System.Drawing.Point(1087, 27);
+            this.CustomDateTo.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustomDateTo.Name = "CustomDateTo";
-            this.CustomDateTo.Size = new System.Drawing.Size(189, 23);
+            this.CustomDateTo.Size = new System.Drawing.Size(215, 27);
             this.CustomDateTo.TabIndex = 25;
             // 
             // CustomFilterBox
@@ -948,17 +1042,19 @@
             "",
             "",
             " "});
-            this.CustomFilterBox.Location = new System.Drawing.Point(358, 18);
+            this.CustomFilterBox.Location = new System.Drawing.Point(409, 24);
+            this.CustomFilterBox.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.CustomFilterBox.Name = "CustomFilterBox";
-            this.CustomFilterBox.Size = new System.Drawing.Size(218, 23);
+            this.CustomFilterBox.Size = new System.Drawing.Size(249, 28);
             this.CustomFilterBox.TabIndex = 24;
             // 
             // FilipReports
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1460, 651);
+            this.ClientSize = new System.Drawing.Size(1669, 868);
             this.Controls.Add(this.CustomTab);
+            this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "FilipReports";
             this.Text = "Reports";
             this.CustomTab.ResumeLayout(false);
