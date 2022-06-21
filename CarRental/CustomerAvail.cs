@@ -97,7 +97,6 @@ namespace CarRental
             while (D2.myReader.Read())
             {Branches.Add(D2.myReader["Name"].ToString().Trim());}
             D2.myReader.Close();
-            MessageBox.Show("'" + Branches[0].ToString() + "'");
 
             // Ensures the user enters a valid pick-up location into the combo box
             if (!Branches.Contains(PickUpLoc.Text.Trim()))
@@ -140,7 +139,7 @@ namespace CarRental
                      " where Customer.[CID] = " + "'" + IdBox.Text + "'");
             D2.myReader.Read();
             bool CustMemb = (bool)D2.myReader["MembType"];
-            MessageBox.Show("Membership type: " + CustMemb.ToString());
+            //MessageBox.Show("Membership type: " + CustMemb.ToString());
             D2.myReader.Close();
             
             // If the customer is not a gold member
