@@ -125,10 +125,14 @@
             // 
             // CustomTab
             // 
+            this.CustomTab.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomTab.Controls.Add(this.tabPage1);
             this.CustomTab.Controls.Add(this.tabPage2);
             this.CustomTab.Controls.Add(this.tabPage3);
             this.CustomTab.Controls.Add(this.tabPage4);
+            this.CustomTab.ItemSize = new System.Drawing.Size(64, 20);
             this.CustomTab.Location = new System.Drawing.Point(0, -1);
             this.CustomTab.Name = "CustomTab";
             this.CustomTab.SelectedIndex = 0;
@@ -157,9 +161,10 @@
             // 
             // label5
             // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label5.Location = new System.Drawing.Point(331, 59);
+            this.label5.Location = new System.Drawing.Point(569, 52);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(59, 25);
             this.label5.TabIndex = 9;
@@ -167,9 +172,10 @@
             // 
             // label4
             // 
+            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label4.Location = new System.Drawing.Point(627, 59);
+            this.label4.Location = new System.Drawing.Point(865, 52);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(35, 25);
             this.label4.TabIndex = 8;
@@ -177,8 +183,9 @@
             // 
             // label3
             // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(325, 67);
+            this.label3.Location = new System.Drawing.Point(563, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(0, 15);
             this.label3.TabIndex = 7;
@@ -193,9 +200,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(90, 59);
+            this.label1.Location = new System.Drawing.Point(328, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(52, 25);
             this.label1.TabIndex = 5;
@@ -203,8 +211,9 @@
             // 
             // EmpRepButt
             // 
+            this.EmpRepButt.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.EmpRepButt.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EmpRepButt.Location = new System.Drawing.Point(402, 468);
+            this.EmpRepButt.Location = new System.Drawing.Point(640, 501);
             this.EmpRepButt.Name = "EmpRepButt";
             this.EmpRepButt.Size = new System.Drawing.Size(179, 40);
             this.EmpRepButt.TabIndex = 4;
@@ -215,6 +224,7 @@
             // 
             // EmpRepTable
             // 
+            this.EmpRepTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.EmpRepTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.EmpRepTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.EmpFName,
@@ -226,10 +236,10 @@
             this.BranchProvState,
             this.BranchPost,
             this.EmpAmt});
-            this.EmpRepTable.Location = new System.Drawing.Point(6, 115);
+            this.EmpRepTable.Location = new System.Drawing.Point(256, 121);
             this.EmpRepTable.Name = "EmpRepTable";
             this.EmpRepTable.RowTemplate.Height = 25;
-            this.EmpRepTable.Size = new System.Drawing.Size(944, 332);
+            this.EmpRepTable.Size = new System.Drawing.Size(944, 336);
             this.EmpRepTable.TabIndex = 3;
             // 
             // EmpFName
@@ -279,21 +289,24 @@
             // 
             // EmpDateFrom
             // 
+            this.EmpDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.EmpDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.EmpDateFrom.Location = new System.Drawing.Point(392, 59);
+            this.EmpDateFrom.Location = new System.Drawing.Point(630, 52);
             this.EmpDateFrom.Name = "EmpDateFrom";
             this.EmpDateFrom.Size = new System.Drawing.Size(189, 23);
             this.EmpDateFrom.TabIndex = 2;
             // 
             // EmpDateTo
             // 
-            this.EmpDateTo.Location = new System.Drawing.Point(664, 59);
+            this.EmpDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.EmpDateTo.Location = new System.Drawing.Point(902, 52);
             this.EmpDateTo.Name = "EmpDateTo";
             this.EmpDateTo.Size = new System.Drawing.Size(189, 23);
             this.EmpDateTo.TabIndex = 1;
             // 
             // EmpFilterBox
             // 
+            this.EmpFilterBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.EmpFilterBox.FormattingEnabled = true;
             this.EmpFilterBox.Items.AddRange(new object[] {
             "All Employees",
@@ -305,7 +318,7 @@
             "Sold Only SUV\'s",
             "Sold Only Minivan\'s",
             "Sold Only Luxury\'s"});
-            this.EmpFilterBox.Location = new System.Drawing.Point(144, 59);
+            this.EmpFilterBox.Location = new System.Drawing.Point(382, 52);
             this.EmpFilterBox.Name = "EmpFilterBox";
             this.EmpFilterBox.Size = new System.Drawing.Size(121, 23);
             this.EmpFilterBox.TabIndex = 0;
@@ -332,8 +345,9 @@
             // 
             // CustRepButt
             // 
+            this.CustRepButt.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.CustRepButt.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CustRepButt.Location = new System.Drawing.Point(402, 468);
+            this.CustRepButt.Location = new System.Drawing.Point(640, 501);
             this.CustRepButt.Name = "CustRepButt";
             this.CustRepButt.Size = new System.Drawing.Size(179, 40);
             this.CustRepButt.TabIndex = 18;
@@ -344,6 +358,7 @@
             // 
             // CustRepTable
             // 
+            this.CustRepTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CustRepTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CustRepTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.CustFName,
@@ -355,10 +370,10 @@
             this.CustProvState,
             this.CustPostCode,
             this.CustAmt});
-            this.CustRepTable.Location = new System.Drawing.Point(6, 115);
+            this.CustRepTable.Location = new System.Drawing.Point(256, 121);
             this.CustRepTable.Name = "CustRepTable";
             this.CustRepTable.RowTemplate.Height = 25;
-            this.CustRepTable.Size = new System.Drawing.Size(944, 332);
+            this.CustRepTable.Size = new System.Drawing.Size(944, 336);
             this.CustRepTable.TabIndex = 17;
             // 
             // CustFName
@@ -408,9 +423,10 @@
             // 
             // label7
             // 
+            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label7.Location = new System.Drawing.Point(331, 59);
+            this.label7.Location = new System.Drawing.Point(569, 52);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 25);
             this.label7.TabIndex = 16;
@@ -418,9 +434,10 @@
             // 
             // label8
             // 
+            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label8.Location = new System.Drawing.Point(627, 59);
+            this.label8.Location = new System.Drawing.Point(865, 52);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 25);
             this.label8.TabIndex = 15;
@@ -428,17 +445,19 @@
             // 
             // label9
             // 
+            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(321, 70);
+            this.label9.Location = new System.Drawing.Point(541, 61);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(0, 15);
             this.label9.TabIndex = 14;
             // 
             // label10
             // 
+            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label10.Location = new System.Drawing.Point(90, 59);
+            this.label10.Location = new System.Drawing.Point(328, 52);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(52, 25);
             this.label10.TabIndex = 13;
@@ -446,21 +465,24 @@
             // 
             // CustDateFrom
             // 
+            this.CustDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CustDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CustDateFrom.Location = new System.Drawing.Point(392, 59);
+            this.CustDateFrom.Location = new System.Drawing.Point(630, 52);
             this.CustDateFrom.Name = "CustDateFrom";
             this.CustDateFrom.Size = new System.Drawing.Size(189, 23);
             this.CustDateFrom.TabIndex = 12;
             // 
             // CustDateTo
             // 
-            this.CustDateTo.Location = new System.Drawing.Point(664, 59);
+            this.CustDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CustDateTo.Location = new System.Drawing.Point(902, 52);
             this.CustDateTo.Name = "CustDateTo";
             this.CustDateTo.Size = new System.Drawing.Size(189, 23);
             this.CustDateTo.TabIndex = 11;
             // 
             // CustFilterBox
             // 
+            this.CustFilterBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CustFilterBox.FormattingEnabled = true;
             this.CustFilterBox.Items.AddRange(new object[] {
             "All Customers",
@@ -477,7 +499,7 @@
             "Return In AB",
             "Return In SK",
             "Return In ON"});
-            this.CustFilterBox.Location = new System.Drawing.Point(144, 59);
+            this.CustFilterBox.Location = new System.Drawing.Point(382, 52);
             this.CustFilterBox.Name = "CustFilterBox";
             this.CustFilterBox.Size = new System.Drawing.Size(121, 23);
             this.CustFilterBox.TabIndex = 10;
@@ -512,8 +534,9 @@
             // 
             // BranchRepButt
             // 
+            this.BranchRepButt.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.BranchRepButt.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BranchRepButt.Location = new System.Drawing.Point(402, 468);
+            this.BranchRepButt.Location = new System.Drawing.Point(640, 501);
             this.BranchRepButt.Name = "BranchRepButt";
             this.BranchRepButt.Size = new System.Drawing.Size(179, 40);
             this.BranchRepButt.TabIndex = 25;
@@ -524,6 +547,7 @@
             // 
             // BranchRepTable
             // 
+            this.BranchRepTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.BranchRepTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.BranchRepTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BranchID,
@@ -536,10 +560,10 @@
             this.BranchStreet2,
             this.BranchPostCode,
             this.BranchAmt});
-            this.BranchRepTable.Location = new System.Drawing.Point(8, 115);
+            this.BranchRepTable.Location = new System.Drawing.Point(256, 121);
             this.BranchRepTable.Name = "BranchRepTable";
             this.BranchRepTable.RowTemplate.Height = 25;
-            this.BranchRepTable.Size = new System.Drawing.Size(939, 332);
+            this.BranchRepTable.Size = new System.Drawing.Size(944, 336);
             this.BranchRepTable.TabIndex = 24;
             // 
             // BranchID
@@ -604,9 +628,10 @@
             // 
             // label11
             // 
+            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label11.Location = new System.Drawing.Point(331, 59);
+            this.label11.Location = new System.Drawing.Point(569, 52);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(59, 25);
             this.label11.TabIndex = 23;
@@ -614,9 +639,10 @@
             // 
             // label12
             // 
+            this.label12.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label12.Location = new System.Drawing.Point(627, 59);
+            this.label12.Location = new System.Drawing.Point(865, 52);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(35, 25);
             this.label12.TabIndex = 22;
@@ -632,9 +658,10 @@
             // 
             // label14
             // 
+            this.label14.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label14.Location = new System.Drawing.Point(90, 59);
+            this.label14.Location = new System.Drawing.Point(328, 52);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(52, 25);
             this.label14.TabIndex = 20;
@@ -642,21 +669,24 @@
             // 
             // BranchDateFrom
             // 
+            this.BranchDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BranchDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.BranchDateFrom.Location = new System.Drawing.Point(392, 59);
+            this.BranchDateFrom.Location = new System.Drawing.Point(630, 52);
             this.BranchDateFrom.Name = "BranchDateFrom";
             this.BranchDateFrom.Size = new System.Drawing.Size(189, 23);
             this.BranchDateFrom.TabIndex = 19;
             // 
             // BranchDateTo
             // 
-            this.BranchDateTo.Location = new System.Drawing.Point(664, 59);
+            this.BranchDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.BranchDateTo.Location = new System.Drawing.Point(902, 52);
             this.BranchDateTo.Name = "BranchDateTo";
             this.BranchDateTo.Size = new System.Drawing.Size(189, 23);
             this.BranchDateTo.TabIndex = 18;
             // 
             // BranchFilterBox
             // 
+            this.BranchFilterBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BranchFilterBox.FormattingEnabled = true;
             this.BranchFilterBox.Items.AddRange(new object[] {
             "All Branches",
@@ -668,7 +698,7 @@
             "Most SUV\'s",
             "Most Minivan\'s",
             "Most Luxury\'s"});
-            this.BranchFilterBox.Location = new System.Drawing.Point(144, 59);
+            this.BranchFilterBox.Location = new System.Drawing.Point(382, 52);
             this.BranchFilterBox.Name = "BranchFilterBox";
             this.BranchFilterBox.Size = new System.Drawing.Size(121, 23);
             this.BranchFilterBox.TabIndex = 17;
@@ -698,16 +728,18 @@
             // 
             // AmtTextBox
             // 
-            this.AmtTextBox.Location = new System.Drawing.Point(402, 71);
+            this.AmtTextBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.AmtTextBox.Location = new System.Drawing.Point(671, 73);
             this.AmtTextBox.Name = "AmtTextBox";
             this.AmtTextBox.Size = new System.Drawing.Size(145, 23);
             this.AmtTextBox.TabIndex = 38;
             // 
             // label20
             // 
+            this.label20.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label20.Location = new System.Drawing.Point(316, 66);
+            this.label20.Location = new System.Drawing.Point(585, 68);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 25);
             this.label20.TabIndex = 37;
@@ -715,15 +747,17 @@
             // 
             // label19
             // 
+            this.label19.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label19.Location = new System.Drawing.Point(315, 66);
+            this.label19.Location = new System.Drawing.Point(584, 68);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(0, 25);
             this.label19.TabIndex = 35;
             // 
             // BranchPick
             // 
+            this.BranchPick.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.BranchPick.FormattingEnabled = true;
             this.BranchPick.Items.AddRange(new object[] {
             "001 (AB)",
@@ -736,16 +770,17 @@
             "008 (AB)",
             "009 (AB)",
             "010 (ON)"});
-            this.BranchPick.Location = new System.Drawing.Point(89, 66);
+            this.BranchPick.Location = new System.Drawing.Point(358, 68);
             this.BranchPick.Name = "BranchPick";
             this.BranchPick.Size = new System.Drawing.Size(121, 23);
             this.BranchPick.TabIndex = 34;
             // 
             // label18
             // 
+            this.label18.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label18.Location = new System.Drawing.Point(8, 64);
+            this.label18.Location = new System.Drawing.Point(277, 66);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(75, 25);
             this.label18.TabIndex = 32;
@@ -753,8 +788,9 @@
             // 
             // CustomRepButt
             // 
+            this.CustomRepButt.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.CustomRepButt.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CustomRepButt.Location = new System.Drawing.Point(402, 468);
+            this.CustomRepButt.Location = new System.Drawing.Point(604, 501);
             this.CustomRepButt.Name = "CustomRepButt";
             this.CustomRepButt.Size = new System.Drawing.Size(179, 40);
             this.CustomRepButt.TabIndex = 31;
@@ -765,6 +801,7 @@
             // 
             // CustomRepTable
             // 
+            this.CustomRepTable.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.CustomRepTable.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.CustomRepTable.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn1,
@@ -776,7 +813,7 @@
             this.dataGridViewTextBoxColumn7,
             this.dataGridViewTextBoxColumn8,
             this.dataGridViewTextBoxColumn9});
-            this.CustomRepTable.Location = new System.Drawing.Point(6, 115);
+            this.CustomRepTable.Location = new System.Drawing.Point(256, 121);
             this.CustomRepTable.Name = "CustomRepTable";
             this.CustomRepTable.RowTemplate.Height = 25;
             this.CustomRepTable.Size = new System.Drawing.Size(944, 332);
@@ -829,9 +866,10 @@
             // 
             // label15
             // 
+            this.label15.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(315, 16);
+            this.label15.Location = new System.Drawing.Point(584, 18);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 25);
             this.label15.TabIndex = 29;
@@ -839,9 +877,10 @@
             // 
             // label16
             // 
+            this.label16.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(611, 16);
+            this.label16.Location = new System.Drawing.Point(880, 18);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 25);
             this.label16.TabIndex = 28;
@@ -849,9 +888,10 @@
             // 
             // label17
             // 
+            this.label17.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(8, 16);
+            this.label17.Location = new System.Drawing.Point(277, 18);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(52, 25);
             this.label17.TabIndex = 27;
@@ -859,21 +899,24 @@
             // 
             // CustomDateFrom
             // 
+            this.CustomDateFrom.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CustomDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.CustomDateFrom.Location = new System.Drawing.Point(402, 18);
+            this.CustomDateFrom.Location = new System.Drawing.Point(671, 20);
             this.CustomDateFrom.Name = "CustomDateFrom";
             this.CustomDateFrom.Size = new System.Drawing.Size(189, 23);
             this.CustomDateFrom.TabIndex = 26;
             // 
             // CustomDateTo
             // 
-            this.CustomDateTo.Location = new System.Drawing.Point(682, 18);
+            this.CustomDateTo.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.CustomDateTo.Location = new System.Drawing.Point(951, 20);
             this.CustomDateTo.Name = "CustomDateTo";
             this.CustomDateTo.Size = new System.Drawing.Size(189, 23);
             this.CustomDateTo.TabIndex = 25;
             // 
             // CustomFilterBox
             // 
+            this.CustomFilterBox.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.CustomFilterBox.FormattingEnabled = true;
             this.CustomFilterBox.Items.AddRange(new object[] {
             "Branch Revenue",
@@ -905,7 +948,7 @@
             "",
             "",
             " "});
-            this.CustomFilterBox.Location = new System.Drawing.Point(89, 16);
+            this.CustomFilterBox.Location = new System.Drawing.Point(358, 18);
             this.CustomFilterBox.Name = "CustomFilterBox";
             this.CustomFilterBox.Size = new System.Drawing.Size(218, 23);
             this.CustomFilterBox.TabIndex = 24;
