@@ -1,6 +1,6 @@
-﻿namespace CarRental
+﻿namespace CarRental.Forms
 {
-    partial class Reports
+    partial class FilipReports
     {
         /// <summary>
         /// Required designer variable.
@@ -46,8 +46,8 @@
             this.BranchProvState = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BranchPost = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.EmpAmt = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.EmpDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.EmpDateTo = new System.Windows.Forms.DateTimePicker();
             this.EmpFilterBox = new System.Windows.Forms.ComboBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.CustRepButt = new System.Windows.Forms.Button();
@@ -65,9 +65,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.CustDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.CustDateTo = new System.Windows.Forms.DateTimePicker();
+            this.CustFilterBox = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.BranchRepButt = new System.Windows.Forms.Button();
@@ -86,10 +86,15 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.BranchDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.BranchDateTo = new System.Windows.Forms.DateTimePicker();
+            this.BranchFilterBox = new System.Windows.Forms.ComboBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.AmtTextBox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.BranchPick = new System.Windows.Forms.ComboBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.CustomRepButt = new System.Windows.Forms.Button();
             this.CustomRepTable = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -104,9 +109,9 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.dateTimePicker7 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker8 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.CustomDateFrom = new System.Windows.Forms.DateTimePicker();
+            this.CustomDateTo = new System.Windows.Forms.DateTimePicker();
+            this.CustomFilterBox = new System.Windows.Forms.ComboBox();
             this.CustomTab.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.EmpRepTable)).BeginInit();
@@ -127,7 +132,7 @@
             this.CustomTab.Location = new System.Drawing.Point(0, -1);
             this.CustomTab.Name = "CustomTab";
             this.CustomTab.SelectedIndex = 0;
-            this.CustomTab.Size = new System.Drawing.Size(964, 544);
+            this.CustomTab.Size = new System.Drawing.Size(1463, 640);
             this.CustomTab.TabIndex = 0;
             // 
             // tabPage1
@@ -139,13 +144,13 @@
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.EmpRepButt);
             this.tabPage1.Controls.Add(this.EmpRepTable);
-            this.tabPage1.Controls.Add(this.dateTimePicker3);
-            this.tabPage1.Controls.Add(this.dateTimePicker2);
+            this.tabPage1.Controls.Add(this.EmpDateFrom);
+            this.tabPage1.Controls.Add(this.EmpDateTo);
             this.tabPage1.Controls.Add(this.EmpFilterBox);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(956, 516);
+            this.tabPage1.Size = new System.Drawing.Size(1455, 612);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Employee";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -272,28 +277,34 @@
             this.EmpAmt.HeaderText = "Amount";
             this.EmpAmt.Name = "EmpAmt";
             // 
-            // dateTimePicker3
+            // EmpDateFrom
             // 
-            this.dateTimePicker3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker3.Location = new System.Drawing.Point(392, 59);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(189, 23);
-            this.dateTimePicker3.TabIndex = 2;
+            this.EmpDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.EmpDateFrom.Location = new System.Drawing.Point(392, 59);
+            this.EmpDateFrom.Name = "EmpDateFrom";
+            this.EmpDateFrom.Size = new System.Drawing.Size(189, 23);
+            this.EmpDateFrom.TabIndex = 2;
             // 
-            // dateTimePicker2
+            // EmpDateTo
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(664, 59);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(189, 23);
-            this.dateTimePicker2.TabIndex = 1;
+            this.EmpDateTo.Location = new System.Drawing.Point(664, 59);
+            this.EmpDateTo.Name = "EmpDateTo";
+            this.EmpDateTo.Size = new System.Drawing.Size(189, 23);
+            this.EmpDateTo.TabIndex = 1;
             // 
             // EmpFilterBox
             // 
             this.EmpFilterBox.FormattingEnabled = true;
             this.EmpFilterBox.Items.AddRange(new object[] {
+            "All Employees",
             "Most Sold (Units)",
             "Most Sold ($)",
-            "Most Transactions"});
+            "Only Sold to GM",
+            "Only Edm Cust",
+            "Sold Only Sedans",
+            "Sold Only SUV\'s",
+            "Sold Only Minivan\'s",
+            "Sold Only Luxury\'s"});
             this.EmpFilterBox.Location = new System.Drawing.Point(144, 59);
             this.EmpFilterBox.Name = "EmpFilterBox";
             this.EmpFilterBox.Size = new System.Drawing.Size(121, 23);
@@ -307,14 +318,14 @@
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Controls.Add(this.label10);
-            this.tabPage2.Controls.Add(this.dateTimePicker1);
-            this.tabPage2.Controls.Add(this.dateTimePicker4);
-            this.tabPage2.Controls.Add(this.comboBox2);
+            this.tabPage2.Controls.Add(this.CustDateFrom);
+            this.tabPage2.Controls.Add(this.CustDateTo);
+            this.tabPage2.Controls.Add(this.CustFilterBox);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Location = new System.Drawing.Point(4, 24);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(956, 516);
+            this.tabPage2.Size = new System.Drawing.Size(1455, 612);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Customer";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -433,28 +444,43 @@
             this.label10.TabIndex = 13;
             this.label10.Text = "Find:";
             // 
-            // dateTimePicker1
+            // CustDateFrom
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker1.Location = new System.Drawing.Point(392, 59);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(189, 23);
-            this.dateTimePicker1.TabIndex = 12;
+            this.CustDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CustDateFrom.Location = new System.Drawing.Point(392, 59);
+            this.CustDateFrom.Name = "CustDateFrom";
+            this.CustDateFrom.Size = new System.Drawing.Size(189, 23);
+            this.CustDateFrom.TabIndex = 12;
             // 
-            // dateTimePicker4
+            // CustDateTo
             // 
-            this.dateTimePicker4.Location = new System.Drawing.Point(664, 59);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(189, 23);
-            this.dateTimePicker4.TabIndex = 11;
+            this.CustDateTo.Location = new System.Drawing.Point(664, 59);
+            this.CustDateTo.Name = "CustDateTo";
+            this.CustDateTo.Size = new System.Drawing.Size(189, 23);
+            this.CustDateTo.TabIndex = 11;
             // 
-            // comboBox2
+            // CustFilterBox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(144, 59);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 23);
-            this.comboBox2.TabIndex = 10;
+            this.CustFilterBox.FormattingEnabled = true;
+            this.CustFilterBox.Items.AddRange(new object[] {
+            "All Customers",
+            "Most Transactions",
+            "Most Amount ($)",
+            "Upgraded Customers",
+            "Bought Only Sedans",
+            "Bought Only SUV\'s",
+            "Bought Only Minivan\'s",
+            "Bought Only Luxury\'s",
+            "Pickup In AB",
+            "Pickup In SK",
+            "Pickup In ON",
+            "Return In AB",
+            "Return In SK",
+            "Return In ON"});
+            this.CustFilterBox.Location = new System.Drawing.Point(144, 59);
+            this.CustFilterBox.Name = "CustFilterBox";
+            this.CustFilterBox.Size = new System.Drawing.Size(121, 23);
+            this.CustFilterBox.TabIndex = 10;
             // 
             // label6
             // 
@@ -473,13 +499,13 @@
             this.tabPage3.Controls.Add(this.label12);
             this.tabPage3.Controls.Add(this.label13);
             this.tabPage3.Controls.Add(this.label14);
-            this.tabPage3.Controls.Add(this.dateTimePicker5);
-            this.tabPage3.Controls.Add(this.dateTimePicker6);
-            this.tabPage3.Controls.Add(this.comboBox3);
+            this.tabPage3.Controls.Add(this.BranchDateFrom);
+            this.tabPage3.Controls.Add(this.BranchDateTo);
+            this.tabPage3.Controls.Add(this.BranchFilterBox);
             this.tabPage3.Location = new System.Drawing.Point(4, 24);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(956, 516);
+            this.tabPage3.Size = new System.Drawing.Size(1455, 612);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Branch";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -614,46 +640,116 @@
             this.label14.TabIndex = 20;
             this.label14.Text = "Find:";
             // 
-            // dateTimePicker5
+            // BranchDateFrom
             // 
-            this.dateTimePicker5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker5.Location = new System.Drawing.Point(392, 59);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(189, 23);
-            this.dateTimePicker5.TabIndex = 19;
+            this.BranchDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.BranchDateFrom.Location = new System.Drawing.Point(392, 59);
+            this.BranchDateFrom.Name = "BranchDateFrom";
+            this.BranchDateFrom.Size = new System.Drawing.Size(189, 23);
+            this.BranchDateFrom.TabIndex = 19;
             // 
-            // dateTimePicker6
+            // BranchDateTo
             // 
-            this.dateTimePicker6.Location = new System.Drawing.Point(664, 59);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(189, 23);
-            this.dateTimePicker6.TabIndex = 18;
+            this.BranchDateTo.Location = new System.Drawing.Point(664, 59);
+            this.BranchDateTo.Name = "BranchDateTo";
+            this.BranchDateTo.Size = new System.Drawing.Size(189, 23);
+            this.BranchDateTo.TabIndex = 18;
             // 
-            // comboBox3
+            // BranchFilterBox
             // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(144, 59);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 23);
-            this.comboBox3.TabIndex = 17;
+            this.BranchFilterBox.FormattingEnabled = true;
+            this.BranchFilterBox.Items.AddRange(new object[] {
+            "All Branches",
+            "Most Transactions",
+            "Most Amount ($)",
+            "Dealt With GM",
+            "Deal With Non GM",
+            "Most Sedans",
+            "Most SUV\'s",
+            "Most Minivan\'s",
+            "Most Luxury\'s"});
+            this.BranchFilterBox.Location = new System.Drawing.Point(144, 59);
+            this.BranchFilterBox.Name = "BranchFilterBox";
+            this.BranchFilterBox.Size = new System.Drawing.Size(121, 23);
+            this.BranchFilterBox.TabIndex = 17;
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.AmtTextBox);
+            this.tabPage4.Controls.Add(this.label20);
+            this.tabPage4.Controls.Add(this.label19);
+            this.tabPage4.Controls.Add(this.BranchPick);
+            this.tabPage4.Controls.Add(this.label18);
             this.tabPage4.Controls.Add(this.CustomRepButt);
             this.tabPage4.Controls.Add(this.CustomRepTable);
             this.tabPage4.Controls.Add(this.label15);
             this.tabPage4.Controls.Add(this.label16);
             this.tabPage4.Controls.Add(this.label17);
-            this.tabPage4.Controls.Add(this.dateTimePicker7);
-            this.tabPage4.Controls.Add(this.dateTimePicker8);
-            this.tabPage4.Controls.Add(this.comboBox4);
+            this.tabPage4.Controls.Add(this.CustomDateFrom);
+            this.tabPage4.Controls.Add(this.CustomDateTo);
+            this.tabPage4.Controls.Add(this.CustomFilterBox);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(956, 516);
+            this.tabPage4.Size = new System.Drawing.Size(1455, 612);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Custom";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // AmtTextBox
+            // 
+            this.AmtTextBox.Location = new System.Drawing.Point(402, 71);
+            this.AmtTextBox.Name = "AmtTextBox";
+            this.AmtTextBox.Size = new System.Drawing.Size(145, 23);
+            this.AmtTextBox.TabIndex = 38;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label20.Location = new System.Drawing.Point(316, 66);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(64, 25);
+            this.label20.TabIndex = 37;
+            this.label20.Text = "Amt >";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label19.Location = new System.Drawing.Point(315, 66);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(0, 25);
+            this.label19.TabIndex = 35;
+            // 
+            // BranchPick
+            // 
+            this.BranchPick.FormattingEnabled = true;
+            this.BranchPick.Items.AddRange(new object[] {
+            "001 (AB)",
+            "002 (AB)",
+            "003 (AB)",
+            "004 (AB)",
+            "005 (SK)",
+            "006 (AB)",
+            "007 (ON)",
+            "008 (AB)",
+            "009 (AB)",
+            "010 (ON)"});
+            this.BranchPick.Location = new System.Drawing.Point(89, 66);
+            this.BranchPick.Name = "BranchPick";
+            this.BranchPick.Size = new System.Drawing.Size(121, 23);
+            this.BranchPick.TabIndex = 34;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label18.Location = new System.Drawing.Point(8, 64);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(75, 25);
+            this.label18.TabIndex = 32;
+            this.label18.Text = "Branch:";
             // 
             // CustomRepButt
             // 
@@ -735,7 +831,7 @@
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label15.Location = new System.Drawing.Point(331, 59);
+            this.label15.Location = new System.Drawing.Point(315, 16);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(59, 25);
             this.label15.TabIndex = 29;
@@ -745,7 +841,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label16.Location = new System.Drawing.Point(627, 59);
+            this.label16.Location = new System.Drawing.Point(611, 16);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(35, 25);
             this.label16.TabIndex = 28;
@@ -755,42 +851,72 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Segoe UI", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label17.Location = new System.Drawing.Point(90, 59);
+            this.label17.Location = new System.Drawing.Point(8, 16);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(52, 25);
             this.label17.TabIndex = 27;
             this.label17.Text = "Find:";
             // 
-            // dateTimePicker7
+            // CustomDateFrom
             // 
-            this.dateTimePicker7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateTimePicker7.Location = new System.Drawing.Point(392, 59);
-            this.dateTimePicker7.Name = "dateTimePicker7";
-            this.dateTimePicker7.Size = new System.Drawing.Size(189, 23);
-            this.dateTimePicker7.TabIndex = 26;
+            this.CustomDateFrom.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.CustomDateFrom.Location = new System.Drawing.Point(402, 18);
+            this.CustomDateFrom.Name = "CustomDateFrom";
+            this.CustomDateFrom.Size = new System.Drawing.Size(189, 23);
+            this.CustomDateFrom.TabIndex = 26;
             // 
-            // dateTimePicker8
+            // CustomDateTo
             // 
-            this.dateTimePicker8.Location = new System.Drawing.Point(664, 59);
-            this.dateTimePicker8.Name = "dateTimePicker8";
-            this.dateTimePicker8.Size = new System.Drawing.Size(189, 23);
-            this.dateTimePicker8.TabIndex = 25;
+            this.CustomDateTo.Location = new System.Drawing.Point(682, 18);
+            this.CustomDateTo.Name = "CustomDateTo";
+            this.CustomDateTo.Size = new System.Drawing.Size(189, 23);
+            this.CustomDateTo.TabIndex = 25;
             // 
-            // comboBox4
+            // CustomFilterBox
             // 
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(144, 59);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(121, 23);
-            this.comboBox4.TabIndex = 24;
+            this.CustomFilterBox.FormattingEnabled = true;
+            this.CustomFilterBox.Items.AddRange(new object[] {
+            "Branch Revenue",
+            "",
+            "GM Transactions",
+            "GM Purchase (Sedan)",
+            "GM Purchase (SUV)",
+            "GM Purchase (Minivan)",
+            "GM Purchase (Luxury)",
+            "GM Late Fee",
+            "GM Transactions (Edm)",
+            "GM Transactions (Van)",
+            "GM Transactions (Tor)",
+            "GM Transactions (Mia)",
+            "",
+            "Transactions",
+            "Purchase (Sedan)",
+            "Purchase (SUV)",
+            "Purchase (Minivan)",
+            "Purchase (Luxury)",
+            "Late Fee Members",
+            "Branch Fee Members",
+            "Transactions (Edm)",
+            "Transactions (Van)",
+            "Transactions (Tor)",
+            "Transactions (Mia)",
+            "",
+            "",
+            "",
+            "",
+            " "});
+            this.CustomFilterBox.Location = new System.Drawing.Point(89, 16);
+            this.CustomFilterBox.Name = "CustomFilterBox";
+            this.CustomFilterBox.Size = new System.Drawing.Size(218, 23);
+            this.CustomFilterBox.TabIndex = 24;
             // 
-            // Reports
+            // FilipReports
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(961, 543);
+            this.ClientSize = new System.Drawing.Size(1460, 651);
             this.Controls.Add(this.CustomTab);
-            this.Name = "Reports";
+            this.Name = "FilipReports";
             this.Text = "Reports";
             this.CustomTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
@@ -812,38 +938,17 @@
         #endregion
 
         private TabControl CustomTab;
-        private TabPage tabPage1;
         private TabPage tabPage2;
         private TabPage tabPage3;
-        private TabPage tabPage4;
-        private Button EmpRepButt;
-        private DataGridView EmpRepTable;
-        private DateTimePicker dateTimePicker3;
-        private DateTimePicker dateTimePicker2;
-        private ComboBox EmpFilterBox;
-        private Label label5;
-        private Label label4;
-        private Label label3;
-        private Label label2;
-        private Label label1;
-        private DataGridViewTextBoxColumn EmpFName;
-        private DataGridViewTextBoxColumn EmpLName;
-        private DataGridViewTextBoxColumn EmpEmail;
-        private DataGridViewTextBoxColumn EmpPhoneNum;
-        private DataGridViewTextBoxColumn EmpBranch;
-        private DataGridViewTextBoxColumn BranchCity;
-        private DataGridViewTextBoxColumn BranchProvState;
-        private DataGridViewTextBoxColumn BranchPost;
-        private DataGridViewTextBoxColumn EmpAmt;
         private Button CustRepButt;
         private DataGridView CustRepTable;
         private Label label7;
         private Label label8;
         private Label label9;
         private Label label10;
-        private DateTimePicker dateTimePicker1;
-        private DateTimePicker dateTimePicker4;
-        private ComboBox comboBox2;
+        private DateTimePicker CustDateFrom;
+        private DateTimePicker CustDateTo;
+        private ComboBox CustFilterBox;
         private Label label6;
         private DataGridViewTextBoxColumn CustFName;
         private DataGridViewTextBoxColumn CustLName;
@@ -860,9 +965,44 @@
         private Label label12;
         private Label label13;
         private Label label14;
-        private DateTimePicker dateTimePicker5;
-        private DateTimePicker dateTimePicker6;
-        private ComboBox comboBox3;
+        private DateTimePicker BranchDateFrom;
+        private DateTimePicker BranchDateTo;
+        private ComboBox BranchFilterBox;
+        private DataGridViewTextBoxColumn BranchID;
+        private DataGridViewTextBoxColumn BranchName;
+        private DataGridViewTextBoxColumn BranchEmail;
+        private DataGridViewTextBoxColumn BranchPhone;
+        private DataGridViewTextBoxColumn City;
+        private DataGridViewTextBoxColumn BranchLoc;
+        private DataGridViewTextBoxColumn BranchStreet1;
+        private DataGridViewTextBoxColumn BranchStreet2;
+        private DataGridViewTextBoxColumn BranchPostCode;
+        private DataGridViewTextBoxColumn BranchAmt;
+        private TabPage tabPage1;
+        private Label label5;
+        private Label label4;
+        private Label label3;
+        private Label label2;
+        private Label label1;
+        private Button EmpRepButt;
+        private DataGridView EmpRepTable;
+        private DataGridViewTextBoxColumn EmpFName;
+        private DataGridViewTextBoxColumn EmpLName;
+        private DataGridViewTextBoxColumn EmpEmail;
+        private DataGridViewTextBoxColumn EmpPhoneNum;
+        private DataGridViewTextBoxColumn EmpBranch;
+        private DataGridViewTextBoxColumn BranchCity;
+        private DataGridViewTextBoxColumn BranchProvState;
+        private DataGridViewTextBoxColumn BranchPost;
+        private DataGridViewTextBoxColumn EmpAmt;
+        private DateTimePicker EmpDateFrom;
+        private DateTimePicker EmpDateTo;
+        private ComboBox EmpFilterBox;
+        private TabPage tabPage4;
+        private Label label20;
+        private Label label19;
+        private ComboBox BranchPick;
+        private Label label18;
         private Button CustomRepButt;
         private DataGridView CustomRepTable;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
@@ -877,18 +1017,9 @@
         private Label label15;
         private Label label16;
         private Label label17;
-        private DateTimePicker dateTimePicker7;
-        private DateTimePicker dateTimePicker8;
-        private ComboBox comboBox4;
-        private DataGridViewTextBoxColumn BranchID;
-        private DataGridViewTextBoxColumn BranchName;
-        private DataGridViewTextBoxColumn BranchEmail;
-        private DataGridViewTextBoxColumn BranchPhone;
-        private DataGridViewTextBoxColumn City;
-        private DataGridViewTextBoxColumn BranchLoc;
-        private DataGridViewTextBoxColumn BranchStreet1;
-        private DataGridViewTextBoxColumn BranchStreet2;
-        private DataGridViewTextBoxColumn BranchPostCode;
-        private DataGridViewTextBoxColumn BranchAmt;
+        private DateTimePicker CustomDateFrom;
+        private DateTimePicker CustomDateTo;
+        private ComboBox CustomFilterBox;
+        private TextBox AmtTextBox;
     }
 }
